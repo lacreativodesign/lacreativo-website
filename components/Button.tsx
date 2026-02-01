@@ -2,12 +2,14 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const variants = {
-  primary: "bg-accent text-accent-foreground",
-  secondary: "border border-border bg-card text-foreground hover:bg-muted",
-  ghost: "text-foreground hover:bg-muted",
+  primary:
+    "gradient-primary text-accent-foreground shadow-md hover:shadow-xl",
+  secondary:
+    "border border-border bg-card text-foreground hover:bg-muted/80",
+  ghost: "text-foreground hover:bg-muted/70",
 };
 
 const sizes = {

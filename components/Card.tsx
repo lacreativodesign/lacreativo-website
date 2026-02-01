@@ -9,6 +9,7 @@ type CardProps = {
   title: string;
   description: string;
   icon?: ReactNode;
+  media?: ReactNode;
   cta?: ReactNode;
   variant?: keyof typeof variants;
 };
@@ -17,13 +18,19 @@ export default function Card({
   title,
   description,
   icon,
+  media,
   cta,
   variant = "default",
 }: CardProps) {
   return (
     <div
-      className={`${variants[variant]} flex h-full flex-col gap-4 rounded-3xl p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg`}
+      className={`${variants[variant]} hover-lift flex h-full flex-col gap-4 rounded-3xl p-6 shadow-sm`}
     >
+      {media && (
+        <div className="overflow-hidden rounded-2xl border border-border/60 bg-muted/60">
+          {media}
+        </div>
+      )}
       {icon && (
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-xl">
           {icon}

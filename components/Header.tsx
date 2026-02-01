@@ -40,6 +40,9 @@ export default function Header() {
           <span className="text-lg font-semibold tracking-[0.2em]">
             LA CREATIVO
           </span>
+          <span className="hidden rounded-full border border-border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground sm:inline-flex">
+            Small Biz Studio
+          </span>
         </div>
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
           {navItems.map((item) => (
