@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const bodyFont = Inter({
+const bodyFont = Manrope({
   subsets: ["latin"],
   variable: "--font-body",
 });
 
-const displayFont = Space_Grotesk({
+const displayFont = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-display",
+  weight: ["600", "700"],
 });
 
 export const metadata: Metadata = {

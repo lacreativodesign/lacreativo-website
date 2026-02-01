@@ -26,11 +26,11 @@ export default function TestimonialSlider({
         <span>Real words from real owners</span>
         <span className="hidden sm:block">Swipe to explore →</span>
       </div>
-      <div className="flex gap-6 overflow-x-auto pb-4">
+      <div className="flex gap-6 overflow-x-auto pb-6 pr-4 snap-x snap-mandatory">
         {items.map((item) => (
           <article
             key={item.name}
-            className="min-w-[260px] flex-1 rounded-3xl border border-border bg-card p-6 shadow-sm"
+            className="hover-lift min-w-[240px] flex-1 snap-start rounded-3xl border border-border bg-card p-6 shadow-sm lg:min-w-[220px] xl:min-w-[200px]"
           >
             <div className="flex items-center gap-1 text-accent">
               {stars(item.rating ?? 5)}

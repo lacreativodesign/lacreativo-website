@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import type { CSSProperties } from "react";
 
 const whatWeDo = [
   {
@@ -9,24 +10,28 @@ const whatWeDo = [
     description:
       "Visual identities that feel premium, personal, and ready for growth across every touchpoint.",
     icon: "✺",
+    visual: "Logo kit preview",
   },
   {
     title: "Web Design & Build",
     description:
       "Conversion-ready sites built for clarity, speed, and the confidence to click now.",
     icon: "⌂",
+    visual: "Homepage wireframe",
   },
   {
     title: "Content & Social",
     description:
       "Story-driven content systems that keep your brand consistent and active without the overwhelm.",
     icon: "✎",
+    visual: "Social grid sample",
   },
   {
     title: "Launch Strategy",
     description:
       "Straightforward roadmaps so you know exactly what happens before, during, and after launch.",
     icon: "➤",
+    visual: "Launch checklist",
   },
 ];
 
@@ -34,31 +39,43 @@ const services = [
   {
     title: "Website Design & Development",
     description: "Full site experiences for new brands and rebrands.",
+    icon: "🖥️",
+    visual: "Website preview",
     href: "/services/website-design-development",
   },
   {
     title: "Brand Refresh Kits",
     description: "Logo, palette, messaging, and launch assets.",
+    icon: "🎨",
+    visual: "Brand board",
     href: "/services/brand-refresh",
   },
   {
     title: "Social Media Systems",
     description: "Templates, content planning, and visual direction.",
+    icon: "📣",
+    visual: "Content planner",
     href: "/services/social-media",
   },
   {
     title: "Ecommerce Setup",
     description: "From storefront to checkout, ready to sell.",
+    icon: "🛍️",
+    visual: "Storefront mockup",
     href: "/services/ecommerce",
   },
   {
     title: "Creative Retainers",
     description: "Ongoing design support without full-time costs.",
+    icon: "🧩",
+    visual: "Creative queue",
     href: "/services/retainers",
   },
   {
     title: "Launch Campaigns",
     description: "Short-burst creative for major moments.",
+    icon: "🚀",
+    visual: "Campaign toolkit",
     href: "/services/launch-campaigns",
   },
 ];
@@ -86,7 +103,14 @@ const steps = [
   },
 ];
 
-const portfolio = ["Retail Studio", "Wellness Collective", "Cafe Studio"];
+const portfolio = [
+  "Retail Studio",
+  "Wellness Collective",
+  "Cafe Studio",
+  "Fitness Boutique",
+  "Creative Office",
+  "Local Events",
+];
 
 const testimonials = [
   {
@@ -124,20 +148,26 @@ const testimonials = [
 export default function Home() {
   return (
     <div>
-      <Section tone="dark" padding="lg">
+      <Section
+        tone="dark"
+        padding="lg"
+        background={
+          <div className="absolute inset-0 gradient-hero opacity-90" />
+        }
+      >
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="flex flex-col gap-6">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-dark-foreground/70">
+            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-dark-foreground/70">
               Creative & Digital Studio
             </span>
-            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-              Premium design and web experiences built for growing small
-              businesses.
+            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+              A bold, trustworthy brand presence designed to convert small
+              business customers.
             </h1>
             <p className="text-base leading-relaxed text-dark-foreground/70 sm:text-lg">
-              We help founders, local brands, and startups launch with confidence
-              — clear messaging, bold visuals, and a process that feels honest
-              from day one.
+              LA CREATIVO blends premium design with clear messaging, giving you
+              a website and brand system that feel established from the very
+              first click.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button href="/get-started" size="lg">
@@ -147,6 +177,21 @@ export default function Home() {
                 Explore Services
               </Button>
             </div>
+            <form className="grid gap-3 rounded-2xl border border-white/15 bg-white/10 p-4 text-sm text-dark-foreground/80 sm:grid-cols-[1fr_1fr_auto]">
+              <input
+                type="text"
+                placeholder="Your name"
+                className="h-11 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+              />
+              <input
+                type="email"
+                placeholder="Work email"
+                className="h-11 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+              />
+              <Button type="submit" size="sm">
+                Get the free roadmap
+              </Button>
+            </form>
             <div className="flex flex-wrap gap-4 text-xs text-dark-foreground/70">
               <span>Launch-ready in 3-6 weeks</span>
               <span>Packages from $499</span>
@@ -154,9 +199,77 @@ export default function Home() {
             </div>
           </div>
           <div className="relative flex items-center justify-center">
-            <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-accent/40 via-transparent to-dark" />
-            <div className="relative flex h-[360px] w-full items-center justify-center rounded-[32px] border border-white/10 bg-white/5 text-center text-sm text-dark-foreground/70">
-              Background visual placeholder
+            <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/15 via-transparent to-dark/80" />
+            <div className="relative flex h-[360px] w-full flex-col items-center justify-center gap-4 rounded-[32px] border border-white/10 bg-white/5 text-center text-sm text-dark-foreground/70">
+              <div className="text-xs uppercase tracking-[0.3em]">
+                Hero preview
+              </div>
+              <div className="text-lg font-semibold text-dark-foreground">
+                Website + Brand placeholder
+              </div>
+              <div className="rounded-full border border-white/20 px-4 py-2 text-xs">
+                Visual mockup space
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        tone="muted"
+        eyebrow="Trusted by growing teams"
+        title="A creative partner built for small business momentum"
+        description="We combine agency-level polish with startup-speed timelines, so you can launch confidently without the overhead."
+      >
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              {
+                title: "4.9/5 client satisfaction",
+                description: "Based on 120+ small business reviews.",
+              },
+              {
+                title: "30-day launch support",
+                description: "Post-launch check-ins and priority fixes.",
+              },
+              {
+                title: "98% on-time delivery",
+                description: "Timelines you can actually plan around.",
+              },
+              {
+                title: "No-surprise pricing",
+                description: "Clear scopes, milestones, and deliverables.",
+              },
+            ].map((item, index) => (
+              <div
+                key={item.title}
+                className="reveal rounded-3xl border border-border bg-card p-6 text-sm"
+                style={{ "--delay": `${index * 120}ms` } as CSSProperties}
+              >
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="mt-2 text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm">
+            <h3 className="text-lg font-semibold">Trust indicators</h3>
+            <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
+              <span className="rounded-full border border-border px-3 py-1">
+                Clutch ★★★★★
+              </span>
+              <span className="rounded-full border border-border px-3 py-1">
+                Google ★★★★★
+              </span>
+              <span className="rounded-full border border-border px-3 py-1">
+                300+ small business launches
+              </span>
+              <span className="rounded-full border border-border px-3 py-1">
+                Zero-pressure consults
+              </span>
+            </div>
+            <div className="rounded-2xl border border-border bg-muted/40 p-4 text-xs text-muted-foreground">
+              “They felt like an in-house team, but the process was smooth and
+              affordable.”
             </div>
           </div>
         </div>
@@ -169,18 +282,29 @@ export default function Home() {
         description="From brand foundations to full websites, our studio delivers everything you need to look credible, feel confident, and convert customers."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {whatWeDo.map((item) => (
-            <Card
+          {whatWeDo.map((item, index) => (
+            <div
               key={item.title}
-              title={item.title}
-              description={item.description}
-              icon={item.icon}
-              cta={
-                <Button variant="ghost" size="sm" href="/services">
-                  Learn More →
-                </Button>
-              }
-            />
+              className="reveal"
+              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
+            >
+              <Card
+                title={item.title}
+                description={item.description}
+                icon={item.icon}
+                media={
+                  <div className="flex h-28 items-center justify-center bg-muted/60 text-xs text-muted-foreground">
+                    {item.visual}
+                  </div>
+                }
+                cta={
+                  <Button variant="ghost" size="sm" href="/services">
+                    Learn More →
+                  </Button>
+                }
+                variant="default"
+              />
+            </div>
           ))}
         </div>
       </Section>
@@ -192,7 +316,7 @@ export default function Home() {
         description="We built this studio for business owners who want premium results without agency confusion. Everything is explained in plain language, timelines are realistic, and we stay with you through launch."
       >
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
+          <div className="flex flex-col gap-6 text-sm leading-relaxed text-muted-foreground">
             <p>
               We believe good design should feel accessible. That means honest
               guidance, streamlined options, and visuals that make your brand
@@ -203,27 +327,53 @@ export default function Home() {
               so you always know what’s included, what’s next, and what you’re
               paying for.
             </p>
+            <div className="gradient-surface rounded-3xl border border-border p-5 text-sm text-muted-foreground">
+              <h3 className="text-base font-semibold text-foreground">
+                What makes us different
+              </h3>
+              <p className="mt-2">
+                Hands-on strategy, calm timelines, and visuals that feel
+                premium without the agency fluff.
+              </p>
+            </div>
           </div>
           <div className="grid gap-4">
-            <div className="rounded-3xl border border-border bg-card p-5 text-sm">
-              <h3 className="font-semibold">Straightforward Scope</h3>
-              <p className="mt-2 text-muted-foreground">
-                Clear packages with predictable timelines and deliverables.
-              </p>
-            </div>
-            <div className="rounded-3xl border border-border bg-card p-5 text-sm">
-              <h3 className="font-semibold">Human Collaboration</h3>
-              <p className="mt-2 text-muted-foreground">
-                We communicate like people, not agencies — fast, friendly, and
-                clear.
-              </p>
-            </div>
-            <div className="rounded-3xl border border-border bg-card p-5 text-sm">
-              <h3 className="font-semibold">Affordable Excellence</h3>
-              <p className="mt-2 text-muted-foreground">
-                Premium creative without the premium overhead.
-              </p>
-            </div>
+            {[
+              {
+                title: "Straightforward Scope",
+                description:
+                  "Clear packages with predictable timelines and deliverables.",
+                icon: "✓",
+              },
+              {
+                title: "Human Collaboration",
+                description:
+                  "We communicate like people, not agencies — fast, friendly, and clear.",
+                icon: "✦",
+              },
+              {
+                title: "Affordable Excellence",
+                description:
+                  "Premium creative without the premium overhead.",
+                icon: "◆",
+              },
+            ].map((item, index) => (
+              <div
+                key={item.title}
+                className="reveal rounded-3xl border border-border bg-card p-5 text-sm"
+                style={{ "--delay": `${index * 120}ms` } as CSSProperties}
+              >
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-xs">
+                    {item.icon}
+                  </span>
+                  <h3 className="font-semibold">{item.title}</h3>
+                </div>
+                <p className="mt-3 text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </Section>
@@ -235,18 +385,69 @@ export default function Home() {
         description="Pick a single service or build a full creative stack. Each offering is tailored to small business momentum."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <Card
+          {services.map((service, index) => (
+            <div
               key={service.title}
-              title={service.title}
-              description={service.description}
-              cta={
-                <Button variant="secondary" size="sm" href={service.href}>
-                  View Service
-                </Button>
-              }
-            />
+              className="reveal"
+              style={{ "--delay": `${index * 110}ms` } as CSSProperties}
+            >
+              <Card
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+                media={
+                  <div className="flex h-32 items-center justify-center bg-muted/60 text-xs text-muted-foreground">
+                    {service.visual}
+                  </div>
+                }
+                cta={
+                  <Button variant="secondary" size="sm" href={service.href}>
+                    View Service
+                  </Button>
+                }
+              />
+            </div>
           ))}
+        </div>
+      </Section>
+
+      <Section
+        tone="dark"
+        eyebrow="Ready for clarity?"
+        title="Get a no-pressure launch plan in your inbox"
+        description="Share a few details and we’ll send a tailored roadmap with timeline, budget range, and next steps."
+        background={<div className="absolute inset-0 gradient-hero opacity-80" />}
+      >
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="flex flex-col gap-4 text-sm text-dark-foreground/70">
+            <p>
+              Our team responds within 24 hours with a lightweight plan you can
+              share internally. No sales pressure, just clarity.
+            </p>
+            <div className="flex flex-wrap gap-3 text-xs text-dark-foreground/70">
+              <span>✓ Delivered in 1 business day</span>
+              <span>✓ Recommended package fit</span>
+              <span>✓ Quick wins included</span>
+            </div>
+          </div>
+          <form className="grid gap-3 rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-dark-foreground/70">
+            <input
+              type="text"
+              placeholder="Full name"
+              className="h-11 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+            />
+            <input
+              type="email"
+              placeholder="Email address"
+              className="h-11 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+            />
+            <input
+              type="text"
+              placeholder="Business name"
+              className="h-11 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+            />
+            <Button type="submit">Send my roadmap</Button>
+          </form>
         </div>
       </Section>
 
@@ -258,17 +459,27 @@ export default function Home() {
         description="We keep the workflow clear so you always know what’s happening and what comes next."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-          {steps.map((step) => (
+          {steps.map((step, index) => (
             <div
               key={step.title}
-              className="rounded-3xl border border-white/10 bg-white/5 p-5"
+              className="reveal rounded-3xl border border-white/10 bg-white/5 p-5"
+              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
             >
-              <h3 className="text-sm font-semibold text-dark-foreground">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-dark-foreground/60">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-xs">
+                  {index + 1}
+                </span>
+                {step.title.split("·")[1]}
+              </div>
+              <h3 className="mt-3 text-sm font-semibold text-dark-foreground">
                 {step.title}
               </h3>
               <p className="mt-2 text-xs text-dark-foreground/70">
                 {step.description}
               </p>
+              <div className="mt-4 h-16 rounded-2xl border border-white/10 bg-white/5 text-[10px] text-dark-foreground/60 flex items-center justify-center">
+                Process visual
+              </div>
             </div>
           ))}
         </div>
@@ -280,13 +491,14 @@ export default function Home() {
         title="Preview the looks we love to build"
         description="Curated examples of the visual direction we can craft for your brand."
       >
-        <div className="grid gap-6 md:grid-cols-3">
-          {portfolio.map((item) => (
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {portfolio.map((item, index) => (
             <div
               key={item}
-              className="group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6"
+              className="reveal group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6"
+              style={{ "--delay": `${index * 100}ms` } as CSSProperties}
             >
-              <div className="flex h-40 items-center justify-center rounded-2xl bg-muted text-xs text-muted-foreground transition group-hover:bg-accent/20">
+              <div className="flex h-44 items-center justify-center rounded-2xl bg-muted text-xs text-muted-foreground transition group-hover:bg-accent/20">
                 Image placeholder
               </div>
               <div className="flex items-center justify-between text-sm">
@@ -316,6 +528,15 @@ export default function Home() {
               We also offer flexible payment plans, so you can launch now and
               spread out the investment.
             </p>
+            <div className="gradient-surface rounded-3xl border border-border p-5 text-sm">
+              <h3 className="text-base font-semibold text-foreground">
+                Pricing reassurance
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Transparent scopes, fair milestones, and optional add-ons you
+                can say yes or no to.
+              </p>
+            </div>
           </div>
           <div className="flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">What’s always included</h3>

@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import PricingCard from "@/components/PricingCard";
 import Section from "@/components/Section";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import type { CSSProperties } from "react";
 
 const packages = [
   {
@@ -113,7 +114,11 @@ const faqs = [
 export default function WebsiteDesignDevelopmentPage() {
   return (
     <div>
-      <Section tone="dark" padding="lg">
+      <Section
+        tone="dark"
+        padding="lg"
+        background={<div className="absolute inset-0 gradient-hero opacity-90" />}
+      >
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="flex flex-col gap-6">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-dark-foreground/70">
@@ -141,16 +146,19 @@ export default function WebsiteDesignDevelopmentPage() {
               <span>Launch-ready in weeks</span>
             </div>
           </div>
-          <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
+          <div className="flex flex-col gap-4 rounded-[32px] border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
             <h3 className="text-lg font-semibold text-dark-foreground">
               Service Highlights
             </h3>
-            <ul className="mt-4 flex flex-col gap-3">
+            <ul className="mt-2 flex flex-col gap-3">
               <li>✓ Custom design tailored to your audience</li>
               <li>✓ Mobile-first structure and performance</li>
               <li>✓ Conversion-focused storytelling</li>
               <li>✓ Launch support and handoff</li>
             </ul>
+            <div className="mt-2 flex h-40 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-xs text-dark-foreground/60">
+              Website preview placeholder
+            </div>
           </div>
         </div>
       </Section>
@@ -186,37 +194,89 @@ export default function WebsiteDesignDevelopmentPage() {
 
       <Section
         tone="muted"
+        eyebrow="Project inquiry"
+        title="Tell us a little about your website goals"
+        description="Share the basics and we’ll recommend the right package, timeline, and next steps."
+      >
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="flex flex-col gap-4 text-sm text-muted-foreground">
+            <p>
+              We respond within one business day with a tailored roadmap. No
+              pressure, just clear next steps.
+            </p>
+            <div className="rounded-3xl border border-border bg-card p-5 text-sm">
+              <h3 className="text-lg font-semibold">What we’ll send back</h3>
+              <ul className="mt-3 flex flex-col gap-2 text-muted-foreground">
+                <li>✓ Recommended package fit</li>
+                <li>✓ Timeline estimate</li>
+                <li>✓ Budget range</li>
+                <li>✓ Prep checklist</li>
+              </ul>
+            </div>
+          </div>
+          <form className="grid gap-3 rounded-3xl border border-border bg-card p-6 text-sm">
+            <input
+              type="text"
+              placeholder="Full name"
+              className="h-11 rounded-full border border-border bg-muted/40 px-4 text-sm"
+            />
+            <input
+              type="email"
+              placeholder="Email address"
+              className="h-11 rounded-full border border-border bg-muted/40 px-4 text-sm"
+            />
+            <input
+              type="text"
+              placeholder="Business name"
+              className="h-11 rounded-full border border-border bg-muted/40 px-4 text-sm"
+            />
+            <textarea
+              placeholder="What do you need your site to do?"
+              className="min-h-[120px] rounded-3xl border border-border bg-muted/40 px-4 py-3 text-sm"
+            />
+            <Button type="submit">Request a plan</Button>
+          </form>
+        </div>
+      </Section>
+
+      <Section
+        tone="muted"
         eyebrow="Who it’s for"
         title="A fit for businesses that want to look established, fast"
         description="We built this service for owners who want a premium presence but need everything explained in real-world terms."
       >
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-3xl border border-border bg-card p-6 text-sm">
-            <h3 className="text-lg font-semibold">Founders & startups</h3>
-            <p className="mt-2 text-muted-foreground">
-              Launch a site that makes investors, partners, and customers take
-              you seriously.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-border bg-card p-6 text-sm">
-            <h3 className="text-lg font-semibold">Local businesses</h3>
-            <p className="mt-2 text-muted-foreground">
-              Show the quality of your service with a site that feels polished
-              and welcoming.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-border bg-card p-6 text-sm">
-            <h3 className="text-lg font-semibold">Growing teams</h3>
-            <p className="mt-2 text-muted-foreground">
-              Upgrade your presence to match your momentum and new offerings.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-border bg-card p-6 text-sm">
-            <h3 className="text-lg font-semibold">Product launches</h3>
-            <p className="mt-2 text-muted-foreground">
-              Put a polished face on your next release and generate early trust.
-            </p>
-          </div>
+          {[
+            {
+              title: "Founders & startups",
+              description:
+                "Launch a site that makes investors, partners, and customers take you seriously.",
+            },
+            {
+              title: "Local businesses",
+              description:
+                "Show the quality of your service with a site that feels polished and welcoming.",
+            },
+            {
+              title: "Growing teams",
+              description:
+                "Upgrade your presence to match your momentum and new offerings.",
+            },
+            {
+              title: "Product launches",
+              description:
+                "Put a polished face on your next release and generate early trust.",
+            },
+          ].map((item, index) => (
+            <div
+              key={item.title}
+              className="reveal rounded-3xl border border-border bg-card p-6 text-sm"
+              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
+            >
+              <h3 className="text-lg font-semibold">{item.title}</h3>
+              <p className="mt-2 text-muted-foreground">{item.description}</p>
+            </div>
+          ))}
         </div>
       </Section>
 
@@ -251,10 +311,11 @@ export default function WebsiteDesignDevelopmentPage() {
         description="No stock templates — just curated direction to inspire your build."
       >
         <div className="grid gap-6 md:grid-cols-3">
-          {["Wellness", "Hospitality", "Creative"].map((item) => (
+          {["Wellness", "Hospitality", "Creative"].map((item, index) => (
             <div
               key={item}
-              className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70"
+              className="reveal flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70"
+              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
             >
               <div className="flex h-40 items-center justify-center rounded-2xl bg-white/10 text-xs">
                 Portfolio placeholder
@@ -274,13 +335,18 @@ export default function WebsiteDesignDevelopmentPage() {
         description="Choose a package that fits your goals today and scales for tomorrow."
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {packages.map((item) => (
-            <PricingCard
+          {packages.map((item, index) => (
+            <div
               key={item.name}
-              name={item.name}
-              description={item.description}
-              features={item.features}
-            />
+              className="reveal"
+              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
+            >
+              <PricingCard
+                name={item.name}
+                description={item.description}
+                features={item.features}
+              />
+            </div>
           ))}
         </div>
       </Section>

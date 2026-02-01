@@ -26,8 +26,8 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-16">
-        <div className="flex flex-col gap-6 rounded-3xl bg-dark p-8 text-dark-foreground">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="gradient-hero flex flex-col gap-6 rounded-3xl border border-white/10 p-8 text-dark-foreground shadow-lg">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <h3 className="text-2xl font-semibold">
                 Ready for a brand that feels like you?
@@ -40,6 +40,21 @@ export default function Footer() {
               Book a Free Intro
             </Button>
           </div>
+          <form className="grid gap-3 rounded-2xl border border-white/15 bg-white/10 p-4 text-xs sm:grid-cols-[1fr_1fr_auto]">
+            <input
+              type="text"
+              placeholder="Your name"
+              className="h-10 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+            />
+            <input
+              type="email"
+              placeholder="Email address"
+              className="h-10 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+            />
+            <Button type="submit" size="sm">
+              Get the roadmap
+            </Button>
+          </form>
           <div className="flex flex-wrap gap-4 text-xs text-dark-foreground/70">
             <span>Trusted by 300+ US small businesses</span>
             <span>Clutch ★★★★★</span>

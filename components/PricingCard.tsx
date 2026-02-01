@@ -12,7 +12,7 @@ export default function PricingCard({
   features,
 }: PricingCardProps) {
   return (
-    <div className="flex h-full flex-col gap-5 rounded-3xl border border-border bg-card p-6 shadow-sm">
+    <div className="hover-lift flex h-full flex-col gap-5 rounded-3xl border border-border bg-card p-6 shadow-sm">
       <div className="flex flex-col gap-2">
         <h3 className="text-xl font-semibold">{name}</h3>
         <p className="text-sm leading-relaxed text-muted-foreground">
