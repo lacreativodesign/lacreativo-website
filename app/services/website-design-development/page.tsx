@@ -136,11 +136,11 @@ export default function WebsiteDesignDevelopmentPage() {
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-dark-foreground/70">
               Website Design & Development
             </span>
-            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
+            <h1 className="text-reveal text-4xl font-semibold leading-tight sm:text-5xl">
               Build a website that looks premium and makes your business feel
               established.
             </h1>
-            <p className="text-base leading-relaxed text-dark-foreground/70 sm:text-lg">
+            <p className="reveal text-base leading-relaxed text-dark-foreground/70 sm:text-lg">
               We create conversion-ready websites that balance beautiful design
               with clear messaging. Everything is built for small business
               owners who need to launch fast and look credible.
@@ -226,25 +226,30 @@ export default function WebsiteDesignDevelopmentPage() {
               </ul>
             </div>
           </div>
-          <form className="grid gap-3 rounded-3xl border border-border bg-card p-6 text-sm">
+          <form className="form-surface grid gap-3 rounded-3xl p-6 text-sm">
             <input
               type="text"
               placeholder="Full name"
-              className="h-11 rounded-full border border-border bg-muted/40 px-4 text-sm"
+              className="input-field"
             />
             <input
               type="email"
               placeholder="Email address"
-              className="h-11 rounded-full border border-border bg-muted/40 px-4 text-sm"
+              className="input-field"
+            />
+            <input
+              type="tel"
+              placeholder="Phone number"
+              className="input-field"
             />
             <input
               type="text"
               placeholder="Business name"
-              className="h-11 rounded-full border border-border bg-muted/40 px-4 text-sm"
+              className="input-field"
             />
             <textarea
               placeholder="What do you need your site to do?"
-              className="min-h-[120px] rounded-3xl border border-border bg-muted/40 px-4 py-3 text-sm"
+              className="input-field textarea-field"
             />
             <Button type="submit">Request a plan</Button>
           </form>

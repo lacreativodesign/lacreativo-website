@@ -29,10 +29,10 @@ export default function Footer() {
         <div className="gradient-hero flex flex-col gap-6 rounded-3xl border border-white/10 p-8 text-dark-foreground shadow-lg">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <h3 className="text-2xl font-semibold">
+              <h3 className="text-reveal text-2xl font-semibold">
                 Ready for a brand that feels like you?
               </h3>
-              <p className="mt-2 text-sm text-dark-foreground/80">
+              <p className="reveal mt-2 text-sm text-dark-foreground/80">
                 Start with a free creative roadmap and launch with confidence.
               </p>
             </div>
@@ -40,18 +40,32 @@ export default function Footer() {
               Book a Free Intro
             </Button>
           </div>
-          <form className="grid gap-3 rounded-2xl border border-white/15 bg-white/10 p-4 text-xs sm:grid-cols-[1fr_1fr_auto]">
+          <form className="form-surface grid gap-3 rounded-2xl p-4 text-xs sm:grid-cols-2 lg:grid-cols-4">
             <input
               type="text"
               placeholder="Your name"
-              className="h-10 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+              className="input-field input-field-dark"
             />
             <input
               type="email"
               placeholder="Email address"
-              className="h-10 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+              className="input-field input-field-dark"
             />
-            <Button type="submit" size="sm">
+            <input
+              type="tel"
+              placeholder="Phone"
+              className="input-field input-field-dark"
+            />
+            <input
+              type="text"
+              placeholder="Business name"
+              className="input-field input-field-dark"
+            />
+            <Button
+              type="submit"
+              size="sm"
+              className="sm:col-span-2 lg:col-span-4"
+            >
               Get the roadmap
             </Button>
           </form>

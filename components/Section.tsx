@@ -52,21 +52,21 @@ export default function Section({
       className={`${tones[tone]} ${paddings[padding]} relative overflow-hidden`}
     >
       {background}
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-10 px-6">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
         {(eyebrow || title || description) && (
-          <header className={`flex flex-col gap-4 ${alignment}`}>
+          <header className={`section-head flex flex-col gap-4 ${alignment} ${align === "center" ? "mx-auto" : ""}`}>
             {eyebrow && (
-              <span className={`text-xs font-semibold uppercase tracking-[0.35em] ${subText}`}>
+              <span className={`reveal text-xs font-semibold uppercase tracking-[0.35em] ${subText}`}>
                 {eyebrow}
               </span>
             )}
             {title && (
-              <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-[2.75rem]">
+              <h2 className="text-reveal text-3xl font-semibold leading-tight sm:text-4xl lg:text-[2.75rem]">
                 {title}
               </h2>
             )}
             {description && (
-              <p className={`text-base leading-relaxed sm:text-lg ${subText}`}>
+              <p className={`reveal text-base leading-relaxed sm:text-lg ${subText}`}>
                 {description}
               </p>
             )}

@@ -163,11 +163,11 @@ export default function Home() {
             <span className="text-xs font-semibold uppercase tracking-[0.35em] text-dark-foreground/70">
               Creative & Digital Studio
             </span>
-            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.6rem]">
+            <h1 className="text-reveal text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.6rem]">
               Build a premium brand presence that feels human, confident, and
               ready to earn trust fast.
             </h1>
-            <p className="text-base leading-relaxed text-dark-foreground/70 sm:text-lg">
+            <p className="reveal text-base leading-relaxed text-dark-foreground/70 sm:text-lg">
               LA CREATIVO blends editorial design, strategic messaging, and
               launch-ready systems so your customers feel clarity and care from
               the first scroll.
@@ -180,18 +180,28 @@ export default function Home() {
                 Explore Services
               </Button>
             </div>
-            <form className="grid gap-3 rounded-2xl border border-white/15 bg-white/10 p-4 text-sm text-dark-foreground/80 sm:grid-cols-[1fr_1fr_auto]">
+            <form className="form-surface grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4">
               <input
                 type="text"
                 placeholder="Your name"
-                className="h-11 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+                className="input-field input-field-dark"
               />
               <input
                 type="email"
                 placeholder="Work email"
-                className="h-11 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+                className="input-field input-field-dark"
               />
-              <Button type="submit" size="sm">
+              <input
+                type="tel"
+                placeholder="Phone"
+                className="input-field input-field-dark"
+              />
+              <input
+                type="text"
+                placeholder="Business name"
+                className="input-field input-field-dark"
+              />
+              <Button type="submit" size="sm" className="sm:col-span-2 lg:col-span-4">
                 Get the free roadmap
               </Button>
             </form>
@@ -493,21 +503,26 @@ export default function Home() {
               <span>✓ Quick wins included</span>
             </div>
           </div>
-          <form className="grid gap-3 rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-dark-foreground/70">
+          <form className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-dark-foreground/70">
             <input
               type="text"
               placeholder="Full name"
-              className="h-11 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+              className="input-field input-field-dark"
             />
             <input
               type="email"
               placeholder="Email address"
-              className="h-11 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+              className="input-field input-field-dark"
+            />
+            <input
+              type="tel"
+              placeholder="Phone number"
+              className="input-field input-field-dark"
             />
             <input
               type="text"
               placeholder="Business name"
-              className="h-11 rounded-full border border-white/20 bg-white/10 px-4 text-sm text-dark-foreground placeholder:text-dark-foreground/60"
+              className="input-field input-field-dark"
             />
             <Button type="submit">Send my roadmap</Button>
           </form>
