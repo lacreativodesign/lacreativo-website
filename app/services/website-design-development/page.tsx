@@ -91,8 +91,15 @@ const testimonials = [
 const faqs = [
   {
     question: "How long does a website build take?",
-    answer:
-      "Most projects launch in 3-6 weeks depending on the package and how quickly we gather feedback.",
+    answer: (
+      <>
+        Most projects launch in{" "}
+        <span className="numeric-editorial font-semibold text-foreground">
+          3–6
+        </span>{" "}
+        weeks depending on the package and how quickly we gather feedback.
+      </>
+    ),
   },
   {
     question: "Do you handle hosting and domains?",
@@ -117,7 +124,12 @@ export default function WebsiteDesignDevelopmentPage() {
       <Section
         tone="dark"
         padding="lg"
-        background={<div className="absolute inset-0 gradient-hero opacity-90" />}
+        background={
+          <>
+            <div className="absolute inset-0 gradient-hero opacity-90" />
+            <div className="absolute inset-0 hero-ambient opacity-80" />
+          </>
+        }
       >
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="flex flex-col gap-6">
