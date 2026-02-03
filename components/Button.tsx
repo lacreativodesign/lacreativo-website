@@ -2,13 +2,13 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 const baseStyles =
-  "button-sheen inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "button-sheen inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(12,10,16,0.2)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const variants = {
   primary:
-    "gradient-primary text-accent-foreground shadow-md hover:shadow-xl",
+    "gradient-primary text-accent-foreground shadow-md hover:shadow-[0_22px_50px_rgba(211,92,69,0.35)]",
   secondary:
-    "border border-border bg-card text-foreground hover:bg-muted/80",
+    "border border-border bg-card text-foreground hover:bg-muted/80 hover:border-accent/40",
   ghost: "text-foreground hover:bg-muted/70",
 };
 

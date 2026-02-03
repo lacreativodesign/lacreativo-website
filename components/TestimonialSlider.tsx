@@ -26,7 +26,7 @@ export default function TestimonialSlider({
         <span>Real words from real owners</span>
         <span className="hidden sm:block">Swipe to explore →</span>
       </div>
-      <div className="flex gap-6 overflow-x-auto pb-6 pr-4 snap-x snap-mandatory">
+      <div className="carousel-track flex gap-6 overflow-x-auto pb-6 pr-4 snap-x snap-mandatory">
         {items.map((item) => (
           <article
             key={item.name}

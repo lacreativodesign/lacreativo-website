@@ -24,10 +24,10 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`${variants[variant]} hover-lift flex h-full flex-col gap-4 rounded-3xl p-6 shadow-sm transition hover:border-accent/40`}
+      className={`${variants[variant]} card-premium hover-lift group flex h-full flex-col gap-4 rounded-3xl p-6 shadow-[0_20px_50px_rgba(15,11,20,0.08)] transition hover:border-accent/40 hover:shadow-[0_28px_60px_rgba(15,11,20,0.16)]`}
     >
       {media && (
-        <div className="overflow-hidden rounded-2xl border border-border/60 bg-muted/60">
+        <div className="overflow-hidden rounded-2xl border border-border/60 bg-muted/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
           {media}
         </div>
       )}
