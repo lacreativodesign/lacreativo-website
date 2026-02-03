@@ -152,22 +152,25 @@ export default function Home() {
         tone="dark"
         padding="lg"
         background={
-          <div className="absolute inset-0 gradient-hero opacity-90" />
+          <>
+            <div className="absolute inset-0 gradient-hero opacity-90" />
+            <div className="absolute inset-0 hero-ambient opacity-80" />
+          </>
         }
       >
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="flex flex-col gap-6">
             <span className="text-xs font-semibold uppercase tracking-[0.35em] text-dark-foreground/70">
               Creative & Digital Studio
             </span>
-            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-              A bold, trustworthy brand presence designed to convert small
-              business customers.
+            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.6rem]">
+              Build a premium brand presence that feels human, confident, and
+              ready to earn trust fast.
             </h1>
             <p className="text-base leading-relaxed text-dark-foreground/70 sm:text-lg">
-              LA CREATIVO blends premium design with clear messaging, giving you
-              a website and brand system that feel established from the very
-              first click.
+              LA CREATIVO blends editorial design, strategic messaging, and
+              launch-ready systems so your customers feel clarity and care from
+              the first scroll.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button href="/get-started" size="lg">
@@ -193,22 +196,33 @@ export default function Home() {
               </Button>
             </form>
             <div className="flex flex-wrap gap-4 text-xs text-dark-foreground/70">
-              <span>Launch-ready in 3-6 weeks</span>
-              <span>Packages from $499</span>
+              <span>
+                Launch-ready in{" "}
+                <span className="numeric-editorial text-sm font-semibold text-dark-foreground">
+                  3–6
+                </span>{" "}
+                weeks
+              </span>
+              <span>
+                Packages from{" "}
+                <span className="numeric-editorial text-sm font-semibold text-dark-foreground">
+                  $499
+                </span>
+              </span>
               <span>US-based creative team</span>
             </div>
           </div>
           <div className="relative flex items-center justify-center">
-            <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/15 via-transparent to-dark/80" />
+            <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/10 via-transparent to-dark/80" />
             <div className="relative flex h-[360px] w-full flex-col items-center justify-center gap-4 rounded-[32px] border border-white/10 bg-white/5 text-center text-sm text-dark-foreground/70">
               <div className="text-xs uppercase tracking-[0.3em]">
-                Hero preview
+                Showcase space
               </div>
               <div className="text-lg font-semibold text-dark-foreground">
-                Website + Brand placeholder
+                Website + Brand preview
               </div>
               <div className="rounded-full border border-white/20 px-4 py-2 text-xs">
-                Visual mockup space
+                Editorial layout spotlight
               </div>
             </div>
           </div>
@@ -225,24 +239,57 @@ export default function Home() {
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               {
-                title: "4.9/5 client satisfaction",
-                description: "Based on 120+ small business reviews.",
+                id: "satisfaction",
+                title: (
+                  <>
+                    <span className="numeric-editorial text-xl font-semibold">
+                      4.9/5
+                    </span>{" "}
+                    client satisfaction
+                  </>
+                ),
+                description: (
+                  <>
+                    Based on{" "}
+                    <span className="numeric-editorial font-semibold">
+                      120+
+                    </span>{" "}
+                    small business reviews.
+                  </>
+                ),
               },
               {
-                title: "30-day launch support",
+                id: "support",
+                title: (
+                  <>
+                    <span className="numeric-editorial text-xl font-semibold">
+                      30
+                    </span>
+                    -day launch support
+                  </>
+                ),
                 description: "Post-launch check-ins and priority fixes.",
               },
               {
-                title: "98% on-time delivery",
+                id: "delivery",
+                title: (
+                  <>
+                    <span className="numeric-editorial text-xl font-semibold">
+                      98%
+                    </span>{" "}
+                    on-time delivery
+                  </>
+                ),
                 description: "Timelines you can actually plan around.",
               },
               {
+                id: "pricing",
                 title: "No-surprise pricing",
                 description: "Clear scopes, milestones, and deliverables.",
               },
             ].map((item, index) => (
               <div
-                key={item.title}
+                key={item.id}
                 className="reveal rounded-3xl border border-border bg-card p-6 text-sm"
                 style={{ "--delay": `${index * 120}ms` } as CSSProperties}
               >
@@ -261,7 +308,8 @@ export default function Home() {
                 Google ★★★★★
               </span>
               <span className="rounded-full border border-border px-3 py-1">
-                300+ small business launches
+                <span className="numeric-editorial font-semibold">300+</span>{" "}
+                small business launches
               </span>
               <span className="rounded-full border border-border px-3 py-1">
                 Zero-pressure consults
@@ -416,16 +464,31 @@ export default function Home() {
         eyebrow="Ready for clarity?"
         title="Get a no-pressure launch plan in your inbox"
         description="Share a few details and we’ll send a tailored roadmap with timeline, budget range, and next steps."
-        background={<div className="absolute inset-0 gradient-hero opacity-80" />}
+        background={
+          <>
+            <div className="absolute inset-0 gradient-hero opacity-80" />
+            <div className="absolute inset-0 hero-ambient opacity-70" />
+          </>
+        }
       >
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="flex flex-col gap-4 text-sm text-dark-foreground/70">
             <p>
-              Our team responds within 24 hours with a lightweight plan you can
-              share internally. No sales pressure, just clarity.
+              Our team responds within{" "}
+              <span className="numeric-editorial font-semibold text-dark-foreground">
+                24
+              </span>{" "}
+              hours with a lightweight plan you can share internally. No sales
+              pressure, just clarity.
             </p>
             <div className="flex flex-wrap gap-3 text-xs text-dark-foreground/70">
-              <span>✓ Delivered in 1 business day</span>
+              <span>
+                ✓ Delivered in{" "}
+                <span className="numeric-editorial font-semibold text-dark-foreground">
+                  1
+                </span>{" "}
+                business day
+              </span>
               <span>✓ Recommended package fit</span>
               <span>✓ Quick wins included</span>
             </div>
@@ -495,7 +558,7 @@ export default function Home() {
           {portfolio.map((item, index) => (
             <div
               key={item}
-              className="reveal group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6"
+              className="reveal hover-lift group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6"
               style={{ "--delay": `${index * 100}ms` } as CSSProperties}
             >
               <div className="flex h-44 items-center justify-center rounded-2xl bg-muted text-xs text-muted-foreground transition group-hover:bg-accent/20">
@@ -520,9 +583,16 @@ export default function Home() {
         <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
             <p>
-              Our most popular projects fall between $499 and $2,499, with clear
-              upgrades available as you grow. You’ll always know what’s
-              included, what’s optional, and why.
+              Our most popular projects fall between{" "}
+              <span className="numeric-editorial font-semibold text-foreground">
+                $499
+              </span>{" "}
+              and{" "}
+              <span className="numeric-editorial font-semibold text-foreground">
+                $2,499
+              </span>
+              , with clear upgrades available as you grow. You’ll always know
+              what’s included, what’s optional, and why.
             </p>
             <p>
               We also offer flexible payment plans, so you can launch now and
@@ -554,6 +624,7 @@ export default function Home() {
         eyebrow="Testimonials"
         title="Small business owners who felt the difference"
         description="Five-star results, delivered with clarity and care."
+        align="center"
       >
         <TestimonialSlider items={testimonials} />
       </Section>

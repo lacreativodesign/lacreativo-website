@@ -56,7 +56,11 @@ export default function Footer() {
             </Button>
           </form>
           <div className="flex flex-wrap gap-4 text-xs text-dark-foreground/70">
-            <span>Trusted by 300+ US small businesses</span>
+            <span>
+              Trusted by{" "}
+              <span className="numeric-editorial font-semibold">300+</span> US
+              small businesses
+            </span>
             <span>Clutch ★★★★★</span>
             <span>Trustpilot ★★★★☆</span>
           </div>

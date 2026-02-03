@@ -24,7 +24,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`${variants[variant]} hover-lift flex h-full flex-col gap-4 rounded-3xl p-6 shadow-sm`}
+      className={`${variants[variant]} hover-lift flex h-full flex-col gap-4 rounded-3xl p-6 shadow-sm transition hover:border-accent/40`}
     >
       {media && (
         <div className="overflow-hidden rounded-2xl border border-border/60 bg-muted/60">

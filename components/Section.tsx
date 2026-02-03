@@ -7,6 +7,13 @@ const tones = {
   accent: "bg-accent text-accent-foreground",
 };
 
+const toneText = {
+  light: "text-muted-foreground",
+  muted: "text-muted-foreground",
+  dark: "text-dark-foreground/70",
+  accent: "text-accent-foreground/80",
+};
+
 const paddings = {
   sm: "py-16",
   md: "py-20",
@@ -37,6 +44,7 @@ export default function Section({
   children,
 }: SectionProps) {
   const alignment = align === "center" ? "text-center" : "text-left";
+  const subText = toneText[tone];
 
   return (
     <section
@@ -48,17 +56,17 @@ export default function Section({
         {(eyebrow || title || description) && (
           <header className={`flex flex-col gap-4 ${alignment}`}>
             {eyebrow && (
-              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+              <span className={`text-xs font-semibold uppercase tracking-[0.35em] ${subText}`}>
                 {eyebrow}
               </span>
             )}
             {title && (
-              <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+              <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-[2.75rem]">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+              <p className={`text-base leading-relaxed sm:text-lg ${subText}`}>
                 {description}
               </p>
             )}
