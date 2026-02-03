@@ -1,22 +1,57 @@
+import Link from "next/link";
 import Button from "@/components/Button";
 
 const footerLinks = [
   {
     title: "Company",
-    items: ["About", "Careers", "Press", "Contact"],
+    items: [
+      { label: "About Us", href: "/about-us" },
+      { label: "How It Works", href: "/how-it-works" },
+      { label: "Portfolio", href: "/portfolio" },
+      { label: "Testimonials", href: "/testimonials" },
+      { label: "Contact", href: "/contact" },
+    ],
   },
   {
     title: "Services",
     items: [
-      "Website Design",
-      "Branding",
-      "Social Media",
-      "Creative Retainers",
+      { label: "Branding & Identity", href: "/services/branding-identity" },
+      {
+        label: "Websites & Development",
+        href: "/services/websites-development",
+      },
+      { label: "E-Commerce", href: "/services/ecommerce" },
+      { label: "Marketing & Growth", href: "/services/marketing-growth" },
+      { label: "SEO & Organic Growth", href: "/services/seo-organic-growth" },
+      { label: "Video & Creative", href: "/services/video-creative" },
     ],
   },
   {
-    title: "Resources",
-    items: ["Guides", "Pricing", "FAQs", "Support"],
+    title: "Industries",
+    items: [
+      { label: "Small & Local Businesses", href: "/industries/small-local" },
+      { label: "Startups & Entrepreneurs", href: "/industries/startups" },
+      { label: "Healthcare & Medical", href: "/industries/healthcare" },
+      { label: "Real Estate", href: "/industries/real-estate" },
+      { label: "Technology & SaaS", href: "/industries/technology" },
+      { label: "View All Industries", href: "/industries" },
+    ],
+  },
+  {
+    title: "Work With Us",
+    items: [
+      { label: "Reseller Program", href: "/reseller-program" },
+      { label: "Affiliate Program", href: "/affiliate-program" },
+      { label: "Careers (Talent / CV Upload)", href: "/careers" },
+    ],
+  },
+  {
+    title: "Legal",
+    items: [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms & Conditions", href: "/terms-conditions" },
+      { label: "Guarantees", href: "/guarantees" },
+    ],
   },
 ];
 
@@ -99,16 +134,19 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
             {footerLinks.map((group) => (
               <div key={group.title} className="flex flex-col gap-3">
                 <h4 className="text-sm font-semibold">{group.title}</h4>
                 <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
                   {group.items.map((item) => (
-                    <li key={item}>
-                      <span className="transition hover:text-foreground">
-                        {item}
-                      </span>
+                    <li key={item.label}>
+                      <Link
+                        href={item.href}
+                        className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      >
+                        {item.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -118,7 +156,26 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <span>© 2024 LA CREATIVO. All rights reserved.</span>
-          <span>Privacy · Terms · Accessibility</span>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/privacy-policy"
+              className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-conditions"
+              className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Terms & Conditions
+            </Link>
+            <Link
+              href="/guarantees"
+              className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Guarantees
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
