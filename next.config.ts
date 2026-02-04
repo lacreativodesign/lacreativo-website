@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  env: {
+    NEXT_PUBLIC_GTM_ID: "GTM-TQLMRF7",
+  },
 };
 
 export default nextConfig;

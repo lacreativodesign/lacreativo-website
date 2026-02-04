@@ -4,6 +4,7 @@ import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GtmPageView from "./_components/GtmPageView";
 
 const bodyFont = Manrope({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${gtmId}');`}
           </Script>
         ) : null}
+        {gtmId ? <GtmPageView /> : null}
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
