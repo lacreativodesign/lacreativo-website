@@ -1,4 +1,6 @@
 import Button from "@/components/Button";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
+import OrderNowButton from "@/components/OrderNowButton";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
 import type { ServiceCategory } from "@/data/services";
@@ -26,9 +28,14 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
         description={category.heroDescription}
       >
         <div className="mt-6 flex flex-wrap gap-4">
-          <Button href="#lead-capture" size="lg">
+          <OrderNowButton
+            href="#lead-capture"
+            size="lg"
+            packageId="general"
+            service={category.name}
+          >
             Order Now
-          </Button>
+          </OrderNowButton>
           <Button href="/services" variant="secondary" size="lg">
             Browse all services
           </Button>
@@ -173,29 +180,11 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
               <span>✓ Friendly, no-pressure guidance</span>
             </div>
           </div>
-          <form
-            action="/thank-you/lead"
-            method="get"
-            className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground"
-          >
-            <input type="text" placeholder="Full name" className="input-field" />
-            <input
-              type="email"
-              placeholder="Email address"
-              className="input-field"
-            />
-            <input
-              type="tel"
-              placeholder="Phone number"
-              className="input-field"
-            />
-            <input
-              type="text"
-              placeholder="Business name"
-              className="input-field"
-            />
-            <Button type="submit">Send my request</Button>
-          </form>
+          <LeadCaptureForm
+            ctaLabel="Send my request"
+            formClassName="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground"
+            inputClassName="input-field"
+          />
         </div>
       </Section>
 

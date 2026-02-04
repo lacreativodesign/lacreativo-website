@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
 import { industries } from "@/data/industries";
@@ -211,35 +212,16 @@ export default function Home() {
                 <span key={item}>{item}</span>
               ))}
             </div>
-            <form
-              action="/thank-you/lead"
-              method="get"
-              className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4"
-            >
-              <input
-                type="text"
-                placeholder="Your name"
-                className="input-field input-field-dark"
-              />
-              <input
-                type="email"
-                placeholder="Work email"
-                className="input-field input-field-dark"
-              />
-              <input
-                type="tel"
-                placeholder="Phone"
-                className="input-field input-field-dark"
-              />
-              <input
-                type="text"
-                placeholder="Business name"
-                className="input-field input-field-dark"
-              />
-              <Button type="submit" size="sm" className="sm:col-span-2 lg:col-span-4">
-                Get my roadmap
-              </Button>
-            </form>
+            <LeadCaptureForm
+              ctaLabel="Get my roadmap"
+              formClassName="form-surface hero-form grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4"
+              inputClassName="input-field input-field-dark"
+              buttonClassName="sm:col-span-2 lg:col-span-4"
+              buttonSize="sm"
+              namePlaceholder="Your name"
+              emailPlaceholder="Work email"
+              phonePlaceholder="Phone"
+            />
             <p className="text-xs text-dark-foreground/60">
               No spam. We only use your details to reply.
             </p>
@@ -578,36 +560,16 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <form
-            action="/thank-you/lead"
-            method="get"
-            className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground"
-          >
-            <input
-              type="text"
-              placeholder="Full name"
-              className="input-field"
-            />
-            <input
-              type="email"
-              placeholder="Email address"
-              className="input-field"
-            />
-            <input
-              type="tel"
-              placeholder="Phone number"
-              className="input-field"
-            />
-            <input
-              type="text"
-              placeholder="Business name"
-              className="input-field"
-            />
-            <Button type="submit">Get my roadmap</Button>
-            <p className="text-xs text-muted-foreground">
-              No spam. One reply within 24 hours.
-            </p>
-          </form>
+          <LeadCaptureForm
+            ctaLabel="Get my roadmap"
+            formClassName="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground"
+            inputClassName="input-field"
+            footer={
+              <p className="text-xs text-muted-foreground">
+                No spam. One reply within 24 hours.
+              </p>
+            }
+          />
         </div>
       </Section>
 

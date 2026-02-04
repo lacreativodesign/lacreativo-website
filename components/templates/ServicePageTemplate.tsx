@@ -1,4 +1,6 @@
 import Button from "@/components/Button";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
+import OrderNowButton from "@/components/OrderNowButton";
 import Section from "@/components/Section";
 
 type LinkItem = {
@@ -93,9 +95,20 @@ export default function ServicePageTemplate({
               {hero.description}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button href={hero.primaryCta.href} size="lg">
-                {hero.primaryCta.label}
-              </Button>
+              {hero.primaryCta.label === "Order Now" ? (
+                <OrderNowButton
+                  href={hero.primaryCta.href}
+                  size="lg"
+                  packageId="general"
+                  service={hero.serviceName}
+                >
+                  {hero.primaryCta.label}
+                </OrderNowButton>
+              ) : (
+                <Button href={hero.primaryCta.href} size="lg">
+                  {hero.primaryCta.label}
+                </Button>
+              )}
               <Button href={hero.secondaryCta.href} variant="secondary" size="lg">
                 {hero.secondaryCta.label}
               </Button>
@@ -225,29 +238,11 @@ export default function ServicePageTemplate({
               ))}
             </div>
           </div>
-          <form
-            action="/thank-you/lead"
-            method="get"
-            className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground"
-          >
-            <input type="text" placeholder="Full name" className="input-field" />
-            <input
-              type="email"
-              placeholder="Email address"
-              className="input-field"
-            />
-            <input
-              type="tel"
-              placeholder="Phone number"
-              className="input-field"
-            />
-            <input
-              type="text"
-              placeholder="Business name"
-              className="input-field"
-            />
-            <Button type="submit">{leadCapture.formCtaLabel}</Button>
-          </form>
+          <LeadCaptureForm
+            ctaLabel={leadCapture.formCtaLabel}
+            formClassName="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground"
+            inputClassName="input-field"
+          />
         </div>
       </Section>
 
@@ -283,9 +278,20 @@ export default function ServicePageTemplate({
           <p className="max-w-xl text-sm text-dark-foreground/70">
             {conversionCta.description}
           </p>
-          <Button href={conversionCta.primaryCta.href} size="lg">
-            {conversionCta.primaryCta.label}
-          </Button>
+          {conversionCta.primaryCta.label === "Order Now" ? (
+            <OrderNowButton
+              href={conversionCta.primaryCta.href}
+              size="lg"
+              packageId="general"
+              service={hero.serviceName}
+            >
+              {conversionCta.primaryCta.label}
+            </OrderNowButton>
+          ) : (
+            <Button href={conversionCta.primaryCta.href} size="lg">
+              {conversionCta.primaryCta.label}
+            </Button>
+          )}
         </div>
       </Section>
 
