@@ -10,31 +10,31 @@ const serviceGroups = [
     items: [
       {
         label: "Logo Design",
-        href: "/services/logo-design",
+        href: "/services/website-design-development",
         description: "Distinctive marks for modern brands.",
         icon: "◎",
       },
       {
         label: "Brand Identity",
-        href: "/services/brand-identity",
+        href: "/services/website-design-development",
         description: "Cohesive visuals across every touchpoint.",
         icon: "◈",
       },
       {
         label: "Business Cards",
-        href: "/services/business-cards",
+        href: "/services/website-design-development",
         description: "Premium stationery that feels elevated.",
         icon: "▣",
       },
       {
         label: "Brochures & Print",
-        href: "/services/brochures-print",
+        href: "/services/website-design-development",
         description: "Print collateral that tells a story.",
         icon: "▧",
       },
       {
         label: "Brand Guidelines",
-        href: "/services/brand-guidelines",
+        href: "/services/website-design-development",
         description: "Rules that keep your brand consistent.",
         icon: "▤",
       },
@@ -51,25 +51,25 @@ const serviceGroups = [
       },
       {
         label: "WordPress Development",
-        href: "/services/wordpress-development",
+        href: "/services/website-design-development",
         description: "Flexible builds with easy publishing.",
         icon: "◉",
       },
       {
         label: "Custom Website Development",
-        href: "/services/custom-website-development",
+        href: "/services/website-design-development",
         description: "Tailored builds for unique needs.",
         icon: "▥",
       },
       {
         label: "UI/UX Design",
-        href: "/services/ui-ux-design",
+        href: "/services/website-design-development",
         description: "Flows that feel effortless and premium.",
         icon: "◐",
       },
       {
         label: "Web Applications",
-        href: "/services/web-applications",
+        href: "/services/website-design-development",
         description: "Product-grade experiences with depth.",
         icon: "⬢",
       },
@@ -80,31 +80,31 @@ const serviceGroups = [
     items: [
       {
         label: "E-Commerce Development",
-        href: "/services/ecommerce-development",
+        href: "/services/website-design-development",
         description: "Launch stores built to scale.",
         icon: "⬡",
       },
       {
         label: "Shopify",
-        href: "/services/shopify",
+        href: "/services/website-design-development",
         description: "Shopify builds that convert quickly.",
         icon: "▢",
       },
       {
         label: "WooCommerce",
-        href: "/services/woocommerce",
+        href: "/services/website-design-development",
         description: "Flexible commerce on WordPress.",
         icon: "◲",
       },
       {
         label: "Magento",
-        href: "/services/magento",
+        href: "/services/website-design-development",
         description: "Enterprise-ready commerce engines.",
         icon: "◳",
       },
       {
         label: "BigCommerce",
-        href: "/services/bigcommerce",
+        href: "/services/website-design-development",
         description: "Fast storefronts with powerful tools.",
         icon: "◰",
       },
@@ -115,31 +115,31 @@ const serviceGroups = [
     items: [
       {
         label: "Digital Marketing",
-        href: "/services/digital-marketing",
+        href: "/services/website-design-development",
         description: "Channel plans for steady growth.",
         icon: "⬟",
       },
       {
         label: "Meta Ads",
-        href: "/services/meta-ads",
+        href: "/services/website-design-development",
         description: "Paid social tuned for ROAS.",
         icon: "⬣",
       },
       {
         label: "Google Ads",
-        href: "/services/google-ads",
+        href: "/services/website-design-development",
         description: "Search visibility that scales.",
         icon: "⬢",
       },
       {
         label: "CRO (Conversion Rate Optimization)",
-        href: "/services/cro",
+        href: "/services/website-design-development",
         description: "Optimize funnels for real lift.",
         icon: "◧",
       },
       {
         label: "Email Marketing",
-        href: "/services/email-marketing",
+        href: "/services/website-design-development",
         description: "Lifecycle campaigns that nurture.",
         icon: "✉",
       },
@@ -150,31 +150,31 @@ const serviceGroups = [
     items: [
       {
         label: "SEO Services",
-        href: "/services/seo-services",
+        href: "/services/website-design-development",
         description: "Search visibility with sustainable wins.",
         icon: "↗",
       },
       {
         label: "Local SEO",
-        href: "/services/local-seo",
+        href: "/services/website-design-development",
         description: "Map visibility for local brands.",
         icon: "⌖",
       },
       {
         label: "Technical SEO",
-        href: "/services/technical-seo",
+        href: "/services/website-design-development",
         description: "Site performance built for crawlability.",
         icon: "⛶",
       },
       {
         label: "Content SEO",
-        href: "/services/content-seo",
+        href: "/services/website-design-development",
         description: "Authority-building content systems.",
         icon: "✎",
       },
       {
         label: "ASO (App Store Optimization)",
-        href: "/services/aso",
+        href: "/services/website-design-development",
         description: "App listings that rank.",
         icon: "⬆",
       },
@@ -185,25 +185,25 @@ const serviceGroups = [
     items: [
       {
         label: "Video Production",
-        href: "/services/video-production",
+        href: "/services/website-design-development",
         description: "Story-led videos for premium brands.",
         icon: "▶",
       },
       {
         label: "Motion Graphics",
-        href: "/services/motion-graphics",
+        href: "/services/website-design-development",
         description: "Motion assets that add clarity.",
         icon: "➤",
       },
       {
         label: "Animated Explainers",
-        href: "/services/animated-explainers",
+        href: "/services/website-design-development",
         description: "Explainers that simplify complex ideas.",
         icon: "✧",
       },
       {
         label: "Social Media Creatives",
-        href: "/services/social-media-creatives",
+        href: "/services/website-design-development",
         description: "Scroll-stopping social visuals.",
         icon: "✦",
       },
@@ -212,21 +212,21 @@ const serviceGroups = [
 ];
 
 const industries = [
-  { label: "Small & Local Businesses", href: "/industries/small-local" },
-  { label: "Startups & Entrepreneurs", href: "/industries/startups" },
-  { label: "E-Commerce Businesses", href: "/industries/ecommerce" },
-  { label: "Professional Services", href: "/industries/professional-services" },
-  { label: "Healthcare & Medical", href: "/industries/healthcare" },
-  { label: "Real Estate", href: "/industries/real-estate" },
-  { label: "Education & Training", href: "/industries/education" },
-  { label: "Restaurants & Food", href: "/industries/restaurants" },
-  { label: "Beauty & Lifestyle", href: "/industries/beauty" },
-  { label: "Technology & SaaS", href: "/industries/technology" },
-  { label: "Non-profits & Organizations", href: "/industries/non-profits" },
-  { label: "Finance & Accounting", href: "/industries/finance" },
-  { label: "Construction & Home Services", href: "/industries/construction" },
-  { label: "Travel & Hospitality", href: "/industries/travel" },
-  { label: "Authors & Personal Brands", href: "/industries/authors" },
+  { label: "Small & Local Businesses", href: "/services/website-design-development#industries" },
+  { label: "Startups & Entrepreneurs", href: "/services/website-design-development#industries" },
+  { label: "E-Commerce Businesses", href: "/services/website-design-development#industries" },
+  { label: "Professional Services", href: "/services/website-design-development#industries" },
+  { label: "Healthcare & Medical", href: "/services/website-design-development#industries" },
+  { label: "Real Estate", href: "/services/website-design-development#industries" },
+  { label: "Education & Training", href: "/services/website-design-development#industries" },
+  { label: "Restaurants & Food", href: "/services/website-design-development#industries" },
+  { label: "Beauty & Lifestyle", href: "/services/website-design-development#industries" },
+  { label: "Technology & SaaS", href: "/services/website-design-development#industries" },
+  { label: "Non-profits & Organizations", href: "/services/website-design-development#industries" },
+  { label: "Finance & Accounting", href: "/services/website-design-development#industries" },
+  { label: "Construction & Home Services", href: "/services/website-design-development#industries" },
+  { label: "Travel & Hospitality", href: "/services/website-design-development#industries" },
+  { label: "Authors & Personal Brands", href: "/services/website-design-development#industries" },
 ];
 
 export default function Header() {
@@ -292,7 +292,7 @@ export default function Header() {
             Home
           </Link>
           <Link
-            href="/about-us"
+            href="/#about"
             className="text-muted-foreground transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             About Us
@@ -362,7 +362,7 @@ export default function Header() {
                     Explore by industry for tailored recommendations.
                   </span>
                   <Link
-                    href="/industries"
+                    href="/services/website-design-development#industries"
                     className="text-xs font-semibold text-foreground transition hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
                     View Industries
@@ -372,13 +372,13 @@ export default function Header() {
             )}
           </div>
           <Link
-            href="/combo-packages"
+            href="/services/website-design-development#packages"
             className="text-muted-foreground transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Combo Packages
           </Link>
           <Link
-            href="/resources"
+            href="/#work"
             className="text-muted-foreground transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Resources
@@ -402,12 +402,12 @@ export default function Header() {
             {isDark ? "☾" : "☀"}
           </button>
           <Link
-            href="/client-login"
+            href="/#contact"
             className="hidden rounded-full border border-accent bg-accent/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent transition hover:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background md:inline-flex"
           >
-            Client Login
+            Client Support
           </Link>
-          <Button href="/get-started" className="hidden md:inline-flex">
+          <Button href="/#contact" className="hidden md:inline-flex">
             Get Started
           </Button>
         </div>
@@ -437,7 +437,7 @@ export default function Header() {
                 Home
               </Link>
               <Link
-                href="/about-us"
+                href="/#about"
                 className="text-base text-foreground transition hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 onClick={handleMobileToggle}
               >
@@ -508,14 +508,14 @@ export default function Header() {
                 </div>
               )}
               <Link
-                href="/combo-packages"
+                href="/services/website-design-development#packages"
                 className="text-base text-foreground transition hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 onClick={handleMobileToggle}
               >
                 Combo Packages
               </Link>
               <Link
-                href="/resources"
+                href="/#work"
                 className="text-base text-foreground transition hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 onClick={handleMobileToggle}
               >
@@ -524,13 +524,13 @@ export default function Header() {
             </nav>
             <div className="mt-auto flex flex-col gap-3">
               <Link
-                href="/client-login"
+                href="/#contact"
                 className="inline-flex items-center justify-center rounded-full border border-accent bg-accent/10 px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent transition hover:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 onClick={handleMobileToggle}
               >
-                Client Login
+                Client Support
               </Link>
-              <Button href="/get-started" onClick={handleMobileToggle}>
+              <Button href="/#contact" onClick={handleMobileToggle}>
                 Get Started
               </Button>
             </div>

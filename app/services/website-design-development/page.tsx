@@ -1,4 +1,11 @@
 import ServicePageTemplate from "@/components/templates/ServicePageTemplate";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Website Design & Development | LA CREATIVO",
+  description:
+    "Conversion-ready website design and development for small businesses, with calm guidance, clear timelines, and launch support.",
+};
 
 const packages = [
   {
@@ -86,6 +93,17 @@ const faqs = [
   },
 ];
 
+const industries = [
+  "Professional Services",
+  "Hospitality",
+  "Wellness",
+  "Local Retail",
+  "Coaches & Consultants",
+  "Creative Studios",
+];
+
+const platforms = ["WordPress", "Webflow", "Shopify", "Squarespace", "Custom"];
+
 export default function WebsiteDesignDevelopmentPage() {
   return (
     <ServicePageTemplate
@@ -96,7 +114,7 @@ export default function WebsiteDesignDevelopmentPage() {
         description:
           "We design conversion-ready sites that balance beautiful visuals with clear messaging, so visitors know exactly what to do next.",
         primaryCta: { label: "View Packages", href: "#packages" },
-        secondaryCta: { label: "Get Started", href: "/get-started" },
+        secondaryCta: { label: "Get Started", href: "/#contact" },
       }}
       whatThisServiceIs={{
         title: "An end-to-end website experience, not just pretty pages",
@@ -136,21 +154,9 @@ export default function WebsiteDesignDevelopmentPage() {
       }}
       faqs={faqs}
       internalLinks={{
-        industries: [
-          { label: "Professional Services", href: "/industries/professional-services" },
-          { label: "Hospitality", href: "/industries/hospitality" },
-          { label: "Wellness", href: "/industries/wellness" },
-        ],
-        platforms: [
-          { label: "WordPress", href: "/services/wordpress-development" },
-          { label: "Webflow", href: "/services/webflow" },
-          { label: "Shopify", href: "/services/shopify" },
-        ],
-        relatedServices: [
-          { label: "Brand Identity", href: "/services/brand-identity" },
-          { label: "SEO Services", href: "/services/seo-services" },
-          { label: "Digital Marketing", href: "/services/digital-marketing" },
-        ],
+        packages: packages.map((item) => item.name),
+        industries,
+        platforms,
       }}
     />
   );

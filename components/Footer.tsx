@@ -5,52 +5,52 @@ const footerLinks = [
   {
     title: "Company",
     items: [
-      { label: "About Us", href: "/about-us" },
-      { label: "How It Works", href: "/how-it-works" },
-      { label: "Portfolio", href: "/portfolio" },
-      { label: "Testimonials", href: "/testimonials" },
-      { label: "Contact", href: "/contact" },
+      { label: "About Us", href: "/#about" },
+      { label: "How It Works", href: "/#process" },
+      { label: "Portfolio", href: "/#work" },
+      { label: "Testimonials", href: "/#testimonials" },
+      { label: "Contact", href: "/#contact" },
     ],
   },
   {
     title: "Services",
     items: [
-      { label: "Branding & Identity", href: "/services/branding-identity" },
+      { label: "Branding & Identity", href: "/services/website-design-development" },
       {
         label: "Websites & Development",
-        href: "/services/websites-development",
+        href: "/services/website-design-development",
       },
-      { label: "E-Commerce", href: "/services/ecommerce" },
-      { label: "Marketing & Growth", href: "/services/marketing-growth" },
-      { label: "SEO & Organic Growth", href: "/services/seo-organic-growth" },
-      { label: "Video & Creative", href: "/services/video-creative" },
+      { label: "E-Commerce", href: "/services/website-design-development" },
+      { label: "Marketing & Growth", href: "/services/website-design-development" },
+      { label: "SEO & Organic Growth", href: "/services/website-design-development" },
+      { label: "Video & Creative", href: "/services/website-design-development" },
     ],
   },
   {
     title: "Industries",
     items: [
-      { label: "Small & Local Businesses", href: "/industries/small-local" },
-      { label: "Startups & Entrepreneurs", href: "/industries/startups" },
-      { label: "Healthcare & Medical", href: "/industries/healthcare" },
-      { label: "Real Estate", href: "/industries/real-estate" },
-      { label: "Technology & SaaS", href: "/industries/technology" },
-      { label: "View All Industries", href: "/industries" },
+      { label: "Small & Local Businesses", href: "/services/website-design-development#industries" },
+      { label: "Startups & Entrepreneurs", href: "/services/website-design-development#industries" },
+      { label: "Healthcare & Medical", href: "/services/website-design-development#industries" },
+      { label: "Real Estate", href: "/services/website-design-development#industries" },
+      { label: "Technology & SaaS", href: "/services/website-design-development#industries" },
+      { label: "Explore Industries", href: "/services/website-design-development#industries" },
     ],
   },
   {
     title: "Work With Us",
     items: [
-      { label: "Reseller Program", href: "/reseller-program" },
-      { label: "Affiliate Program", href: "/affiliate-program" },
-      { label: "Careers (Talent / CV Upload)", href: "/careers" },
+      { label: "Reseller Program", href: "/#contact" },
+      { label: "Affiliate Program", href: "/#contact" },
+      { label: "Careers (Talent / CV Upload)", href: "/#contact" },
     ],
   },
   {
     title: "Legal",
     items: [
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms & Conditions", href: "/terms-conditions" },
-      { label: "Guarantees", href: "/guarantees" },
+      { label: "Request Privacy Policy", href: "/#contact" },
+      { label: "Request Terms & Conditions", href: "/#contact" },
+      { label: "Request Guarantees", href: "/#contact" },
     ],
   },
 ];
@@ -71,28 +71,48 @@ export default function Footer() {
                 Start with a free creative roadmap and launch with confidence.
               </p>
             </div>
-            <Button href="/get-started" variant="primary">
+            <Button href="/#contact" variant="primary">
               Book a Free Intro
             </Button>
           </div>
           <form className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-xs sm:grid-cols-2 lg:grid-cols-4">
+            <label className="sr-only" htmlFor="footer-name">
+              Full name
+            </label>
             <input
               type="text"
+              id="footer-name"
+              name="name"
               placeholder="Your name"
               className="input-field input-field-dark"
             />
+            <label className="sr-only" htmlFor="footer-email">
+              Email address
+            </label>
             <input
               type="email"
+              id="footer-email"
+              name="email"
               placeholder="Email address"
               className="input-field input-field-dark"
             />
+            <label className="sr-only" htmlFor="footer-phone">
+              Phone number
+            </label>
             <input
               type="tel"
+              id="footer-phone"
+              name="phone"
               placeholder="Phone"
               className="input-field input-field-dark"
             />
+            <label className="sr-only" htmlFor="footer-business">
+              Business name
+            </label>
             <input
               type="text"
+              id="footer-business"
+              name="business"
               placeholder="Business name"
               className="input-field input-field-dark"
             />
@@ -104,6 +124,9 @@ export default function Footer() {
               Get the roadmap
             </Button>
           </form>
+          <p className="text-xs text-dark-foreground/70">
+            We’ll follow up within one business day with a clear next step.
+          </p>
           <div className="flex flex-wrap gap-4 text-xs text-dark-foreground/70">
             <span>
               Trusted by{" "}
@@ -158,22 +181,22 @@ export default function Footer() {
           <span>© 2024 LA CREATIVO. All rights reserved.</span>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/privacy-policy"
+              href="/#contact"
               className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Privacy Policy
+              Request Privacy Policy
             </Link>
             <Link
-              href="/terms-conditions"
+              href="/#contact"
               className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Terms & Conditions
+              Request Terms
             </Link>
             <Link
-              href="/guarantees"
+              href="/#contact"
               className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Guarantees
+              Request Guarantees
             </Link>
           </div>
         </div>

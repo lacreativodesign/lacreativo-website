@@ -3,11 +3,6 @@ import PricingCard from "@/components/PricingCard";
 import Section from "@/components/Section";
 import type { CSSProperties } from "react";
 
-type LinkItem = {
-  label: string;
-  href: string;
-};
-
 type ServicePackage = {
   name: string;
   description: string;
@@ -44,9 +39,9 @@ type ServicePageTemplateProps = {
   };
   faqs: Array<{ question: string; answer: string }>;
   internalLinks: {
-    industries: LinkItem[];
-    platforms: LinkItem[];
-    relatedServices: LinkItem[];
+    packages: string[];
+    industries: string[];
+    platforms: string[];
   };
 };
 
@@ -59,6 +54,12 @@ export default function ServicePageTemplate({
   faqs,
   internalLinks,
 }: ServicePageTemplateProps) {
+  const createAnchorId = (prefix: string, label: string) =>
+    `${prefix}-${label
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "")}`;
+
   return (
     <div>
       <Section
@@ -100,7 +101,11 @@ export default function ServicePageTemplate({
               Every service page keeps one clear goal, with calm guidance and
               just the details needed to decide.
             </p>
-            <div className="mt-2 flex h-40 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-xs text-dark-foreground/60">
+            <div
+              role="img"
+              aria-label="Service highlight preview placeholder"
+              className="mt-2 flex h-40 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-xs text-dark-foreground/60"
+            >
               Visual highlight placeholder
             </div>
           </div>
@@ -169,6 +174,7 @@ export default function ServicePageTemplate({
           {packages.items.map((item, index) => (
             <div
               key={item.name}
+              id={createAnchorId("package", item.name)}
               className="reveal"
               style={{ "--delay": `${index * 120}ms` } as CSSProperties}
             >
@@ -177,6 +183,54 @@ export default function ServicePageTemplate({
                 description={item.description}
                 features={item.features}
               />
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        id="industries"
+        tone="muted"
+        eyebrow="Industries"
+        title="Industries we support with this service"
+        description="Focused website builds for the industries we know best."
+      >
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {internalLinks.industries.map((industry, index) => (
+            <div
+              key={industry}
+              id={createAnchorId("industry", industry)}
+              className="card-premium reveal rounded-3xl border border-border bg-card p-5 text-sm"
+              style={{ "--delay": `${index * 100}ms` } as CSSProperties}
+            >
+              <h3 className="text-base font-semibold">{industry}</h3>
+              <p className="mt-2 text-muted-foreground">
+                Tailored structure, messaging, and calls to action for your
+                audience.
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        id="platforms"
+        eyebrow="Platforms"
+        title="Platform-ready builds"
+        description="We’ll recommend the best-fit platform based on your goals and team."
+      >
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {internalLinks.platforms.map((platform, index) => (
+            <div
+              key={platform}
+              id={createAnchorId("platform", platform)}
+              className="card-premium reveal rounded-3xl border border-border bg-card p-5 text-sm"
+              style={{ "--delay": `${index * 100}ms` } as CSSProperties}
+            >
+              <h3 className="text-base font-semibold">{platform}</h3>
+              <p className="mt-2 text-muted-foreground">
+                Clear editing workflows with performance and SEO in mind.
+              </p>
             </div>
           ))}
         </div>
@@ -206,17 +260,37 @@ export default function ServicePageTemplate({
         tone="dark"
         eyebrow="Internal links"
         title="Keep exploring with purpose"
-        description="Relevant next steps for industries, platforms, and related services."
+        description="Jump to the packages, industries, and platforms most relevant to you."
       >
         <div className="grid gap-6 md:grid-cols-3">
+          <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
+            <h3 className="text-lg font-semibold text-dark-foreground">
+              Packages
+            </h3>
+            <div className="flex flex-col gap-3">
+              {internalLinks.packages.map((item) => (
+                <Button
+                  key={item}
+                  href={`#${createAnchorId("package", item)}`}
+                  variant="secondary"
+                >
+                  {item}
+                </Button>
+              ))}
+            </div>
+          </div>
           <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
             <h3 className="text-lg font-semibold text-dark-foreground">
               Industries
             </h3>
             <div className="flex flex-col gap-3">
               {internalLinks.industries.map((item) => (
-                <Button key={item.href} href={item.href} variant="secondary">
-                  {item.label}
+                <Button
+                  key={item}
+                  href={`#${createAnchorId("industry", item)}`}
+                  variant="secondary"
+                >
+                  {item}
                 </Button>
               ))}
             </div>
@@ -227,20 +301,12 @@ export default function ServicePageTemplate({
             </h3>
             <div className="flex flex-col gap-3">
               {internalLinks.platforms.map((item) => (
-                <Button key={item.href} href={item.href} variant="secondary">
-                  {item.label}
-                </Button>
-              ))}
-            </div>
-          </div>
-          <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
-            <h3 className="text-lg font-semibold text-dark-foreground">
-              Related services
-            </h3>
-            <div className="flex flex-col gap-3">
-              {internalLinks.relatedServices.map((item) => (
-                <Button key={item.href} href={item.href} variant="secondary">
-                  {item.label}
+                <Button
+                  key={item}
+                  href={`#${createAnchorId("platform", item)}`}
+                  variant="secondary"
+                >
+                  {item}
                 </Button>
               ))}
             </div>
