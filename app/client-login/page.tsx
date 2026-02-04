@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import Button from "@/components/Button";
 import Section from "@/components/Section";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     "Access the LA CREATIVO client portal to review updates, files, and next steps.",
 };
 
-export default function ClientLoginPage() {
+function ClientLoginContent() {
   return (
     <div>
       <Section
@@ -34,5 +35,13 @@ export default function ClientLoginPage() {
         </div>
       </Section>
     </div>
+  );
+}
+
+export default function ClientLoginPage() {
+  return (
+    <Suspense fallback={null}>
+      <ClientLoginContent />
+    </Suspense>
   );
 }
