@@ -2,36 +2,47 @@ import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import dynamic from "next/dynamic";
+import { SkeletonPricingCard, SkeletonTabRow } from "@/components/Skeleton";
 import type { CSSProperties } from "react";
 
-const whatWeDo = [
+const PackagesSection = dynamic(() => import("@/components/PackagesSection"), {
+  loading: () => (
+    <div className="grid gap-6">
+      <SkeletonTabRow />
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {Array.from({ length: 3 }).map((_, index) => (
+          <SkeletonPricingCard key={index} />
+        ))}
+      </div>
+    </div>
+  ),
+});
+
+const approachPillars = [
   {
     title: "Brand & Identity",
     description:
-      "Visual identities that feel premium, personal, and ready for growth across every touchpoint.",
+      "A clear visual system that feels premium, familiar, and ready to grow.",
     icon: "✺",
-    visual: "Logo kit preview",
   },
   {
     title: "Web Design & Build",
     description:
-      "Conversion-ready sites built for clarity, speed, and the confidence to click now.",
+      "Streamlined sites that guide visitors with calm, confident clarity.",
     icon: "⌂",
-    visual: "Homepage wireframe",
   },
   {
     title: "Content & Social",
     description:
-      "Story-driven content systems that keep your brand consistent and active without the overwhelm.",
+      "Simple content systems that keep you consistent without chaos.",
     icon: "✎",
-    visual: "Social grid sample",
   },
   {
     title: "Launch Strategy",
     description:
-      "Straightforward roadmaps so you know exactly what happens before, during, and after launch.",
+      "Clear launch roadmaps so you always know what happens next.",
     icon: "➤",
-    visual: "Launch checklist",
   },
 ];
 
@@ -59,7 +70,7 @@ const services = [
   },
   {
     title: "Ecommerce Setup",
-    description: "From storefront to checkout, ready to sell.",
+    description: "Storefront-ready design + checkout polish.",
     icon: "🛍️",
     visual: "Storefront mockup",
     href: "/services/ecommerce",
@@ -87,7 +98,7 @@ const steps = [
   },
   {
     title: "02 · Direction",
-    description: "We present a creative plan with timelines, scope, and visual cues.",
+    description: "We share a clear plan with timelines, scope, and visual cues.",
   },
   {
     title: "03 · Design",
@@ -100,6 +111,49 @@ const steps = [
   {
     title: "05 · Launch",
     description: "We go live and stay available for early growth support.",
+  },
+];
+
+const industries = [
+  {
+    label: "Small & Local Businesses",
+    icon: "🏡",
+    href: "/industries/small-local",
+  },
+  {
+    label: "Startups & Entrepreneurs",
+    icon: "✨",
+    href: "/industries/startups",
+  },
+  {
+    label: "E-Commerce Businesses",
+    icon: "🛒",
+    href: "/industries/ecommerce",
+  },
+  {
+    label: "Professional Services",
+    icon: "🗂️",
+    href: "/industries/professional-services",
+  },
+  {
+    label: "Healthcare & Medical",
+    icon: "🩺",
+    href: "/industries/healthcare",
+  },
+  {
+    label: "Real Estate",
+    icon: "🏘️",
+    href: "/industries/real-estate",
+  },
+  {
+    label: "Beauty & Lifestyle",
+    icon: "💅",
+    href: "/industries/beauty",
+  },
+  {
+    label: "Technology & SaaS",
+    icon: "💻",
+    href: "/industries/technology",
   },
 ];
 
@@ -120,8 +174,7 @@ const testimonials = [
     role: "Founder, Bloom Pop",
   },
   {
-    quote:
-      "The process was easy to understand. We never felt lost or upsold.",
+    quote: "The process was easy to understand. We never felt lost or upsold.",
     name: "Devon K.",
     role: "Owner, Harbor House Cafe",
   },
@@ -153,8 +206,8 @@ export default function Home() {
         padding="lg"
         background={
           <>
-            <div className="absolute inset-0 gradient-hero opacity-90" />
-            <div className="absolute inset-0 hero-ambient opacity-80" />
+            <div className="absolute inset-0 gradient-hero opacity-90 hero-motion" />
+            <div className="absolute inset-0 hero-ambient opacity-80 hero-motion-slow" />
           </>
         }
       >
@@ -164,17 +217,17 @@ export default function Home() {
               Creative & Digital Studio
             </span>
             <h1 className="text-reveal text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.6rem]">
-              Build a premium brand presence that feels human, confident, and
-              ready to earn trust fast.
+              Launch a premium brand presence that earns trust in the first
+              scroll.
             </h1>
             <p className="reveal text-base leading-relaxed text-dark-foreground/70 sm:text-lg">
               LA CREATIVO blends editorial design, strategic messaging, and
-              launch-ready systems so your customers feel clarity and care from
-              the first scroll.
+              launch-ready systems so your customers feel calm, confident, and
+              ready to say yes.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button href="/get-started" size="lg">
-                Start Your Project
+              <Button href="#packages" size="lg">
+                View Packages
               </Button>
               <Button href="#services" variant="secondary" size="lg">
                 Explore Services
@@ -201,11 +254,18 @@ export default function Home() {
                 placeholder="Business name"
                 className="input-field input-field-dark"
               />
-              <Button type="submit" size="sm" className="sm:col-span-2 lg:col-span-4">
+              <Button
+                type="submit"
+                size="sm"
+                className="sm:col-span-2 lg:col-span-4"
+              >
                 Get the free roadmap
               </Button>
             </form>
-            <div className="flex flex-wrap gap-4 text-xs text-dark-foreground/70">
+            <div className="flex flex-wrap items-center gap-4 text-xs text-dark-foreground/70">
+              <span className="flex items-center gap-2 text-accent">
+                ★★★★★ <span className="text-dark-foreground/70">4.9/5</span>
+              </span>
               <span>
                 Launch-ready in{" "}
                 <span className="numeric-editorial text-sm font-semibold text-dark-foreground">
@@ -219,7 +279,6 @@ export default function Home() {
                   $499
                 </span>
               </span>
-              <span>US-based creative team</span>
             </div>
           </div>
           <div className="relative flex items-center justify-center">
@@ -237,15 +296,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </Section>
-
-      <Section
-        tone="muted"
-        eyebrow="Trusted by growing teams"
-        title="A creative partner built for small business momentum"
-        description="We combine agency-level polish with startup-speed timelines, so you can launch confidently without the overhead."
-      >
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               {
@@ -300,32 +351,38 @@ export default function Home() {
             ].map((item, index) => (
               <div
                 key={item.id}
-                className="reveal rounded-3xl border border-border bg-card p-6 text-sm"
+                className="reveal rounded-3xl border border-white/10 bg-white/5 p-6 text-sm"
                 style={{ "--delay": `${index * 120}ms` } as CSSProperties}
               >
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-muted-foreground">{item.description}</p>
+                <h3 className="text-lg font-semibold text-dark-foreground">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-dark-foreground/70">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
-          <div className="flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm">
-            <h3 className="text-lg font-semibold">Trust indicators</h3>
-            <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
-              <span className="rounded-full border border-border px-3 py-1">
+          <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
+            <h3 className="text-lg font-semibold text-dark-foreground">
+              Trusted by teams who need clarity fast
+            </h3>
+            <div className="flex flex-wrap gap-3 text-xs">
+              <span className="rounded-full border border-white/20 px-3 py-1">
                 Clutch ★★★★★
               </span>
-              <span className="rounded-full border border-border px-3 py-1">
+              <span className="rounded-full border border-white/20 px-3 py-1">
                 Google ★★★★★
               </span>
-              <span className="rounded-full border border-border px-3 py-1">
+              <span className="rounded-full border border-white/20 px-3 py-1">
                 <span className="numeric-editorial font-semibold">300+</span>{" "}
                 small business launches
               </span>
-              <span className="rounded-full border border-border px-3 py-1">
+              <span className="rounded-full border border-white/20 px-3 py-1">
                 Zero-pressure consults
               </span>
             </div>
-            <div className="rounded-2xl border border-border bg-muted/40 p-4 text-xs text-muted-foreground">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-xs">
               “They felt like an in-house team, but the process was smooth and
               affordable.”
             </div>
@@ -334,88 +391,36 @@ export default function Home() {
       </Section>
 
       <Section
-        id="what-we-do"
-        eyebrow="What we do"
-        title="Design-first services that keep things simple and premium"
-        description="From brand foundations to full websites, our studio delivers everything you need to look credible, feel confident, and convert customers."
-      >
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {whatWeDo.map((item, index) => (
-            <div
-              key={item.title}
-              className="reveal"
-              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
-            >
-              <Card
-                title={item.title}
-                description={item.description}
-                icon={item.icon}
-                media={
-                  <div className="flex h-28 items-center justify-center bg-muted/60 text-xs text-muted-foreground">
-                    {item.visual}
-                  </div>
-                }
-                cta={
-                  <Button variant="ghost" size="sm" href="/services">
-                    Learn More →
-                  </Button>
-                }
-                variant="default"
-              />
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section
         tone="muted"
-        eyebrow="Why LA CREATIVO"
-        title="Clarity, trust, and a process that respects your budget"
-        description="We built this studio for business owners who want premium results without agency confusion. Everything is explained in plain language, timelines are realistic, and we stay with you through launch."
+        eyebrow="The before + after"
+        title="From scattered marketing to calm momentum"
+        description="If your brand feels inconsistent, every channel becomes a new scramble. We replace that scramble with a clear plan, so your next move feels steady and intentional."
+        background={<div className="absolute inset-0 gradient-surface opacity-70" />}
       >
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="flex flex-col gap-6 text-sm leading-relaxed text-muted-foreground">
-            <p>
-              We believe good design should feel accessible. That means honest
-              guidance, streamlined options, and visuals that make your brand
-              feel established — even if you’re just getting started.
+          <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
+            <p className="reveal">
+              Most small businesses are juggling sales, operations, and marketing
+              all at once. The result is a patchwork brand that doesn’t quite
+              match how good the business really is.
             </p>
-            <p>
-              Our team pairs design expertise with startup-friendly structure,
-              so you always know what’s included, what’s next, and what you’re
-              paying for.
+            <p className="reveal" style={{ "--delay": "120ms" } as CSSProperties}>
+              LA CREATIVO brings structure without the stress: a clear direction,
+              consistent visuals, and a launch rhythm that feels calm instead of
+              chaotic.
             </p>
-            <div className="gradient-surface rounded-3xl border border-border p-5 text-sm text-muted-foreground">
+            <div className="reveal rounded-3xl border border-border bg-card p-5 text-sm">
               <h3 className="text-base font-semibold text-foreground">
-                What makes us different
+                The shift we create
               </h3>
-              <p className="mt-2">
-                Hands-on strategy, calm timelines, and visuals that feel
-                premium without the agency fluff.
+              <p className="mt-2 text-muted-foreground">
+                Replace guesswork with clarity, and watch every touchpoint feel
+                aligned.
               </p>
             </div>
           </div>
-          <div className="grid gap-4">
-            {[
-              {
-                title: "Straightforward Scope",
-                description:
-                  "Clear packages with predictable timelines and deliverables.",
-                icon: "✓",
-              },
-              {
-                title: "Human Collaboration",
-                description:
-                  "We communicate like people, not agencies — fast, friendly, and clear.",
-                icon: "✦",
-              },
-              {
-                title: "Affordable Excellence",
-                description:
-                  "Premium creative without the premium overhead.",
-                icon: "◆",
-              },
-            ].map((item, index) => (
+          <div className="grid gap-4 sm:grid-cols-2">
+            {approachPillars.map((item, index) => (
               <div
                 key={item.title}
                 className="reveal rounded-3xl border border-border bg-card p-5 text-sm"
@@ -438,9 +443,9 @@ export default function Home() {
 
       <Section
         id="services"
-        eyebrow="Services overview"
-        title="Everything you need to launch, grow, and stay consistent"
-        description="Pick a single service or build a full creative stack. Each offering is tailored to small business momentum."
+        eyebrow="Services snapshot"
+        title="A menu of creative services built for momentum"
+        description="Pick a single category or stack services as you grow. Every option is designed to feel simple, premium, and ready to launch."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
@@ -454,7 +459,7 @@ export default function Home() {
                 description={service.description}
                 icon={service.icon}
                 media={
-                  <div className="flex h-32 items-center justify-center bg-muted/60 text-xs text-muted-foreground">
+                  <div className="flex h-24 items-center justify-center bg-muted/60 text-xs text-muted-foreground">
                     {service.visual}
                   </div>
                 }
@@ -470,225 +475,163 @@ export default function Home() {
       </Section>
 
       <Section
-        tone="dark"
-        eyebrow="Ready for clarity?"
-        title="Get a no-pressure launch plan in your inbox"
-        description="Share a few details and we’ll send a tailored roadmap with timeline, budget range, and next steps."
-        background={
-          <>
-            <div className="absolute inset-0 gradient-hero opacity-80" />
-            <div className="absolute inset-0 hero-ambient opacity-70" />
-          </>
-        }
+        id="packages"
+        tone="muted"
+        eyebrow="Packages"
+        title="Pricing that stays clear at a glance"
+        description="Choose a category, scan the options, and order when you’re ready."
       >
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="flex flex-col gap-4 text-sm text-dark-foreground/70">
-            <p>
-              Our team responds within{" "}
-              <span className="numeric-editorial font-semibold text-dark-foreground">
-                24
-              </span>{" "}
-              hours with a lightweight plan you can share internally. No sales
-              pressure, just clarity.
-            </p>
-            <div className="flex flex-wrap gap-3 text-xs text-dark-foreground/70">
-              <span>
-                ✓ Delivered in{" "}
-                <span className="numeric-editorial font-semibold text-dark-foreground">
-                  1
-                </span>{" "}
-                business day
-              </span>
-              <span>✓ Recommended package fit</span>
-              <span>✓ Quick wins included</span>
+        <PackagesSection />
+      </Section>
+
+      <Section
+        tone="dark"
+        eyebrow="Industries + process"
+        title="Built for the industries that move fast"
+        description="We tailor every package to your space and keep the process refreshingly simple."
+      >
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="flex flex-col gap-6">
+            <h3 className="text-lg font-semibold text-dark-foreground">
+              Industries we serve
+            </h3>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {industries.map((industry, index) => (
+                <a
+                  key={industry.label}
+                  href={industry.href}
+                  className="reveal flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-dark-foreground/80 hover:border-accent/50"
+                  style={{ "--delay": `${index * 80}ms` } as CSSProperties}
+                >
+                  <span className="text-lg">{industry.icon}</span>
+                  <span>{industry.label}</span>
+                </a>
+              ))}
             </div>
           </div>
-          <form className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-dark-foreground/70">
-            <input
-              type="text"
-              placeholder="Full name"
-              className="input-field input-field-dark"
-            />
-            <input
-              type="email"
-              placeholder="Email address"
-              className="input-field input-field-dark"
-            />
-            <input
-              type="tel"
-              placeholder="Phone number"
-              className="input-field input-field-dark"
-            />
-            <input
-              type="text"
-              placeholder="Business name"
-              className="input-field input-field-dark"
-            />
-            <Button type="submit">Send my roadmap</Button>
-          </form>
+          <div className="flex flex-col gap-6">
+            <h3 className="text-lg font-semibold text-dark-foreground">
+              How it works
+            </h3>
+            <div className="grid gap-4">
+              {steps.map((step, index) => (
+                <div
+                  key={step.title}
+                  className="reveal rounded-3xl border border-white/10 bg-white/5 p-5"
+                  style={{ "--delay": `${index * 120}ms` } as CSSProperties}
+                >
+                  <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-dark-foreground/60">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-xs">
+                      {index + 1}
+                    </span>
+                    {step.title.split("·")[1]}
+                  </div>
+                  <h3 className="mt-3 text-sm font-semibold text-dark-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-xs text-dark-foreground/70">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </Section>
 
       <Section
-        id="process"
-        tone="dark"
-        eyebrow="How it works"
-        title="A smooth, step-by-step process that keeps you in control"
-        description="We keep the workflow clear so you always know what’s happening and what comes next."
+        id="proof"
+        eyebrow="Proof + guarantees"
+        title="Work that feels premium and partnerships that feel calm"
+        description="Preview the style, then trust the safeguards. Everything is designed to feel clear, steady, and supportive."
       >
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-          {steps.map((step, index) => (
-            <div
-              key={step.title}
-              className="reveal rounded-3xl border border-white/10 bg-white/5 p-5"
-              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
-            >
-              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-dark-foreground/60">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-xs">
-                  {index + 1}
-                </span>
-                {step.title.split("·")[1]}
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {portfolio.map((item, index) => (
+              <div
+                key={item}
+                className="reveal hover-lift group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6"
+                style={{ "--delay": `${index * 100}ms` } as CSSProperties}
+              >
+                <div className="flex h-36 items-center justify-center rounded-2xl bg-muted text-xs text-muted-foreground transition group-hover:bg-accent/20">
+                  Image placeholder
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="font-semibold">{item}</span>
+                  <span className="text-xs text-muted-foreground">View →</span>
+                </div>
               </div>
-              <h3 className="mt-3 text-sm font-semibold text-dark-foreground">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-xs text-dark-foreground/70">
-                {step.description}
-              </p>
-              <div className="mt-4 h-16 rounded-2xl border border-white/10 bg-white/5 text-[10px] text-dark-foreground/60 flex items-center justify-center">
-                Process visual
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        id="work"
-        eyebrow="Featured work"
-        title="Preview the looks we love to build"
-        description="Curated examples of the visual direction we can craft for your brand."
-      >
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {portfolio.map((item, index) => (
-            <div
-              key={item}
-              className="reveal hover-lift group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6"
-              style={{ "--delay": `${index * 100}ms` } as CSSProperties}
-            >
-              <div className="flex h-44 items-center justify-center rounded-2xl bg-muted text-xs text-muted-foreground transition group-hover:bg-accent/20">
-                Image placeholder
-              </div>
-              <div className="flex items-center justify-between text-sm">
-                <span className="font-semibold">{item}</span>
-                <span className="text-xs text-muted-foreground">View →</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        id="pricing"
-        tone="muted"
-        eyebrow="Pricing philosophy"
-        title="Premium creative, honest pricing"
-        description="We keep things transparent so you can invest with confidence. Our packages are built around real business needs — not inflated retainers."
-      >
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
-            <p>
-              Our most popular projects fall between{" "}
-              <span className="numeric-editorial font-semibold text-foreground">
-                $499
-              </span>{" "}
-              and{" "}
-              <span className="numeric-editorial font-semibold text-foreground">
-                $2,499
-              </span>
-              , with clear upgrades available as you grow. You’ll always know
-              what’s included, what’s optional, and why.
-            </p>
-            <p>
-              We also offer flexible payment plans, so you can launch now and
-              spread out the investment.
-            </p>
-            <div className="gradient-surface rounded-3xl border border-border p-5 text-sm">
-              <h3 className="text-base font-semibold text-foreground">
-                Pricing reassurance
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                Transparent scopes, fair milestones, and optional add-ons you
-                can say yes or no to.
-              </p>
-            </div>
+            ))}
           </div>
           <div className="flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm">
-            <h3 className="text-lg font-semibold">What’s always included</h3>
-            <ul className="flex flex-col gap-2 text-muted-foreground">
-              <li>Creative direction and kickoff session</li>
-              <li>Clear deliverables and timeline</li>
-              <li>Two rounds of revisions built in</li>
-              <li>Launch support and post-launch check-in</li>
+            <h3 className="text-lg font-semibold">Guarantees you can trust</h3>
+            <ul className="flex flex-col gap-3 text-muted-foreground">
+              <li>Clear scope and deliverables before we start.</li>
+              <li>Transparent pricing with no surprise add-ons.</li>
+              <li>Post-launch support to make sure everything sticks.</li>
+              <li>Friendly, human communication all the way through.</li>
             </ul>
-          </div>
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Testimonials"
-        title="Small business owners who felt the difference"
-        description="Five-star results, delivered with clarity and care."
-        align="center"
-      >
-        <TestimonialSlider items={testimonials} />
-      </Section>
-
-      <Section tone="dark" padding="lg">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="flex flex-col gap-4">
-            <h2 className="text-3xl font-semibold sm:text-4xl">
-              Ready to turn your vision into a brand people trust?
-            </h2>
-            <p className="text-sm text-dark-foreground/70 sm:text-base">
-              We’ll help you pick the right package, clarify the timeline, and
-              map out the next steps in one short conversation.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button href="/get-started" size="lg">
-                Get Started
-              </Button>
-              <Button href="/services" variant="secondary" size="lg">
-                Browse Packages
-              </Button>
+            <div className="rounded-2xl border border-border bg-muted/40 p-4 text-xs text-muted-foreground">
+              Calm, collaborative, and focused on helping your business feel
+              established fast.
             </div>
           </div>
-          <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
-            <h3 className="text-lg font-semibold text-dark-foreground">
-              What you get next
-            </h3>
-            <ul className="flex flex-col gap-3">
-              <li>✓ A tailored creative roadmap</li>
-              <li>✓ A realistic timeline and budget</li>
-              <li>✓ Zero pressure, just clarity</li>
-            </ul>
-          </div>
         </div>
-      </Section>
-
-      <Section tone="accent" padding="md">
-        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 className="text-2xl font-semibold">
-              Let’s build something unforgettable.
-            </h2>
-            <p className="text-sm text-accent-foreground/80">
-              Launch your next chapter with a team that gets small business.
-            </p>
+        <div className="mt-12">
+          <TestimonialSlider items={testimonials} />
+        </div>
+        <div className="mt-12">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-dark p-8 text-dark-foreground">
+            <div className="absolute inset-0 gradient-hero opacity-80" />
+            <div className="absolute inset-0 hero-ambient opacity-70" />
+            <div className="relative grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+              <div className="flex flex-col gap-4">
+                <h2 className="text-3xl font-semibold sm:text-4xl">
+                  Ready to move from idea to order?
+                </h2>
+                <p className="text-sm text-dark-foreground/70 sm:text-base">
+                  Share a few details and we’ll send a tailored roadmap with the
+                  best-fit package, timeline, and next steps.
+                </p>
+                <div className="flex flex-wrap gap-3 text-xs text-dark-foreground/70">
+                  <span>
+                    ✓ Delivered in{" "}
+                    <span className="numeric-editorial font-semibold text-dark-foreground">
+                      1
+                    </span>{" "}
+                    business day
+                  </span>
+                  <span>✓ Recommended package fit</span>
+                  <span>✓ Quick wins included</span>
+                </div>
+              </div>
+              <form className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-dark-foreground/70 sm:grid-cols-2">
+                <input
+                  type="text"
+                  placeholder="Full name"
+                  className="input-field input-field-dark"
+                />
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  className="input-field input-field-dark"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone number"
+                  className="input-field input-field-dark"
+                />
+                <input
+                  type="text"
+                  placeholder="Business name"
+                  className="input-field input-field-dark"
+                />
+                <Button type="submit" className="sm:col-span-2">
+                  Send my roadmap
+                </Button>
+              </form>
+            </div>
           </div>
-          <Button href="/get-started" variant="secondary">
-            Book My Intro Call
-          </Button>
         </div>
       </Section>
     </div>
