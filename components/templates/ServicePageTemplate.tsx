@@ -243,6 +243,9 @@ export default function ServicePageTemplate({
               className="input-field"
             />
             <Button type="submit">{leadCapture.formCtaLabel}</Button>
+            <p className="text-xs text-muted-foreground">
+              Secure payment, satisfaction guarantee, and clear next steps after you submit.
+            </p>
           </form>
         </div>
       </Section>

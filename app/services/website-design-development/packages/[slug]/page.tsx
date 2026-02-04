@@ -80,6 +80,9 @@ export default async function WebsiteDesignPackagePage({
                 View Details
               </Button>
             </div>
+            <p className="text-xs text-muted-foreground">
+              Secure payment, satisfaction guarantee, and clear next steps included.
+            </p>
           </div>
           <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">What’s included</h3>

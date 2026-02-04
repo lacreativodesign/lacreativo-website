@@ -31,7 +31,7 @@ export default function PricingCard({
         <Button variant="secondary" size="sm" href="#details">
           View Details
         </Button>
-        <Button size="sm" href="#order">
+        <Button size="sm" href="#lead-capture">
           Order Now
         </Button>
       </div>

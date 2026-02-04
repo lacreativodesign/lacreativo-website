@@ -173,6 +173,9 @@ export default function IndustryPageTemplate({
               className="input-field"
             />
             <Button type="submit">{formCtaLabel}</Button>
+            <p className="text-xs text-muted-foreground">
+              Secure payment, satisfaction guarantee, and clear next steps after you submit.
+            </p>
           </form>
         </div>
       </Section>
