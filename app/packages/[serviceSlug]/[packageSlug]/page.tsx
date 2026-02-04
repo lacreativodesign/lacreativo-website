@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import Button from "@/components/Button";
 import Section from "@/components/Section";
-import { getIndustryLinksForService } from "@/data/industries";
+import { getPrimaryIndustryLinkForService } from "@/data/industries";
 import { packagesByServiceSlug } from "@/data/packages";
 import { servicesWithCategory } from "@/data/services";
 
@@ -61,7 +61,7 @@ export default async function PackagePage({ params }: PackagePageProps) {
     .filter((item) => item.slug !== selectedPackage.slug)
     .slice(0, 3);
   const serviceHref = `/services/${service.category.slug}/${service.slug}`;
-  const industryLinks = getIndustryLinksForService(service.slug);
+  const primaryIndustry = getPrimaryIndustryLinkForService(service.slug);
 
   return (
     <div>
@@ -131,18 +131,25 @@ export default async function PackagePage({ params }: PackagePageProps) {
         </div>
       </Section>
 
-      {industryLinks.length > 0 && (
+      {primaryIndustry && (
         <Section
-          eyebrow="Industry use cases"
-          title="Where this package works best"
-          description="A quick snapshot of industries that benefit from this scope."
+          eyebrow="Best fit"
+          title="This package works best for"
+          description="A quick reassurance before you pick the scope."
         >
-          <div className="flex flex-wrap gap-3">
-            {industryLinks.map((industry) => (
-              <Button key={industry.href} href={industry.href} variant="secondary">
-                {industry.label}
+          <div className="flex flex-col gap-4 text-sm text-muted-foreground">
+            <p>
+              This package is a strong fit for {primaryIndustry.label.toLowerCase()} teams who
+              want {service.name.toLowerCase()} support with a clear, guided scope.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button href={primaryIndustry.href} variant="secondary" size="sm">
+                Explore {primaryIndustry.label}
               </Button>
-            ))}
+              <Button href={serviceHref} variant="secondary" size="sm">
+                Back to {service.name}
+              </Button>
+            </div>
           </div>
         </Section>
       )}

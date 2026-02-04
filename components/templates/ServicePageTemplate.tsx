@@ -6,6 +6,12 @@ type LinkItem = {
   href: string;
 };
 
+type IndustryLinkItem = {
+  label: string;
+  href: string;
+  description: string;
+};
+
 type ServicePageTemplateProps = {
   hero: {
     serviceName: string;
@@ -43,7 +49,7 @@ type ServicePageTemplateProps = {
     benefits: string[];
     formCtaLabel: string;
   };
-  industryLinks?: LinkItem[];
+  industryLinks?: IndustryLinkItem[];
   conversionCta: {
     title: string;
     description: string;
@@ -239,14 +245,25 @@ export default function ServicePageTemplate({
       {industryLinks && industryLinks.length > 0 && (
         <Section
           eyebrow="Industries"
-          title="Popular industries for this service"
-          description="A few of the teams that frequently request this service."
+          title="Industries this service is perfect for"
+          description="Quick matches based on the teams we support most often."
         >
-          <div className="flex flex-wrap gap-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {industryLinks.map((industry) => (
-              <Button key={industry.href} href={industry.href} variant="secondary">
-                {industry.label}
-              </Button>
+              <div
+                key={industry.href}
+                className="card-premium rounded-3xl border border-border bg-card p-5 text-sm"
+              >
+                <p className="text-base font-semibold">{industry.label}</p>
+                <p className="mt-2 text-muted-foreground">
+                  {industry.description}
+                </p>
+                <div className="mt-4">
+                  <Button href={industry.href} variant="secondary" size="sm">
+                    View Industry
+                  </Button>
+                </div>
+              </div>
             ))}
           </div>
         </Section>
