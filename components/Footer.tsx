@@ -80,7 +80,11 @@ export default function Footer() {
               Book a Free Intro
             </Button>
           </div>
-          <form className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-xs sm:grid-cols-2 lg:grid-cols-4">
+          <form
+            action="/thank-you/lead"
+            method="get"
+            className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-xs sm:grid-cols-2 lg:grid-cols-4"
+          >
             <input
               type="text"
               placeholder="Your name"

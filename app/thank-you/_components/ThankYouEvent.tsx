@@ -3,8 +3,12 @@
 import { useEffect } from "react";
 
 type ThankYouEventProps = {
-  event: "lead_submitted" | "order_completed";
-  pageType: "contact" | "order";
+  event:
+    | "lead_submitted"
+    | "lead_submit_success"
+    | "order_completed"
+    | "order_success";
+  pageType: "contact" | "lead" | "order";
 };
 
 export default function ThankYouEvent({ event, pageType }: ThankYouEventProps) {
