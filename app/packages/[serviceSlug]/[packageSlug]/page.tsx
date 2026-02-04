@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import Button from "@/components/Button";
 import Section from "@/components/Section";
+import { getIndustryLinksForService } from "@/data/industries";
 import { packagesByServiceSlug } from "@/data/packages";
 import { servicesWithCategory } from "@/data/services";
 
@@ -60,6 +61,7 @@ export default async function PackagePage({ params }: PackagePageProps) {
     .filter((item) => item.slug !== selectedPackage.slug)
     .slice(0, 3);
   const serviceHref = `/services/${service.category.slug}/${service.slug}`;
+  const industryLinks = getIndustryLinksForService(service.slug);
 
   return (
     <div>
@@ -128,6 +130,22 @@ export default async function PackagePage({ params }: PackagePageProps) {
           </div>
         </div>
       </Section>
+
+      {industryLinks.length > 0 && (
+        <Section
+          eyebrow="Industry use cases"
+          title="Where this package works best"
+          description="A quick snapshot of industries that benefit from this scope."
+        >
+          <div className="flex flex-wrap gap-3">
+            {industryLinks.map((industry) => (
+              <Button key={industry.href} href={industry.href} variant="secondary">
+                {industry.label}
+              </Button>
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section
         eyebrow="Related packages"
