@@ -29,11 +29,14 @@ const footerLinks = [
   {
     title: "Industries",
     items: [
-      { label: "Small & Local Businesses", href: "/industries/small-local" },
-      { label: "Startups & Entrepreneurs", href: "/industries/startups" },
-      { label: "Healthcare & Medical", href: "/industries/healthcare" },
+      { label: "Startups & SaaS", href: "/industries/startups-saas" },
+      { label: "Small Businesses", href: "/industries/small-businesses" },
+      { label: "Healthcare & Clinics", href: "/industries/healthcare-clinics" },
       { label: "Real Estate", href: "/industries/real-estate" },
-      { label: "Technology & SaaS", href: "/industries/technology" },
+      {
+        label: "Finance & Professional Services",
+        href: "/industries/finance-professional-services",
+      },
       { label: "View All Industries", href: "/industries" },
     ],
   },
