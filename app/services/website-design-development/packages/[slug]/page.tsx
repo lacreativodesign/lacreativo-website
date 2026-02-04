@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import Button from "@/components/Button";
@@ -6,16 +7,41 @@ import Section from "@/components/Section";
 import { websiteDesignPackages } from "../../packagesData";
 
 type PackagePageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
   return websiteDesignPackages.map((item) => ({ slug: item.slug }));
 }
 
-export default function WebsiteDesignPackagePage({ params }: PackagePageProps) {
+export async function generateMetadata({
+  params,
+}: PackagePageProps): Promise<Metadata> {
+  const { slug } = await params;
   const selectedPackage = websiteDesignPackages.find(
-    (item) => item.slug === params.slug
+    (item) => item.slug === slug
+  );
+
+  if (!selectedPackage) {
+    return {
+      title: "Website Package | LA CREATIVO",
+      description:
+        "Explore LA CREATIVO website packages designed for USA small businesses.",
+    };
+  }
+
+  return {
+    title: `${selectedPackage.name} | Website Design & Development | LA CREATIVO`,
+    description: selectedPackage.summary,
+  };
+}
+
+export default async function WebsiteDesignPackagePage({
+  params,
+}: PackagePageProps) {
+  const { slug } = await params;
+  const selectedPackage = websiteDesignPackages.find(
+    (item) => item.slug === slug
   );
 
   if (!selectedPackage) {
@@ -46,9 +72,14 @@ export default function WebsiteDesignPackagePage({ params }: PackagePageProps) {
               This package is built for teams who want a crisp, conversion-ready
               website without delays or scope creep.
             </p>
-            <Button href="/services/website-design-development#lead-capture">
-              Order Now
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              <Button href="/services/website-design-development#lead-capture">
+                Order Now
+              </Button>
+              <Button href="/services/website-design-development" variant="secondary">
+                View Details
+              </Button>
+            </div>
           </div>
           <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">What’s included</h3>

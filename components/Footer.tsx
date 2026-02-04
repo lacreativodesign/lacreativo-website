@@ -15,15 +15,15 @@ const footerLinks = [
   {
     title: "Services",
     items: [
-      { label: "Branding & Identity", href: "/services/branding-identity" },
+      { label: "Branding", href: "/services/branding" },
       {
-        label: "Websites & Development",
-        href: "/services/websites-development",
+        label: "Website Design & Development",
+        href: "/services/website-design-development",
       },
       { label: "E-Commerce", href: "/services/ecommerce" },
-      { label: "Marketing & Growth", href: "/services/marketing-growth" },
-      { label: "SEO & Organic Growth", href: "/services/seo-organic-growth" },
-      { label: "Video & Creative", href: "/services/video-creative" },
+      { label: "Marketing", href: "/services/marketing" },
+      { label: "SEO", href: "/services/seo" },
+      { label: "Video", href: "/services/video" },
     ],
   },
   {

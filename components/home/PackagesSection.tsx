@@ -5,20 +5,20 @@ import { useState } from "react";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 
-type PackageTab = "website" | "brand" | "content" | "retain";
+type PackageTab = "website" | "ecommerce" | "branding" | "marketing";
 
 const tabs: Array<{ id: PackageTab; label: string }> = [
   { id: "website", label: "Website" },
-  { id: "brand", label: "Brand" },
-  { id: "content", label: "Content" },
-  { id: "retain", label: "Retainers" },
+  { id: "ecommerce", label: "E-Commerce" },
+  { id: "branding", label: "Branding" },
+  { id: "marketing", label: "Marketing" },
 ];
 
 const packageLinks: Record<PackageTab, string> = {
   website: "/services/website-design-development",
-  brand: "/services/brand-refresh",
-  content: "/services/social-media",
-  retain: "/services/retainers",
+  ecommerce: "/services/ecommerce",
+  branding: "/services/branding",
+  marketing: "/services/marketing",
 };
 
 const packageData: Record<
@@ -59,78 +59,78 @@ const packageData: Record<
       },
     ],
   },
-  brand: {
-    title: "Brand refresh kits",
+  ecommerce: {
+    title: "E-commerce packages",
     description:
-      "Elevate your identity with cohesive visuals and messaging foundations.",
+      "Conversion-ready storefronts for teams that want to sell online with confidence.",
     packages: [
       {
-        name: "Logo Refresh",
-        price: "$399",
-        summary: "Update your logo and core brand marks for a cleaner look.",
-        highlights: ["Primary + alternate logos", "Color palette", "Brand files"],
+        name: "Starter Store",
+        price: "$1,200",
+        summary: "Launch a clean storefront with streamlined checkout flow.",
+        highlights: ["Product setup", "Checkout configuration", "Launch support"],
       },
       {
-        name: "Brand Suite",
-        price: "$899",
-        summary: "Full identity with typography, palette, and visual direction.",
-        highlights: ["Logo system", "Typography pairing", "Brand guide"],
+        name: "Growth Store",
+        price: "$2,400",
+        summary: "Mid-size catalog build with merchandising support.",
+        highlights: ["Up to 50 products", "Collection structure", "Analytics ready"],
       },
       {
-        name: "Launch Identity",
-        price: "$1,499",
-        summary: "Complete brand story with visuals and messaging touchpoints.",
-        highlights: ["Brand strategy", "Messaging prompts", "Launch assets"],
+        name: "Premium Store",
+        price: "$3,900",
+        summary: "Advanced ecommerce build with custom flows and polish.",
+        highlights: ["Custom layouts", "Performance tuning", "Priority support"],
       },
     ],
   },
-  content: {
-    title: "Content + social systems",
+  branding: {
+    title: "Branding packages",
     description:
-      "Stay consistent with ready-to-post templates and content structure.",
+      "Cohesive identity systems that make your business feel established.",
     packages: [
       {
-        name: "Content Starter",
-        price: "$299",
-        summary: "Template pack with ready-to-use layouts for social posts.",
-        highlights: ["10 templates", "Content prompts", "Story layouts"],
+        name: "Logo Starter",
+        price: "$450",
+        summary: "Professional logo design with core brand marks.",
+        highlights: ["Primary logo", "Alternate marks", "Color palette"],
       },
       {
-        name: "Social Suite",
-        price: "$699",
-        summary: "Full template library with content planning support.",
-        highlights: ["30 templates", "Brand visuals", "Posting guide"],
+        name: "Identity Suite",
+        price: "$900",
+        summary: "Full visual identity and typography pairing.",
+        highlights: ["Logo system", "Typography", "Usage guidance"],
       },
       {
-        name: "Campaign Kit",
-        price: "$1,099",
-        summary: "Launch-focused creative with ad, email, and social assets.",
-        highlights: ["Campaign visuals", "Email graphics", "Launch checklist"],
+        name: "Brand Toolkit",
+        price: "$1,300",
+        summary: "Expanded identity with brand guidelines and launch assets.",
+        highlights: ["Brand guide", "Social templates", "Print-ready files"],
       },
     ],
   },
-  retain: {
-    title: "Creative retainers",
+  marketing: {
+    title: "Marketing packages",
     description:
-      "Ongoing design support for teams that need consistent creative.",
+      "Clear marketing plans and campaigns designed to keep leads flowing.",
     packages: [
       {
-        name: "Light Support",
-        price: "$499/mo",
-        summary: "Monthly design hours for quick updates and new assets.",
-        highlights: ["10 hours", "48-hour responses", "Priority queue"],
+        name: "Marketing Starter",
+        price: "$650",
+        summary: "Quick-start marketing roadmap with priority channels.",
+        highlights: ["Channel plan", "Messaging map", "Action checklist"],
       },
       {
-        name: "Growth Support",
-        price: "$1,299/mo",
-        summary: "Strategic design partnership with ongoing creative direction.",
-        highlights: ["25 hours", "Weekly check-ins", "Campaign support"],
+        name: "Growth Strategy",
+        price: "$1,050",
+        summary: "Deeper strategy with funnel recommendations.",
+        highlights: ["Lead funnel", "Campaign plan", "Timeline guidance"],
       },
       {
-        name: "Full Partner",
-        price: "$2,499/mo",
-        summary: "Full creative coverage for launches, sites, and content.",
-        highlights: ["40 hours", "Dedicated lead", "Quarterly planning"],
+        name: "Lead Accelerator",
+        price: "$1,450",
+        summary: "Lead gen setup with offers and conversion flow.",
+        highlights: ["Offer positioning", "Lead capture", "Reporting setup"],
       },
     ],
   },
