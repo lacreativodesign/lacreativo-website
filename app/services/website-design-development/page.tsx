@@ -1,88 +1,40 @@
+import type { Metadata } from "next";
+
 import ServicePageTemplate from "@/components/templates/ServicePageTemplate";
 
-const packages = [
-  {
-    name: "Starter Site",
-    description: "Perfect for new founders needing a polished online home.",
-    features: [
-      "1-3 pages",
-      "Mobile-first design",
-      "Basic SEO setup",
-      "Launch checklist",
-    ],
-  },
-  {
-    name: "Growth Website",
-    description: "Expanded layouts with more storytelling and conversion focus.",
-    features: [
-      "4-6 pages",
-      "Custom visuals",
-      "Lead capture setup",
-      "Analytics ready",
-    ],
-  },
-  {
-    name: "Brand Story",
-    description: "For teams that want personality, copy polish, and impact.",
-    features: [
-      "Messaging support",
-      "Visual style guide",
-      "Founder spotlight section",
-      "Launch assets",
-    ],
-  },
-  {
-    name: "Ecommerce Light",
-    description: "Simple storefronts for new product lines and launches.",
-    features: [
-      "Up to 20 products",
-      "Checkout configuration",
-      "Product templates",
-      "Store training",
-    ],
-  },
-  {
-    name: "Premium Build",
-    description: "Custom interactions and advanced sections for standout brands.",
-    features: [
-      "Advanced layout system",
-      "Custom illustrations",
-      "Performance tuning",
-      "Priority support",
-    ],
-  },
-  {
-    name: "Launch Partner",
-    description: "Full-service support with strategy, design, and rollout.",
-    features: [
-      "Creative direction",
-      "Copywriting support",
-      "Campaign assets",
-      "Post-launch check-ins",
-    ],
-  },
-];
+import { websiteDesignPackages } from "./packagesData";
+
+export const metadata: Metadata = {
+  title: "Website Design & Development Services | LA CREATIVO",
+  description:
+    "Premium website design and development for businesses ready to convert. Clear scope, fast timelines, and launch-ready builds tailored to your goals.",
+};
 
 const faqs = [
   {
-    question: "How long does a website build take?",
+    question: "What does pricing start at?",
     answer:
-      "Most launches happen in 3–6 weeks depending on the scope and how quickly we gather feedback.",
+      "Packages start at $499 with clear scopes and upgrade paths based on your goals.",
   },
   {
-    question: "Do you handle hosting and domains?",
+    question: "How long will my website take?",
     answer:
-      "We guide you through setup and can manage hosting if you want ongoing support.",
+      "Most projects launch in 2–6 weeks depending on package size and feedback timing.",
   },
   {
-    question: "Can we add more pages later?",
+    question: "Will I own the site and assets?",
     answer:
-      "Yes. Every build is structured for growth, so adding sections or pages is easy.",
+      "Yes. You receive full ownership of design files, content, and your site build.",
   },
   {
-    question: "Do you offer payment plans?",
+    question: "How many revision rounds are included?",
     answer:
-      "We can split payments across milestones to keep investment comfortable.",
+      "Each package includes structured feedback rounds with clear checkpoints.",
+  },
+  {
+    question: "Do you offer ongoing support after launch?",
+    answer:
+      "Yes. You can add ongoing support or request updates as needed.",
   },
 ];
 
@@ -91,67 +43,96 @@ export default function WebsiteDesignDevelopmentPage() {
     <ServicePageTemplate
       hero={{
         serviceName: "Website Design & Development",
-        headline:
-          "Build a premium website that makes your business feel established.",
+        headline: "Launch a premium website that turns visitors into clients.",
         description:
-          "We design conversion-ready sites that balance beautiful visuals with clear messaging, so visitors know exactly what to do next.",
-        primaryCta: { label: "View Packages", href: "#packages" },
-        secondaryCta: { label: "Get Started", href: "/get-started" },
+          "Conversion-focused strategy, standout design, and a clear path to launch — built for businesses ready to grow now.",
+        primaryCta: { label: "Order Now", href: "#lead-capture" },
+        secondaryCta: { label: "Talk to an Expert", href: "#lead-capture" },
       }}
-      whatThisServiceIs={{
-        title: "An end-to-end website experience, not just pretty pages",
+      audience={{
+        title: "Know if this is the right fit before you commit",
         description:
-          "We combine strategy, copy clarity, and design polish so your website earns trust from the first scroll.",
-        paragraphs: [
-          "This service is built for business owners who need an online presence that feels premium without the guesswork. We guide you through structure, messaging, and design decisions so you stay focused on your business while we handle the creative heavy lifting.",
-          "Expect clear timelines, calm feedback rounds, and a site that feels consistent across every device. The goal is to make your brand feel established and trustworthy the moment someone lands on your homepage.",
+          "We work best with teams who want a premium, guided website build — not endless experimentation.",
+        ideal: [
+          "Founders who need a polished site quickly",
+          "Brands ready to upgrade an outdated website",
+          "Local businesses that need clear calls-to-action",
+          "Teams who want a trusted partner to handle the details",
+        ],
+        notFor: [
+          "DIY builders looking for templates",
+          "Projects without clear decision makers",
+          "Endless scope changes without timeline control",
+          "Businesses seeking the lowest-cost option",
         ],
       }}
-      whoItsFor={{
-        title: "A fit for owners who want a confident online presence",
+      whatYouGet={{
+        title: "A complete website build, minus the chaos",
         description:
-          "These builds are made for small teams who want clarity, not complexity.",
-        paragraphs: [
-          "If you are launching a new business or updating an outdated site, this service gives you a clear, guided path from planning to launch without jargon.",
-          "It is also ideal for local businesses and growing teams who need their website to communicate quality, professionalism, and a clear next step for customers.",
-          "Founders who want to look established quickly rely on this service to align messaging, visuals, and user flow so visitors feel ready to reach out.",
-        ],
-      }}
-      howWeDeliver={{
-        title: "A calm, structured process",
-        description:
-          "We keep the work transparent so you always know what is happening and why.",
-        paragraphs: [
-          "We start with a focused discovery call to understand your goals, customers, and the actions you want visitors to take.",
-          "Next we map the site structure and messaging so every page flows naturally and supports conversion without overwhelming readers.",
-          "Design and build happen with clear checkpoints, and we translate feedback into action while keeping timelines predictable.",
-          "Before launch, we test the final experience across devices and make sure you feel confident managing updates going forward.",
+          "Everything you need for a confident launch — structured, streamlined, and conversion-ready.",
+        groups: [
+          {
+            title: "Strategy",
+            items: [
+              "Discovery session with clear goals",
+              "Site architecture and page flow",
+              "Messaging direction and CTA planning",
+            ],
+          },
+          {
+            title: "Design",
+            items: [
+              "Custom visual direction",
+              "Mobile-first layouts",
+              "Brand-aligned typography and imagery",
+            ],
+          },
+          {
+            title: "Development",
+            items: [
+              "Responsive build",
+              "Performance-focused setup",
+              "Basic SEO essentials",
+            ],
+          },
+          {
+            title: "Launch & Support",
+            items: [
+              "QA across devices",
+              "Launch checklist + handoff",
+              "Optional ongoing support",
+            ],
+          },
         ],
       }}
       packages={{
-        title: "Six structured options to match your stage",
+        title: "Pick the starting point that fits your momentum",
         description:
-          "Choose a package that fits your goals today and scales with your business tomorrow.",
-        items: packages,
+          "Simple packages with clear starting prices and fast ramp-up times.",
+        items: websiteDesignPackages.map((item) => ({
+          name: item.name,
+          startingPrice: item.startingPrice,
+          href: `/services/website-design-development/packages/${item.slug}`,
+        })),
+      }}
+      leadCapture={{
+        title: "Get a clear plan in one business day",
+        description:
+          "Share the basics and we’ll respond with scope, timeline, and the right package fit.",
+        benefits: [
+          "24-hour response window",
+          "Recommended package fit",
+          "Clear next steps",
+        ],
+        formCtaLabel: "Send my website plan",
+      }}
+      conversionCta={{
+        title: "You’re one step away from a launch-ready website",
+        description:
+          "We keep projects clean, fast, and conversion-focused so you can start booking clients quickly.",
+        primaryCta: { label: "Order Now", href: "#lead-capture" },
       }}
       faqs={faqs}
-      internalLinks={{
-        industries: [
-          { label: "Professional Services", href: "/industries/professional-services" },
-          { label: "Hospitality", href: "/industries/hospitality" },
-          { label: "Wellness", href: "/industries/wellness" },
-        ],
-        platforms: [
-          { label: "WordPress", href: "/services/wordpress-development" },
-          { label: "Webflow", href: "/services/webflow" },
-          { label: "Shopify", href: "/services/shopify" },
-        ],
-        relatedServices: [
-          { label: "Brand Identity", href: "/services/brand-identity" },
-          { label: "SEO Services", href: "/services/seo-services" },
-          { label: "Digital Marketing", href: "/services/digital-marketing" },
-        ],
-      }}
     />
   );
 }

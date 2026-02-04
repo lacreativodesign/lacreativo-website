@@ -1,17 +1,9 @@
 import Button from "@/components/Button";
-import PricingCard from "@/components/PricingCard";
 import Section from "@/components/Section";
-import type { CSSProperties } from "react";
 
 type LinkItem = {
   label: string;
   href: string;
-};
-
-type ServicePackage = {
-  name: string;
-  description: string;
-  features: string[];
 };
 
 type ServicePageTemplateProps = {
@@ -22,42 +14,51 @@ type ServicePageTemplateProps = {
     primaryCta: LinkItem;
     secondaryCta: LinkItem;
   };
-  whatThisServiceIs: {
+  audience: {
     title: string;
     description: string;
-    paragraphs: string[];
+    ideal: string[];
+    notFor: string[];
   };
-  whoItsFor: {
+  whatYouGet: {
     title: string;
     description: string;
-    paragraphs: string[];
-  };
-  howWeDeliver: {
-    title: string;
-    description: string;
-    paragraphs: string[];
+    groups: Array<{
+      title: string;
+      items: string[];
+    }>;
   };
   packages: {
     title: string;
     description: string;
-    items: ServicePackage[];
+    items: Array<{
+      name: string;
+      startingPrice: string;
+      href: string;
+    }>;
+  };
+  leadCapture: {
+    title: string;
+    description: string;
+    benefits: string[];
+    formCtaLabel: string;
+  };
+  conversionCta: {
+    title: string;
+    description: string;
+    primaryCta: LinkItem;
   };
   faqs: Array<{ question: string; answer: string }>;
-  internalLinks: {
-    industries: LinkItem[];
-    platforms: LinkItem[];
-    relatedServices: LinkItem[];
-  };
 };
 
 export default function ServicePageTemplate({
   hero,
-  whatThisServiceIs,
-  whoItsFor,
-  howWeDeliver,
+  audience,
+  whatYouGet,
   packages,
+  leadCapture,
+  conversionCta,
   faqs,
-  internalLinks,
 }: ServicePageTemplateProps) {
   return (
     <div>
@@ -94,66 +95,72 @@ export default function ServicePageTemplate({
           </div>
           <div className="hero-panel flex flex-col gap-4 rounded-[32px] p-6 text-sm text-dark-foreground/70">
             <h3 className="text-lg font-semibold text-dark-foreground">
-              Service Focus
+              Trusted delivery
             </h3>
             <p className="text-sm text-dark-foreground/70">
-              Every service page keeps one clear goal, with calm guidance and
-              just the details needed to decide.
+              Clear scope, direct guidance, and a launch-ready site built to
+              convert.
             </p>
-            <div className="mt-2 flex h-40 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-xs text-dark-foreground/60">
-              Visual highlight placeholder
+            <div className="mt-2 grid gap-2 text-xs text-dark-foreground/70">
+              <span>• Strategy-led structure</span>
+              <span>• 24-hour response window</span>
+              <span>• Ownership of every asset</span>
             </div>
           </div>
         </div>
       </Section>
 
       <Section
-        eyebrow="What this service is"
-        title={whatThisServiceIs.title}
-        description={whatThisServiceIs.description}
+        eyebrow="Fit check"
+        title={audience.title}
+        description={audience.description}
       >
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
-            {whatThisServiceIs.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
+            <h3 className="text-lg font-semibold">Ideal for</h3>
+            <ul className="mt-4 flex flex-col gap-3 text-muted-foreground">
+              {audience.ideal.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="font-semibold text-accent">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
-            <h3 className="text-lg font-semibold">What you can expect</h3>
-            <p className="mt-3 text-muted-foreground">
-              Clear timelines, friendly guidance, and deliverables built to
-              convert without overwhelming your audience.
-            </p>
+            <h3 className="text-lg font-semibold">Not for</h3>
+            <ul className="mt-4 flex flex-col gap-3 text-muted-foreground">
+              {audience.notFor.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="font-semibold text-destructive">✕</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Section>
 
       <Section
-        tone="muted"
-        eyebrow="Who it’s for"
-        title={whoItsFor.title}
-        description={whoItsFor.description}
-      >
-        <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
-          {whoItsFor.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="How LA CREATIVO delivers this"
-        title={howWeDeliver.title}
-        description={howWeDeliver.description}
+        eyebrow="What you get"
+        title={whatYouGet.title}
+        description={whatYouGet.description}
       >
         <div className="grid gap-6 md:grid-cols-2">
-          {howWeDeliver.paragraphs.map((paragraph, index) => (
+          {whatYouGet.groups.map((group) => (
             <div
-              key={paragraph}
-              className="card-premium reveal rounded-3xl border border-border bg-card p-6 text-sm"
-              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
+              key={group.title}
+              className="card-premium rounded-3xl border border-border bg-card p-6 text-sm"
             >
-              <p className="text-muted-foreground">{paragraph}</p>
+              <h3 className="text-lg font-semibold">{group.title}</h3>
+              <ul className="mt-4 flex flex-col gap-3 text-muted-foreground">
+                {group.items.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
@@ -161,24 +168,80 @@ export default function ServicePageTemplate({
 
       <Section
         id="packages"
-        eyebrow="Packages"
+        eyebrow="Packages snapshot"
         title={packages.title}
         description={packages.description}
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {packages.items.map((item, index) => (
+          {packages.items.map((item) => (
             <div
               key={item.name}
-              className="reveal"
-              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
+              className="card-premium flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm"
             >
-              <PricingCard
-                name={item.name}
-                description={item.description}
-                features={item.features}
-              />
+              <div className="flex items-baseline justify-between">
+                <h3 className="text-lg font-semibold">{item.name}</h3>
+                <span className="text-sm font-semibold text-accent">
+                  {item.startingPrice}
+                </span>
+              </div>
+              <Button href={item.href} variant="secondary" size="sm">
+                View Package Details
+              </Button>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section
+        id="lead-capture"
+        tone="muted"
+        padding="sm"
+        eyebrow="Ready to move"
+        title={leadCapture.title}
+        description={leadCapture.description}
+      >
+        <div className="grid items-center gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="flex flex-col gap-4 text-sm text-muted-foreground">
+            <p>
+              Share four details and we’ll reply with the best package fit,
+              timeline, and next steps.
+            </p>
+            <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
+              {leadCapture.benefits.map((benefit) => (
+                <span key={benefit}>✓ {benefit}</span>
+              ))}
+            </div>
+          </div>
+          <form className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground">
+            <input type="text" placeholder="Full name" className="input-field" />
+            <input
+              type="email"
+              placeholder="Email address"
+              className="input-field"
+            />
+            <input
+              type="tel"
+              placeholder="Phone number"
+              className="input-field"
+            />
+            <input
+              type="text"
+              placeholder="Business name"
+              className="input-field"
+            />
+            <Button type="submit">{leadCapture.formCtaLabel}</Button>
+          </form>
+        </div>
+      </Section>
+
+      <Section tone="dark" eyebrow="Next step" title={conversionCta.title}>
+        <div className="flex flex-col gap-4 text-sm text-dark-foreground/70 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-xl text-sm text-dark-foreground/70">
+            {conversionCta.description}
+          </p>
+          <Button href={conversionCta.primaryCta.href} size="lg">
+            {conversionCta.primaryCta.label}
+          </Button>
         </div>
       </Section>
 
@@ -199,52 +262,6 @@ export default function ServicePageTemplate({
               <p className="mt-3 text-muted-foreground">{faq.answer}</p>
             </details>
           ))}
-        </div>
-      </Section>
-
-      <Section
-        tone="dark"
-        eyebrow="Internal links"
-        title="Keep exploring with purpose"
-        description="Relevant next steps for industries, platforms, and related services."
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
-            <h3 className="text-lg font-semibold text-dark-foreground">
-              Industries
-            </h3>
-            <div className="flex flex-col gap-3">
-              {internalLinks.industries.map((item) => (
-                <Button key={item.href} href={item.href} variant="secondary">
-                  {item.label}
-                </Button>
-              ))}
-            </div>
-          </div>
-          <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
-            <h3 className="text-lg font-semibold text-dark-foreground">
-              Platforms
-            </h3>
-            <div className="flex flex-col gap-3">
-              {internalLinks.platforms.map((item) => (
-                <Button key={item.href} href={item.href} variant="secondary">
-                  {item.label}
-                </Button>
-              ))}
-            </div>
-          </div>
-          <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
-            <h3 className="text-lg font-semibold text-dark-foreground">
-              Related services
-            </h3>
-            <div className="flex flex-col gap-3">
-              {internalLinks.relatedServices.map((item) => (
-                <Button key={item.href} href={item.href} variant="secondary">
-                  {item.label}
-                </Button>
-              ))}
-            </div>
-          </div>
         </div>
       </Section>
     </div>
