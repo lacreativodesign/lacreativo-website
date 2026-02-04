@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import PackagesSection from "@/components/home/PackagesSection";
 import type { CSSProperties } from "react";
 
 const whatWeDo = [
@@ -470,6 +471,8 @@ export default function Home() {
           ))}
         </div>
       </Section>
+
+      <PackagesSection />
 
       <Section
         tone="dark"
