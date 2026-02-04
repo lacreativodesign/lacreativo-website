@@ -194,7 +194,7 @@ export default function PackagesSection() {
               </span>
             </div>
             <p className="text-muted-foreground">{item.summary}</p>
-            <ul className="flex flex-1 flex-col gap-2 text-xs text-muted-foreground">
+            <ul className="reveal-stagger flex flex-1 flex-col gap-2 text-xs text-muted-foreground">
               {item.highlights.map((highlight) => (
                 <li key={highlight} className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-accent" />
