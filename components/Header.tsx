@@ -186,6 +186,12 @@ export default function Header() {
           >
             About Us
           </Link>
+          <Link
+            href="/work-with-us"
+            className="text-muted-foreground transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            Work With Us
+          </Link>
           <div
             className="relative"
             onMouseEnter={() => setIsMegaOpen(true)}
@@ -331,6 +337,13 @@ export default function Header() {
                 onClick={handleMobileToggle}
               >
                 About Us
+              </Link>
+              <Link
+                href="/work-with-us"
+                className="text-base text-foreground transition hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                onClick={handleMobileToggle}
+              >
+                Work With Us
               </Link>
               <button
                 type="button"

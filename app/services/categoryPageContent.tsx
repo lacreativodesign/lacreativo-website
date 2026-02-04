@@ -8,6 +8,14 @@ type CategoryPageContentProps = {
 };
 
 export default function CategoryPageContent({ category }: CategoryPageContentProps) {
+  const orderSteps = [
+    "Order placed and confirmation sent.",
+    "Intake form and kickoff call.",
+    "First draft delivered for review.",
+    "Revision round(s) based on your feedback.",
+    "Final delivery and launch support.",
+  ];
+
   return (
     <div>
       <Section
@@ -24,6 +32,11 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
           <Button href="/services" variant="secondary" size="lg">
             Browse all services
           </Button>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-3 text-xs text-dark-foreground/60">
+          <span>100% satisfaction guaranteed</span>
+          <span>You own everything we build</span>
+          <span>No hidden fees or surprise add-ons</span>
         </div>
       </Section>
 
@@ -63,6 +76,29 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
           </div>
         </div>
       </Section>
+
+      {category.slug === "website-design-development" && (
+        <Section
+          tone="muted"
+          eyebrow="What happens after you order"
+          title="A clear, five-step handoff"
+          description="Short, predictable steps so you know what happens next."
+        >
+          <ol className="grid gap-4 text-sm text-muted-foreground md:grid-cols-2">
+            {orderSteps.map((step, index) => (
+              <li
+                key={step}
+                className="card-premium flex flex-col gap-3 rounded-3xl border border-border bg-card p-6"
+              >
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                  Step {index + 1}
+                </span>
+                <p>{step}</p>
+              </li>
+            ))}
+          </ol>
+        </Section>
+      )}
 
       <Section
         eyebrow="Who it’s for"

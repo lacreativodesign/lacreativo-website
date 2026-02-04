@@ -54,6 +54,11 @@ export default function IndustryPageTemplate({
               Browse Services
             </Button>
           </div>
+          <div className="flex flex-wrap gap-3 text-xs text-dark-foreground/60">
+            <span>100% satisfaction guaranteed</span>
+            <span>You own everything we build</span>
+            <span>No hidden fees or surprise add-ons</span>
+          </div>
         </div>
       </Section>
 

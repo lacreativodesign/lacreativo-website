@@ -114,6 +114,11 @@ export default function ServicePageTemplate({
               <span>• 24-hour response window</span>
               <span>• Ownership of every asset</span>
             </div>
+            <div className="mt-3 flex flex-wrap gap-2 text-[11px] text-dark-foreground/60">
+              <span>100% satisfaction guaranteed</span>
+              <span>•</span>
+              <span>No hidden fees</span>
+            </div>
           </div>
         </div>
       </Section>

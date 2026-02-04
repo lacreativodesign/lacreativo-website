@@ -6,6 +6,7 @@ const footerLinks = [
     title: "Company",
     items: [
       { label: "About Us", href: "/about-us" },
+      { label: "Work With Us", href: "/work-with-us" },
       { label: "How It Works", href: "/how-it-works" },
       { label: "Portfolio", href: "/portfolio" },
       { label: "Testimonials", href: "/testimonials" },
@@ -52,8 +53,9 @@ const footerLinks = [
     title: "Legal",
     items: [
       { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms & Conditions", href: "/terms-conditions" },
+      { label: "Terms & Conditions", href: "/terms-and-conditions" },
       { label: "Guarantees", href: "/guarantees" },
+      { label: "Client Login", href: "/client-login" },
     ],
   },
 ];
@@ -167,7 +169,7 @@ export default function Footer() {
               Privacy Policy
             </Link>
             <Link
-              href="/terms-conditions"
+              href="/terms-and-conditions"
               className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Terms & Conditions
