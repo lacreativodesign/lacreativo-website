@@ -14,6 +14,13 @@ const tabs: Array<{ id: PackageTab; label: string }> = [
   { id: "retain", label: "Retainers" },
 ];
 
+const packageLinks: Record<PackageTab, string> = {
+  website: "/services/website-design-development",
+  brand: "/services/brand-refresh",
+  content: "/services/social-media",
+  retain: "/services/retainers",
+};
+
 const packageData: Record<
   PackageTab,
   {
@@ -132,6 +139,7 @@ const packageData: Record<
 export default function PackagesSection() {
   const [activeTab, setActiveTab] = useState<PackageTab>("website");
   const activeContent = packageData[activeTab];
+  const activeLink = packageLinks[activeTab];
 
   return (
     <Section
@@ -162,6 +170,9 @@ export default function PackagesSection() {
           );
         })}
       </div>
+      <p className="text-xs text-muted-foreground">
+        Choose a starting point, then scale up anytime.
+      </p>
 
       <div key={activeTab} className="tab-panel rounded-3xl border border-border bg-card p-6 text-sm">
         <h3 className="text-lg font-semibold">{activeContent.title}</h3>
@@ -194,6 +205,12 @@ export default function PackagesSection() {
             <Button href="/get-started" size="sm">
               Order Now
             </Button>
+            <a
+              href={activeLink}
+              className="text-xs font-semibold text-muted-foreground transition hover:text-foreground"
+            >
+              View package details →
+            </a>
           </div>
         ))}
       </div>
