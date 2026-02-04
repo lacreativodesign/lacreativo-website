@@ -84,6 +84,8 @@ export default async function PackagePage({ params }: PackagePageProps) {
           <span>100% satisfaction guaranteed</span>
           <span>You own everything we build</span>
           <span>No hidden fees or surprise add-ons</span>
+          <span>Secure payment processing</span>
+          <span>Clear next steps after checkout</span>
         </div>
       </Section>
 
@@ -220,6 +222,9 @@ export default async function PackagePage({ params }: PackagePageProps) {
               Back to service
             </Button>
           </div>
+          <p className="text-xs text-dark-foreground/60">
+            Secure payment, satisfaction guarantee, and clear next steps included.
+          </p>
         </div>
       </Section>
     </div>

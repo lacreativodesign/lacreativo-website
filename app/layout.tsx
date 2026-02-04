@@ -16,10 +16,20 @@ const displayFont = Playfair_Display({
   weight: ["600", "700"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const metadataBase = siteUrl ? new URL(siteUrl) : undefined;
+
 export const metadata: Metadata = {
   title: "LA CREATIVO — Creative & Digital Services",
   description:
     "Design-first creative & digital services for ambitious small businesses.",
+  metadataBase,
+  verification: {
+    google: "GOOGLE_SEARCH_CONSOLE_CODE",
+    other: {
+      "msvalidate.01": "BING_WEBMASTER_CODE",
+    },
+  },
 };
 
 export default function RootLayout({
