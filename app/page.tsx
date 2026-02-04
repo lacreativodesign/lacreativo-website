@@ -2,7 +2,14 @@ import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import type { Metadata } from "next";
 import type { CSSProperties } from "react";
+
+export const metadata: Metadata = {
+  title: "LA CREATIVO | Creative Studio for Small Business Growth",
+  description:
+    "Premium brand, web, and launch support for small businesses—clear timelines, calm guidance, and conversion-ready design.",
+};
 
 const whatWeDo = [
   {
@@ -44,39 +51,39 @@ const services = [
     href: "/services/website-design-development",
   },
   {
-    title: "Brand Refresh Kits",
-    description: "Logo, palette, messaging, and launch assets.",
+    title: "Brand & Identity Foundations",
+    description: "Logo, palette, and messaging aligned with your website.",
     icon: "🎨",
     visual: "Brand board",
-    href: "/services/brand-refresh",
+    href: "/services/website-design-development",
   },
   {
-    title: "Social Media Systems",
-    description: "Templates, content planning, and visual direction.",
+    title: "Launch Copy & Messaging",
+    description: "Clear positioning and headlines that guide the next step.",
     icon: "📣",
     visual: "Content planner",
-    href: "/services/social-media",
+    href: "/services/website-design-development",
   },
   {
-    title: "Ecommerce Setup",
-    description: "From storefront to checkout, ready to sell.",
+    title: "SEO & Analytics Setup",
+    description: "Technical setup so your new site can be found quickly.",
     icon: "🛍️",
     visual: "Storefront mockup",
-    href: "/services/ecommerce",
+    href: "/services/website-design-development",
   },
   {
-    title: "Creative Retainers",
-    description: "Ongoing design support without full-time costs.",
+    title: "Ecommerce Essentials",
+    description: "Lightweight storefronts and product-ready templates.",
     icon: "🧩",
     visual: "Creative queue",
-    href: "/services/retainers",
+    href: "/services/website-design-development",
   },
   {
-    title: "Launch Campaigns",
-    description: "Short-burst creative for major moments.",
+    title: "Ongoing Growth Support",
+    description: "Optional updates and refinements after launch.",
     icon: "🚀",
     visual: "Campaign toolkit",
-    href: "/services/launch-campaigns",
+    href: "/services/website-design-development",
   },
 ];
 
@@ -174,7 +181,7 @@ export default function Home() {
               the first scroll.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button href="/get-started" size="lg">
+              <Button href="/#contact" size="lg">
                 Start Your Project
               </Button>
               <Button href="#services" variant="secondary" size="lg">
@@ -182,23 +189,43 @@ export default function Home() {
               </Button>
             </div>
             <form className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4">
+              <label className="sr-only" htmlFor="hero-name">
+                Full name
+              </label>
               <input
                 type="text"
+                id="hero-name"
+                name="name"
                 placeholder="Your name"
                 className="input-field input-field-dark"
               />
+              <label className="sr-only" htmlFor="hero-email">
+                Work email
+              </label>
               <input
                 type="email"
+                id="hero-email"
+                name="email"
                 placeholder="Work email"
                 className="input-field input-field-dark"
               />
+              <label className="sr-only" htmlFor="hero-phone">
+                Phone number
+              </label>
               <input
                 type="tel"
+                id="hero-phone"
+                name="phone"
                 placeholder="Phone"
                 className="input-field input-field-dark"
               />
+              <label className="sr-only" htmlFor="hero-business">
+                Business name
+              </label>
               <input
                 type="text"
+                id="hero-business"
+                name="business"
                 placeholder="Business name"
                 className="input-field input-field-dark"
               />
@@ -206,6 +233,12 @@ export default function Home() {
                 Get the free roadmap
               </Button>
             </form>
+            <p
+              id="hero-form-helper"
+              className="text-xs text-dark-foreground/60"
+            >
+              We only use this to send your roadmap. No spam, no pressure.
+            </p>
             <div className="flex flex-wrap gap-4 text-xs text-dark-foreground/70">
               <span>
                 Launch-ready in{" "}
@@ -242,6 +275,7 @@ export default function Home() {
       </Section>
 
       <Section
+        id="about"
         tone="muted"
         eyebrow="Trusted by growing teams"
         title="A creative partner built for small business momentum"
@@ -358,7 +392,11 @@ export default function Home() {
                   </div>
                 }
                 cta={
-                  <Button variant="ghost" size="sm" href="/services">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    href="/services/website-design-development"
+                  >
                     Learn More →
                   </Button>
                 }
@@ -472,6 +510,7 @@ export default function Home() {
       </Section>
 
       <Section
+        id="contact"
         tone="dark"
         eyebrow="Ready for clarity?"
         title="Get a no-pressure launch plan in your inbox"
@@ -506,28 +545,52 @@ export default function Home() {
             </div>
           </div>
           <form className="form-surface hero-form grid gap-3 rounded-3xl p-5 text-sm text-dark-foreground/70">
+            <label className="sr-only" htmlFor="cta-name">
+              Full name
+            </label>
             <input
               type="text"
+              id="cta-name"
+              name="name"
               placeholder="Full name"
               className="input-field input-field-dark"
             />
+            <label className="sr-only" htmlFor="cta-email">
+              Email address
+            </label>
             <input
               type="email"
+              id="cta-email"
+              name="email"
               placeholder="Email address"
               className="input-field input-field-dark"
             />
+            <label className="sr-only" htmlFor="cta-phone">
+              Phone number
+            </label>
             <input
               type="tel"
+              id="cta-phone"
+              name="phone"
               placeholder="Phone number"
               className="input-field input-field-dark"
             />
+            <label className="sr-only" htmlFor="cta-business">
+              Business name
+            </label>
             <input
               type="text"
+              id="cta-business"
+              name="business"
               placeholder="Business name"
               className="input-field input-field-dark"
             />
             <Button type="submit">Send my roadmap</Button>
           </form>
+          <p className="text-xs text-dark-foreground/60">
+            We’ll reply within one business day with next steps and a budget
+            range.
+          </p>
         </div>
       </Section>
 
@@ -557,7 +620,11 @@ export default function Home() {
               <p className="mt-2 text-xs text-dark-foreground/70">
                 {step.description}
               </p>
-              <div className="mt-4 h-16 rounded-2xl border border-white/10 bg-white/5 text-[10px] text-dark-foreground/60 flex items-center justify-center">
+              <div
+                role="img"
+                aria-label="Process step visual placeholder"
+                className="mt-4 flex h-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[10px] text-dark-foreground/60"
+              >
                 Process visual
               </div>
             </div>
@@ -578,7 +645,11 @@ export default function Home() {
               className="card-premium reveal hover-lift group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6"
               style={{ "--delay": `${index * 100}ms` } as CSSProperties}
             >
-              <div className="flex h-44 items-center justify-center rounded-2xl bg-muted text-xs text-muted-foreground transition group-hover:bg-accent/20">
+              <div
+                role="img"
+                aria-label="Portfolio preview placeholder"
+                className="flex h-44 items-center justify-center rounded-2xl bg-muted text-xs text-muted-foreground transition group-hover:bg-accent/20"
+              >
                 Image placeholder
               </div>
               <div className="flex items-center justify-between text-sm">
@@ -638,6 +709,7 @@ export default function Home() {
       </Section>
 
       <Section
+        id="testimonials"
         eyebrow="Testimonials"
         title="Small business owners who felt the difference"
         description="Five-star results, delivered with clarity and care."
@@ -657,10 +729,14 @@ export default function Home() {
               map out the next steps in one short conversation.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button href="/get-started" size="lg">
-                Get Started
+              <Button href="/#contact" size="lg">
+                Start With a Roadmap
               </Button>
-              <Button href="/services" variant="secondary" size="lg">
+              <Button
+                href="/services/website-design-development#packages"
+                variant="secondary"
+                size="lg"
+              >
                 Browse Packages
               </Button>
             </div>
@@ -688,8 +764,8 @@ export default function Home() {
               Launch your next chapter with a team that gets small business.
             </p>
           </div>
-          <Button href="/get-started" variant="secondary">
-            Book My Intro Call
+          <Button href="/#contact" variant="secondary">
+            Book an Intro Call
           </Button>
         </div>
       </Section>

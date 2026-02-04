@@ -191,8 +191,8 @@ export default function PackagesSection() {
                 </li>
               ))}
             </ul>
-            <Button href="/get-started" size="sm">
-              Order Now
+            <Button href="/#contact" size="sm">
+              Start with this package
             </Button>
           </div>
         ))}
