@@ -3,10 +3,7 @@ import PricingCard from "@/components/PricingCard";
 import Section from "@/components/Section";
 import type { CSSProperties } from "react";
 
-type LinkItem = {
-  label: string;
-  href: string;
-};
+type LinkItem = { label: string; href: string };
 
 type ServicePackage = {
   name: string;
