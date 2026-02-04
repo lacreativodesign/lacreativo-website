@@ -1,10 +1,7 @@
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 
-type LinkItem = {
-  label: string;
-  href: string;
-};
+type LinkItem = { label: string; href: string };
 
 type IndustryLinkItem = {
   label: string;
