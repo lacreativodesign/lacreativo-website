@@ -155,6 +155,7 @@ export default function Home() {
           <>
             <div className="absolute inset-0 gradient-hero opacity-90" />
             <div className="absolute inset-0 hero-ambient opacity-80" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_0%,rgba(255,255,255,0.08),transparent_55%)]" />
           </>
         }
       >
@@ -180,7 +181,7 @@ export default function Home() {
                 Explore Services
               </Button>
             </div>
-            <form className="form-surface grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4">
+            <form className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4">
               <input
                 type="text"
                 placeholder="Your name"
@@ -224,16 +225,17 @@ export default function Home() {
           </div>
           <div className="relative flex items-center justify-center">
             <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/10 via-transparent to-dark/80" />
-            <div className="relative flex h-[360px] w-full flex-col items-center justify-center gap-4 rounded-[32px] border border-white/10 bg-white/5 text-center text-sm text-dark-foreground/70">
-              <div className="text-xs uppercase tracking-[0.3em]">
+            <div className="hero-panel relative flex h-[360px] w-full flex-col items-center justify-center gap-4 rounded-[32px] text-center text-sm text-dark-foreground/70">
+              <div className="text-xs uppercase tracking-[0.3em] text-dark-foreground/60">
                 Showcase space
               </div>
               <div className="text-lg font-semibold text-dark-foreground">
                 Website + Brand preview
               </div>
-              <div className="rounded-full border border-white/20 px-4 py-2 text-xs">
+              <div className="rounded-full border border-white/20 px-4 py-2 text-xs text-dark-foreground/70">
                 Editorial layout spotlight
               </div>
+              <div className="mt-2 h-28 w-48 rounded-3xl border border-white/15 bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
             </div>
           </div>
         </div>
@@ -300,7 +302,7 @@ export default function Home() {
             ].map((item, index) => (
               <div
                 key={item.id}
-                className="reveal rounded-3xl border border-border bg-card p-6 text-sm"
+                className="card-premium reveal rounded-3xl border border-border bg-card p-6 text-sm"
                 style={{ "--delay": `${index * 120}ms` } as CSSProperties}
               >
                 <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -308,7 +310,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm">
+          <div className="card-premium flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">Trust indicators</h3>
             <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
               <span className="rounded-full border border-border px-3 py-1">
@@ -418,7 +420,7 @@ export default function Home() {
             ].map((item, index) => (
               <div
                 key={item.title}
-                className="reveal rounded-3xl border border-border bg-card p-5 text-sm"
+                className="card-premium reveal rounded-3xl border border-border bg-card p-5 text-sm"
                 style={{ "--delay": `${index * 120}ms` } as CSSProperties}
               >
                 <div className="flex items-center gap-3">
@@ -503,7 +505,7 @@ export default function Home() {
               <span>✓ Quick wins included</span>
             </div>
           </div>
-          <form className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-dark-foreground/70">
+          <form className="form-surface hero-form grid gap-3 rounded-3xl p-5 text-sm text-dark-foreground/70">
             <input
               type="text"
               placeholder="Full name"
@@ -540,7 +542,7 @@ export default function Home() {
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className="reveal rounded-3xl border border-white/10 bg-white/5 p-5"
+              className="reveal rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_18px_40px_rgba(6,4,9,0.35)]"
               style={{ "--delay": `${index * 120}ms` } as CSSProperties}
             >
               <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-dark-foreground/60">
@@ -573,7 +575,7 @@ export default function Home() {
           {portfolio.map((item, index) => (
             <div
               key={item}
-              className="reveal hover-lift group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6"
+              className="card-premium reveal hover-lift group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6"
               style={{ "--delay": `${index * 100}ms` } as CSSProperties}
             >
               <div className="flex h-44 items-center justify-center rounded-2xl bg-muted text-xs text-muted-foreground transition group-hover:bg-accent/20">
@@ -623,7 +625,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm">
+          <div className="card-premium flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">What’s always included</h3>
             <ul className="flex flex-col gap-2 text-muted-foreground">
               <li>Creative direction and kickoff session</li>
@@ -663,7 +665,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
+          <div className="hero-panel flex flex-col gap-4 rounded-3xl p-6 text-sm text-dark-foreground/70">
             <h3 className="text-lg font-semibold text-dark-foreground">
               What you get next
             </h3>

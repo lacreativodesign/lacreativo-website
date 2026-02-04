@@ -30,7 +30,7 @@ export default function TestimonialSlider({
         {items.map((item) => (
           <article
             key={item.name}
-            className="reveal hover-lift min-w-[240px] flex-1 snap-start rounded-3xl border border-border bg-card p-6 shadow-sm lg:min-w-[220px] xl:min-w-[200px]"
+            className="carousel-card reveal hover-lift min-w-[240px] flex-1 snap-start rounded-3xl border border-border bg-card p-6 shadow-sm lg:min-w-[220px] xl:min-w-[200px]"
           >
             <div className="flex items-center gap-1 text-accent">
               {stars(item.rating ?? 5)}
