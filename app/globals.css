@@ -439,6 +439,13 @@ h6 {
 .carousel-track {
   scroll-behavior: smooth;
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-card {
@@ -561,6 +568,14 @@ h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
   .reveal {
     opacity: 1;
     transform: none;
@@ -596,6 +611,20 @@ h6 {
   .carousel-card:hover {
     transform: none;
     box-shadow: none;
+  }
+}
+
+@media (hover: none) {
+  .hover-lift:hover,
+  .carousel-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .input-field {
+    font-size: 1rem;
   }
 }
 
