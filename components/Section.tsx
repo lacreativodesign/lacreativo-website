@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 const tones = {
   light: "bg-background text-foreground",
-  dark: "bg-dark text-dark-foreground",
-  muted: "bg-muted text-foreground",
+  dark: "bg-dark text-dark-foreground section-wash-dark",
+  muted: "bg-muted text-foreground section-wash",
   accent: "bg-accent text-accent-foreground",
 };
 
@@ -16,8 +16,8 @@ const toneText = {
 
 const paddings = {
   sm: "py-16",
-  md: "py-20",
-  lg: "py-24",
+  md: "py-24",
+  lg: "py-28",
 };
 
 type SectionProps = {
@@ -52,7 +52,7 @@ export default function Section({
       className={`${tones[tone]} ${paddings[padding]} relative overflow-hidden`}
     >
       {background}
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-14 px-6">
         {(eyebrow || title || description) && (
           <header className={`section-head flex flex-col gap-4 ${alignment} ${align === "center" ? "mx-auto" : ""}`}>
             {eyebrow && (

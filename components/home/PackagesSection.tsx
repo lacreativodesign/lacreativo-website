@@ -149,11 +149,13 @@ export default function PackagesSection() {
               key={tab.id}
               type="button"
               onClick={() => setActiveTab(tab.id)}
-              className={`rounded-full border px-4 py-2 text-sm transition ${
+              className={`tab-button rounded-full border px-4 py-2 text-sm transition ${
                 isActive
                   ? "border-accent bg-accent text-accent-foreground"
                   : "border-border bg-card text-muted-foreground hover:border-accent/50"
               }`}
+              data-active={isActive}
+              aria-pressed={isActive}
             >
               {tab.label}
             </button>
@@ -161,18 +163,18 @@ export default function PackagesSection() {
         })}
       </div>
 
-      <div className="rounded-3xl border border-border bg-card p-6 text-sm">
+      <div key={activeTab} className="tab-panel rounded-3xl border border-border bg-card p-6 text-sm">
         <h3 className="text-lg font-semibold">{activeContent.title}</h3>
         <p className="mt-2 text-muted-foreground">
           {activeContent.description}
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div key={`${activeTab}-grid`} className="tab-panel grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {activeContent.packages.map((item) => (
           <div
             key={item.name}
-            className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm"
+            className="card-premium hover-lift flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm"
           >
             <div className="flex items-baseline justify-between">
               <h4 className="text-base font-semibold">{item.name}</h4>

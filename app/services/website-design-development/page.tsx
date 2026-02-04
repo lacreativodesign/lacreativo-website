@@ -128,6 +128,7 @@ export default function WebsiteDesignDevelopmentPage() {
           <>
             <div className="absolute inset-0 gradient-hero opacity-90" />
             <div className="absolute inset-0 hero-ambient opacity-80" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_0%,rgba(255,255,255,0.08),transparent_55%)]" />
           </>
         }
       >
@@ -158,7 +159,7 @@ export default function WebsiteDesignDevelopmentPage() {
               <span>Launch-ready in weeks</span>
             </div>
           </div>
-          <div className="flex flex-col gap-4 rounded-[32px] border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70">
+          <div className="hero-panel flex flex-col gap-4 rounded-[32px] p-6 text-sm text-dark-foreground/70">
             <h3 className="text-lg font-semibold text-dark-foreground">
               Service Highlights
             </h3>
@@ -194,7 +195,7 @@ export default function WebsiteDesignDevelopmentPage() {
               feel established and trustworthy the moment someone visits.
             </p>
           </div>
-          <div className="rounded-3xl border border-border bg-card p-6 text-sm">
+          <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">Best for</h3>
             <p className="mt-3 text-muted-foreground">
               New businesses, rebrands, local teams, and founders ready to level
@@ -216,7 +217,7 @@ export default function WebsiteDesignDevelopmentPage() {
               We respond within one business day with a tailored roadmap. No
               pressure, just clear next steps.
             </p>
-            <div className="rounded-3xl border border-border bg-card p-5 text-sm">
+            <div className="card-premium rounded-3xl border border-border bg-card p-5 text-sm">
               <h3 className="text-lg font-semibold">What we’ll send back</h3>
               <ul className="mt-3 flex flex-col gap-2 text-muted-foreground">
                 <li>✓ Recommended package fit</li>
@@ -263,11 +264,11 @@ export default function WebsiteDesignDevelopmentPage() {
         description="We built this service for owners who want a premium presence but need everything explained in real-world terms."
       >
         <div className="grid gap-6 md:grid-cols-2">
-          {[
-            {
-              title: "Founders & startups",
-              description:
-                "Launch a site that makes investors, partners, and customers take you seriously.",
+            {[
+              {
+                title: "Founders & startups",
+                description:
+                  "Launch a site that makes investors, partners, and customers take you seriously.",
             },
             {
               title: "Local businesses",
@@ -284,15 +285,15 @@ export default function WebsiteDesignDevelopmentPage() {
               description:
                 "Put a polished face on your next release and generate early trust.",
             },
-          ].map((item, index) => (
-            <div
-              key={item.title}
-              className="reveal rounded-3xl border border-border bg-card p-6 text-sm"
-              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
-            >
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-muted-foreground">{item.description}</p>
-            </div>
+            ].map((item, index) => (
+              <div
+                key={item.title}
+                className="card-premium reveal rounded-3xl border border-border bg-card p-6 text-sm"
+                style={{ "--delay": `${index * 120}ms` } as CSSProperties}
+              >
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="mt-2 text-muted-foreground">{item.description}</p>
+              </div>
           ))}
         </div>
       </Section>
@@ -302,7 +303,7 @@ export default function WebsiteDesignDevelopmentPage() {
         title="Modern platforms, ready for your customers"
         description="We design with flexibility in mind so you can scale without rebuilding later."
       >
-        <div className="flex flex-wrap items-center gap-4 rounded-3xl border border-border bg-card p-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        <div className="card-premium flex flex-wrap items-center gap-4 rounded-3xl border border-border bg-card p-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
           <span className="rounded-full border border-border px-4 py-2">
             Shopify
           </span>
@@ -331,7 +332,7 @@ export default function WebsiteDesignDevelopmentPage() {
           {["Wellness", "Hospitality", "Creative"].map((item, index) => (
             <div
               key={item}
-              className="reveal flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70"
+              className="reveal flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-dark-foreground/70 shadow-[0_20px_45px_rgba(6,4,9,0.35)]"
               style={{ "--delay": `${index * 120}ms` } as CSSProperties}
             >
               <div className="flex h-40 items-center justify-center rounded-2xl bg-white/10 text-xs">
@@ -386,7 +387,7 @@ export default function WebsiteDesignDevelopmentPage() {
           {faqs.map((faq) => (
             <details
               key={faq.question}
-              className="rounded-3xl border border-border bg-card p-6 text-sm"
+              className="card-premium rounded-3xl border border-border bg-card p-6 text-sm"
             >
               <summary className="cursor-pointer font-semibold">
                 {faq.question}
