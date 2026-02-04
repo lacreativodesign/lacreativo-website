@@ -175,13 +175,17 @@ export default function Home() {
               the first scroll.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button href="/get-started" size="lg">
-                Start Your Project
+              <Button href="#lead-capture" size="lg">
+                Get My 24-Hr Roadmap
               </Button>
-              <Button href="#services" variant="secondary" size="lg">
-                Explore Services
+              <Button href="#packages" variant="secondary" size="lg">
+                Browse Packages First
               </Button>
             </div>
+            <p className="text-xs text-dark-foreground/60">
+              Roadmap arrives within one business day. Compare packages before
+              you commit.
+            </p>
             <form className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4">
               <input
                 type="text"
@@ -204,7 +208,7 @@ export default function Home() {
                 className="input-field input-field-dark"
               />
               <Button type="submit" size="sm" className="sm:col-span-2 lg:col-span-4">
-                Get the free roadmap
+                Get my roadmap
               </Button>
             </form>
             <div className="flex flex-wrap gap-4 text-xs text-dark-foreground/70">
@@ -222,6 +226,7 @@ export default function Home() {
                 </span>
               </span>
               <span>US-based creative team</span>
+              <span>Rated 4.9/5 by 120+ small business owners</span>
             </div>
           </div>
           <div className="relative flex items-center justify-center">
@@ -475,61 +480,47 @@ export default function Home() {
       <PackagesSection />
 
       <Section
-        tone="dark"
-        eyebrow="Ready for clarity?"
-        title="Get a no-pressure launch plan in your inbox"
-        description="Share a few details and we’ll send a tailored roadmap with timeline, budget range, and next steps."
-        background={
-          <>
-            <div className="absolute inset-0 gradient-hero opacity-80" />
-            <div className="absolute inset-0 hero-ambient opacity-70" />
-          </>
-        }
+        id="lead-capture"
+        tone="muted"
+        padding="sm"
+        eyebrow="Ready when you are"
+        title="Start with a quick project roadmap"
+        description="Share four details and we’ll reply with a timeline, fit, and next steps within one business day."
       >
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="flex flex-col gap-4 text-sm text-dark-foreground/70">
+        <div className="grid items-center gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="flex flex-col gap-3 text-sm text-muted-foreground">
             <p>
-              Our team responds within{" "}
-              <span className="numeric-editorial font-semibold text-dark-foreground">
-                24
-              </span>{" "}
-              hours with a lightweight plan you can share internally. No sales
-              pressure, just clarity.
+              Quick, clear, and zero pressure. You’ll know the best package
+              path before you make a decision.
             </p>
-            <div className="flex flex-wrap gap-3 text-xs text-dark-foreground/70">
-              <span>
-                ✓ Delivered in{" "}
-                <span className="numeric-editorial font-semibold text-dark-foreground">
-                  1
-                </span>{" "}
-                business day
-              </span>
-              <span>✓ Recommended package fit</span>
-              <span>✓ Quick wins included</span>
+            <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
+              <span>✓ Delivered in 24 hours</span>
+              <span>✓ Recommended starting point</span>
+              <span>✓ Trusted by 300+ small business launches</span>
             </div>
           </div>
-          <form className="form-surface hero-form grid gap-3 rounded-3xl p-5 text-sm text-dark-foreground/70">
+          <form className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground">
             <input
               type="text"
               placeholder="Full name"
-              className="input-field input-field-dark"
+              className="input-field"
             />
             <input
               type="email"
               placeholder="Email address"
-              className="input-field input-field-dark"
+              className="input-field"
             />
             <input
               type="tel"
               placeholder="Phone number"
-              className="input-field input-field-dark"
+              className="input-field"
             />
             <input
               type="text"
               placeholder="Business name"
-              className="input-field input-field-dark"
+              className="input-field"
             />
-            <Button type="submit">Send my roadmap</Button>
+            <Button type="submit">Send my starter plan</Button>
           </form>
         </div>
       </Section>
