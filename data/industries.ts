@@ -44,7 +44,7 @@ export const industries: Industry[] = [
       "Releases that move fast but feel inconsistent or rushed.",
       "Brand credibility that doesn’t match the vision yet.",
     ],
-    serviceSlugs: ["nextjs", "marketing-strategy", "copywriting"],
+    serviceSlugs: ["nextjs", "marketing-strategy", "copywriting", "product-video"],
     formCtaLabel: "Talk to an Expert",
   },
   {
@@ -61,7 +61,7 @@ export const industries: Industry[] = [
       "Marketing priorities that change faster than the plan.",
       "Limited time to manage freelancers and vendors.",
     ],
-    serviceSlugs: ["webflow", "brand-identity", "local-seo"],
+    serviceSlugs: ["webflow", "brand-identity", "local-seo", "social-media-content"],
     formCtaLabel: "Order Now",
   },
   {
@@ -78,7 +78,7 @@ export const industries: Industry[] = [
       "Email and SEO efforts that are disconnected from the purchase journey.",
       "Campaigns that are slow to launch or inconsistent.",
     ],
-    serviceSlugs: ["shopify", "ecommerce-seo", "email-marketing"],
+    serviceSlugs: ["shopify", "ecommerce-seo", "email-marketing", "meta-ads"],
     formCtaLabel: "Order Now",
   },
   {
@@ -95,7 +95,7 @@ export const industries: Industry[] = [
       "Lead capture flows that don’t filter for qualified buyers.",
       "Marketing assets that vary across teams and listings.",
     ],
-    serviceSlugs: ["webflow", "brochure-design", "local-seo"],
+    serviceSlugs: ["webflow", "brochure-design", "local-seo", "google-business-profile"],
     formCtaLabel: "Talk to an Expert",
   },
   {
@@ -112,7 +112,7 @@ export const industries: Industry[] = [
       "Messaging that doesn’t reflect modern care standards.",
       "Limited internal time to manage marketing.",
     ],
-    serviceSlugs: ["wordpress", "reputation-management", "local-seo"],
+    serviceSlugs: ["wordpress", "reputation-management", "local-seo", "website-content"],
     formCtaLabel: "Order Now",
   },
   {
@@ -129,7 +129,7 @@ export const industries: Industry[] = [
       "Local visibility that doesn’t match your expertise.",
       "Marketing materials that feel inconsistent across practice areas.",
     ],
-    serviceSlugs: ["wordpress", "local-seo", "reputation-management"],
+    serviceSlugs: ["wordpress", "local-seo", "reputation-management", "copywriting"],
     formCtaLabel: "Talk to an Expert",
   },
   {
@@ -146,7 +146,7 @@ export const industries: Industry[] = [
       "Lead magnets and offers that feel disconnected.",
       "Limited time to manage design and content.",
     ],
-    serviceSlugs: ["brand-identity", "copywriting", "webflow"],
+    serviceSlugs: ["brand-identity", "copywriting", "webflow", "email-marketing"],
     formCtaLabel: "Order Now",
   },
   {
@@ -163,7 +163,7 @@ export const industries: Industry[] = [
       "Low visibility in local search results.",
       "Social content that takes too much time to produce.",
     ],
-    serviceSlugs: ["wix", "local-seo", "social-media-content"],
+    serviceSlugs: ["wix", "local-seo", "social-media-content", "review-generation"],
     formCtaLabel: "Order Now",
   },
   {
@@ -180,7 +180,7 @@ export const industries: Industry[] = [
       "Disconnected lead capture and follow-up.",
       "Marketing assets that feel outdated or inconsistent.",
     ],
-    serviceSlugs: ["wix", "review-generation", "local-seo"],
+    serviceSlugs: ["wix", "review-generation", "local-seo", "google-business-profile"],
     formCtaLabel: "Talk to an Expert",
   },
   {
@@ -197,7 +197,7 @@ export const industries: Industry[] = [
       "Branding that varies across courses and cohorts.",
       "Limited time to create content regularly.",
     ],
-    serviceSlugs: ["wordpress", "website-content", "email-marketing"],
+    serviceSlugs: ["wordpress", "website-content", "email-marketing", "lead-generation"],
     formCtaLabel: "Talk to an Expert",
   },
   {
@@ -214,7 +214,7 @@ export const industries: Industry[] = [
       "Lead forms that don’t qualify the right clients.",
       "Outdated visuals that undercut trust.",
     ],
-    serviceSlugs: ["brand-identity", "webflow", "copywriting"],
+    serviceSlugs: ["brand-identity", "webflow", "copywriting", "brand-guidelines"],
     formCtaLabel: "Talk to an Expert",
   },
   {
@@ -231,7 +231,7 @@ export const industries: Industry[] = [
       "Sponsors need clearer proof of value.",
       "Brand assets scattered across tools and platforms.",
     ],
-    serviceSlugs: ["webflow", "social-media-reels", "social-media-content"],
+    serviceSlugs: ["webflow", "social-media-reels", "social-media-content", "brand-identity"],
     formCtaLabel: "Order Now",
   },
 ];
@@ -240,19 +240,178 @@ export const industryBySlug = new Map(
   industries.map((industry) => [industry.slug, industry])
 );
 
-export const industryLinksByCategory: Record<string, string[]> = {
-  "website-design-development": ["small-businesses", "startups-saas"],
-  ecommerce: ["ecommerce-dtc", "creators-personal-brands"],
-  branding: ["coaches-consultants", "finance-professional-services"],
-  marketing: ["startups-saas", "small-businesses"],
-  seo: ["restaurants-hospitality", "construction-trades"],
-  "social-media": ["creators-personal-brands", "restaurants-hospitality"],
-  advertising: ["ecommerce-dtc", "startups-saas"],
-  content: ["education-training", "coaches-consultants"],
-  video: ["creators-personal-brands", "startups-saas"],
-  reputation: ["law-firms", "healthcare-clinics"],
-  "automation-tools": ["startups-saas", "finance-professional-services"],
-  printing: ["real-estate", "construction-trades"],
+export const industryRecommendationsByCategory: Record<
+  string,
+  { slug: string; reason: string }[]
+> = {
+  "website-design-development": [
+    {
+      slug: "small-businesses",
+      reason: "Owners need a modern site that builds trust fast.",
+    },
+    {
+      slug: "startups-saas",
+      reason: "Teams need launch-ready pages that explain the product clearly.",
+    },
+    {
+      slug: "healthcare-clinics",
+      reason: "Patients want a calm, easy-to-navigate experience.",
+    },
+  ],
+  ecommerce: [
+    {
+      slug: "ecommerce-dtc",
+      reason: "Shops need faster checkouts and stronger product storytelling.",
+    },
+    {
+      slug: "creators-personal-brands",
+      reason: "Creators need a store that feels premium and simple to manage.",
+    },
+    {
+      slug: "small-businesses",
+      reason: "Local teams want a storefront that’s easy to keep updated.",
+    },
+  ],
+  branding: [
+    {
+      slug: "coaches-consultants",
+      reason: "Personal brands need clarity and a premium first impression.",
+    },
+    {
+      slug: "finance-professional-services",
+      reason: "Professional firms need consistent, trust-first visuals.",
+    },
+    {
+      slug: "startups-saas",
+      reason: "Founders want credibility to match fast growth.",
+    },
+  ],
+  marketing: [
+    {
+      slug: "startups-saas",
+      reason: "Growth teams need a focused plan and fast iterations.",
+    },
+    {
+      slug: "small-businesses",
+      reason: "Lean teams need consistent execution without the overhead.",
+    },
+    {
+      slug: "restaurants-hospitality",
+      reason: "Hospitality teams need quick campaigns that drive traffic.",
+    },
+  ],
+  seo: [
+    {
+      slug: "restaurants-hospitality",
+      reason: "Local discovery drives reservations and walk-ins.",
+    },
+    {
+      slug: "construction-trades",
+      reason: "Trade businesses rely on local visibility to book jobs.",
+    },
+    {
+      slug: "law-firms",
+      reason: "Firms need trust signals and local rankings to win cases.",
+    },
+  ],
+  "social-media": [
+    {
+      slug: "creators-personal-brands",
+      reason: "Creators need consistent content and a premium look.",
+    },
+    {
+      slug: "restaurants-hospitality",
+      reason: "Restaurants need steady posts that fill tables.",
+    },
+    {
+      slug: "ecommerce-dtc",
+      reason: "Brands need short-form content that drives product clicks.",
+    },
+  ],
+  advertising: [
+    {
+      slug: "ecommerce-dtc",
+      reason: "Paid ads need tight creative and clear conversion paths.",
+    },
+    {
+      slug: "startups-saas",
+      reason: "Startups need crisp positioning to earn trial sign-ups.",
+    },
+    {
+      slug: "real-estate",
+      reason: "Listings need targeted ads that filter high-intent leads.",
+    },
+  ],
+  content: [
+    {
+      slug: "education-training",
+      reason: "Programs need clear content that guides enrollment.",
+    },
+    {
+      slug: "coaches-consultants",
+      reason: "Expert brands need messaging that explains value fast.",
+    },
+    {
+      slug: "finance-professional-services",
+      reason: "Firms need precise, trust-building copy.",
+    },
+  ],
+  video: [
+    {
+      slug: "creators-personal-brands",
+      reason: "Creators need short video that keeps audiences engaged.",
+    },
+    {
+      slug: "ecommerce-dtc",
+      reason: "Product videos increase confidence before checkout.",
+    },
+    {
+      slug: "startups-saas",
+      reason: "Explainers help teams communicate complex value quickly.",
+    },
+  ],
+  reputation: [
+    {
+      slug: "law-firms",
+      reason: "Reviews and trust signals influence case inquiries.",
+    },
+    {
+      slug: "healthcare-clinics",
+      reason: "Patients choose providers who feel credible and consistent.",
+    },
+    {
+      slug: "construction-trades",
+      reason: "Homeowners check reviews before booking jobs.",
+    },
+  ],
+  "automation-tools": [
+    {
+      slug: "startups-saas",
+      reason: "Fast-moving teams need workflows that scale.",
+    },
+    {
+      slug: "finance-professional-services",
+      reason: "Firms need reliable handoffs and clean data.",
+    },
+    {
+      slug: "ecommerce-dtc",
+      reason: "Stores need automations that reduce manual work.",
+    },
+  ],
+  printing: [
+    {
+      slug: "real-estate",
+      reason: "Listings need premium print to stand out.",
+    },
+    {
+      slug: "construction-trades",
+      reason: "Trade teams need durable collateral for bids.",
+    },
+    {
+      slug: "restaurants-hospitality",
+      reason: "Menus and promos need clean, on-brand print.",
+    },
+  ],
 };
 
 export const getIndustryLinksForService = (serviceSlug: string) => {
@@ -260,14 +419,56 @@ export const getIndustryLinksForService = (serviceSlug: string) => {
   if (!service) {
     return [];
   }
-  const slugs = industryLinksByCategory[service.category.slug] ?? [
-    "small-businesses",
-  ];
-  return slugs
-    .map((slug) => industryBySlug.get(slug))
+  const recommendations =
+    industryRecommendationsByCategory[service.category.slug] ?? [
+      { slug: "small-businesses", reason: "A reliable fit for most small teams." },
+    ];
+  return recommendations
+    .map((item) => industryBySlug.get(item.slug))
     .filter((industry): industry is Industry => Boolean(industry))
-    .map((industry) => ({ label: industry.name, href: `/industries/${industry.slug}` }))
+    .map((industry) => ({
+      label: industry.name,
+      href: `/industries/${industry.slug}`,
+    }))
     .slice(0, 2);
+};
+
+export const getIndustryRecommendationsForService = (serviceSlug: string) => {
+  const service = serviceBySlug.get(serviceSlug);
+  if (!service) {
+    return [];
+  }
+  const recommendations =
+    industryRecommendationsByCategory[service.category.slug] ?? [
+      { slug: "small-businesses", reason: "A reliable fit for most small teams." },
+    ];
+  return recommendations
+    .map((item) => {
+      const industry = industryBySlug.get(item.slug);
+      if (!industry) {
+        return null;
+      }
+      return {
+        label: industry.name,
+        href: `/industries/${industry.slug}`,
+        description: item.reason,
+      };
+    })
+    .filter(
+      (
+        item
+      ): item is {
+        label: string;
+        href: string;
+        description: string;
+      } => Boolean(item)
+    )
+    .slice(0, 5);
+};
+
+export const getPrimaryIndustryLinkForService = (serviceSlug: string) => {
+  const [primary] = getIndustryLinksForService(serviceSlug);
+  return primary;
 };
 
 export const buildIndustryServiceCards = (

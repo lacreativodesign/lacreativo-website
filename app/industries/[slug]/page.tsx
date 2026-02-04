@@ -7,6 +7,7 @@ import {
   industryBySlug,
   industries,
 } from "@/data/industries";
+import { getPackageLinksForServices } from "@/data/packages";
 
 type IndustryPageProps = {
   params: Promise<{ slug: string }>;
@@ -51,6 +52,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
       heroSubtext={industry.heroSubtext}
       challenges={industry.challenges}
       serviceCards={buildIndustryServiceCards(industry.serviceSlugs)}
+      packageLinks={getPackageLinksForServices(industry.serviceSlugs)}
       formCtaLabel={industry.formCtaLabel}
     />
   );

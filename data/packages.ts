@@ -83,6 +83,35 @@ export const packagesByServiceSlug: Record<string, PackageDefinition[]> =
     return acc;
   }, {} as Record<string, PackageDefinition[]>);
 
+const serviceBySlug = new Map(
+  servicesWithCategory.map((service) => [service.slug, service])
+);
+
+export const getPackageLinksForServices = (
+  serviceSlugs: string[],
+  limit = 2
+) =>
+  serviceSlugs
+    .map((slug) => {
+      const service = serviceBySlug.get(slug);
+      const [pkg] = packagesByServiceSlug[slug] ?? [];
+      if (!service || !pkg) {
+        return null;
+      }
+      return {
+        label: pkg.name,
+        href: `/packages/${slug}/${pkg.slug}`,
+        description: `A proven starting point for ${service.name.toLowerCase()}.`,
+      };
+    })
+    .filter(
+      (
+        item
+      ): item is { label: string; href: string; description: string } =>
+        Boolean(item)
+    )
+    .slice(0, limit);
+
 export const allPackages = Object.entries(packagesByServiceSlug).flatMap(
   ([serviceSlug, packages]) =>
     packages.map((pkg) => ({ serviceSlug, package: pkg }))

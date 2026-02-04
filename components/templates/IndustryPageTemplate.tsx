@@ -8,12 +8,19 @@ type IndustryServiceCard = {
   href: string;
 };
 
+type PackageLink = {
+  label: string;
+  description: string;
+  href: string;
+};
+
 type IndustryPageTemplateProps = {
   name: string;
   heroHeadline: string;
   heroSubtext: string;
   challenges: string[];
   serviceCards: IndustryServiceCard[];
+  packageLinks: PackageLink[];
   formCtaLabel: "Order Now" | "Talk to an Expert";
 };
 
@@ -23,6 +30,7 @@ export default function IndustryPageTemplate({
   heroSubtext,
   challenges,
   serviceCards,
+  packageLinks,
   formCtaLabel,
 }: IndustryPageTemplateProps) {
   return (
@@ -72,9 +80,9 @@ export default function IndustryPageTemplate({
 
       <Section
         tone="muted"
-        eyebrow="How LA CREATIVO helps"
-        title="Services aligned to this industry"
-        description="Each service is mapped to the outcomes you care about most."
+        eyebrow="Recommended services"
+        title="Recommended services for this industry"
+        description="Pick the services that map to the outcomes you care about most."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {serviceCards.map((service, index) => (
@@ -99,20 +107,28 @@ export default function IndustryPageTemplate({
         </div>
       </Section>
 
-      <Section
-        eyebrow="Packages"
-        title="Ready for the full scope?"
-        description="Compare packages and choose the pace that fits your timeline."
-      >
-        <div className="flex flex-wrap items-center gap-4">
-          <Button href="/packages" size="lg">
-            View Packages
-          </Button>
-          <p className="text-sm text-muted-foreground">
-            Every package includes clear scope, timelines, and launch-ready delivery.
-          </p>
-        </div>
-      </Section>
+      {packageLinks.length > 0 && (
+        <Section
+          eyebrow="Packages"
+          title="Start with a proven package"
+          description="Choose a scope that matches your timeline and goals."
+        >
+          <div className="grid gap-4 md:grid-cols-2">
+            {packageLinks.map((pkg) => (
+              <div
+                key={pkg.href}
+                className="card-premium flex flex-col gap-3 rounded-3xl border border-border bg-card p-5 text-sm"
+              >
+                <p className="text-base font-semibold">{pkg.label}</p>
+                <p className="text-muted-foreground">{pkg.description}</p>
+                <Button href={pkg.href} variant="secondary" size="sm">
+                  View Package
+                </Button>
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section
         id="lead-capture"
