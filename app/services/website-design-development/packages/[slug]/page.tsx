@@ -88,11 +88,18 @@ export default async function WebsiteDesignPackagePage({
           </div>
           <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">What’s included</h3>
-            <ul className="mt-4 flex flex-col gap-3 text-muted-foreground">
+            <ul className="mt-4 flex flex-col gap-4 text-muted-foreground">
               {selectedPackage.includes.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
-                  <span>{item}</span>
+                <li key={item.title} className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
+                  <div className="space-y-2">
+                    <p className="text-sm font-semibold text-foreground">
+                      {item.title}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
                 </li>
               ))}
             </ul>
