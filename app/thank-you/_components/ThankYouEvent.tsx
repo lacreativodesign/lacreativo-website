@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 type ThankYouEventProps = {
   event:
@@ -12,8 +12,14 @@ type ThankYouEventProps = {
 };
 
 export default function ThankYouEvent({ event, pageType }: ThankYouEventProps) {
+  const hasPushedRef = useRef(false);
+
   useEffect(() => {
     if (typeof window === "undefined") {
+      return;
+    }
+
+    if (hasPushedRef.current) {
       return;
     }
 
@@ -22,6 +28,7 @@ export default function ThankYouEvent({ event, pageType }: ThankYouEventProps) {
       event,
       page_type: pageType,
     });
+    hasPushedRef.current = true;
   }, [event, pageType]);
 
   return null;

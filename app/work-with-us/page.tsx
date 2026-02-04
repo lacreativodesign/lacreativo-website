@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 
 import Button from "@/components/Button";
 import Section from "@/components/Section";
+import { canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Work With Us | LA CREATIVO",
   description:
     "Explore partner programs, affiliate opportunities, and career paths with LA CREATIVO.",
+  alternates: {
+    canonical: canonicalUrl("/work-with-us"),
+  },
 };
 
 export default function WorkWithUsPage() {

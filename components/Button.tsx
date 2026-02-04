@@ -26,6 +26,7 @@ type ButtonProps = {
   size?: keyof typeof sizes;
   className?: string;
   type?: "button" | "submit" | "reset";
+  prefetch?: boolean;
 };
 
 export default function Button({
@@ -36,12 +37,13 @@ export default function Button({
   size = "md",
   className = "",
   type = "button",
+  prefetch,
 }: ButtonProps) {
   const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} prefetch={prefetch} className={classes}>
         {children}
       </Link>
     );

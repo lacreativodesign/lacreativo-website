@@ -8,6 +8,7 @@ import {
   industries,
 } from "@/data/industries";
 import { getPackageLinksForServices } from "@/data/packages";
+import { canonicalUrl } from "@/lib/seo";
 
 type IndustryPageProps = {
   params: Promise<{ slug: string }>;
@@ -28,12 +29,18 @@ export async function generateMetadata({
       title: "Industry | LA CREATIVO",
       description:
         "Industry-specific creative services for USA small businesses.",
+      alternates: {
+        canonical: canonicalUrl("/industries"),
+      },
     };
   }
 
   return {
     title: `${industry.name} Solutions | LA CREATIVO`,
     description: industry.heroSubtext,
+    alternates: {
+      canonical: canonicalUrl(`/industries/${industry.slug}`),
+    },
   };
 }
 

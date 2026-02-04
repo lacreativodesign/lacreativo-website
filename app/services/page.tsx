@@ -4,11 +4,15 @@ import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
 import { serviceCategories } from "@/data/services";
+import { canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "All Services | LA CREATIVO",
   description:
     "Browse every LA CREATIVO service category built for USA small businesses, from websites to marketing, SEO, and automation.",
+  alternates: {
+    canonical: canonicalUrl("/services"),
+  },
 };
 
 export default function ServicesPage() {
@@ -35,7 +39,12 @@ export default function ServicesPage() {
               description={category.description}
               icon="✦"
               cta={
-                <Button href={`/services/${category.slug}`} variant="secondary" size="sm">
+                <Button
+                  href={`/services/${category.slug}`}
+                  variant="secondary"
+                  size="sm"
+                  prefetch={false}
+                >
                   View Details
                 </Button>
               }

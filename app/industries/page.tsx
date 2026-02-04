@@ -4,11 +4,15 @@ import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
 import { industries } from "@/data/industries";
+import { canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Industries We Serve | LA CREATIVO",
   description:
     "Explore industry-specific solutions built for USA small businesses, including dedicated creative support for fast-growing teams.",
+  alternates: {
+    canonical: canonicalUrl("/industries"),
+  },
 };
 
 export default function IndustriesPage() {
@@ -39,6 +43,7 @@ export default function IndustriesPage() {
                   href={`/industries/${industry.slug}`}
                   variant="secondary"
                   size="sm"
+                  prefetch={false}
                 >
                   View Industry
                 </Button>

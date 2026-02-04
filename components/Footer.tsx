@@ -152,6 +152,7 @@ export default function Footer() {
                     <li key={item.label}>
                       <Link
                         href={item.href}
+                        prefetch={false}
                         className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                       >
                         {item.label}
@@ -168,18 +169,21 @@ export default function Footer() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/privacy-policy"
+              prefetch={false}
               className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-and-conditions"
+              prefetch={false}
               className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Terms & Conditions
             </Link>
             <Link
               href="/guarantees"
+              prefetch={false}
               className="transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Guarantees

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import Button from "@/components/Button";
 import Section from "@/components/Section";
+import { canonicalUrl } from "@/lib/seo";
 
 type StaticSection = {
   title: string;
@@ -248,12 +249,18 @@ export async function generateMetadata({
     return {
       title: "LA CREATIVO",
       description: "Premium creative services for USA small businesses.",
+      alternates: {
+        canonical: canonicalUrl("/"),
+      },
     };
   }
 
   return {
     title: `${page.title} | LA CREATIVO`,
     description: page.description,
+    alternates: {
+      canonical: canonicalUrl(`/${slug}`),
+    },
   };
 }
 

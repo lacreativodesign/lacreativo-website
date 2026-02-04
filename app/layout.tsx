@@ -4,6 +4,7 @@ import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { metadataBase } from "@/lib/seo";
 
 const bodyFont = Manrope({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
   title: "LA CREATIVO — Creative & Digital Services",
   description:
     "Design-first creative & digital services for ambitious small businesses.",
+  metadataBase,
 };
 
 export default function RootLayout({

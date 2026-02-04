@@ -1,11 +1,63 @@
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
-import TestimonialSlider from "@/components/TestimonialSlider";
-import PackagesSection from "@/components/home/PackagesSection";
+import {
+  SkeletonPricingCard,
+  SkeletonTabRow,
+  SkeletonTestimonials,
+} from "@/components/Skeleton";
 import { industries } from "@/data/industries";
+import { canonicalUrl } from "@/lib/seo";
 import Link from "next/link";
 import type { CSSProperties } from "react";
+
+const PackagesSection = dynamic(
+  () => import("@/components/home/PackagesSection"),
+  {
+    ssr: false,
+    loading: () => (
+      <Section
+        id="packages"
+        tone="muted"
+        eyebrow="Packages"
+        title="Pick your starting package"
+        description="Switch service types to see simple packages with clear next steps."
+      >
+        <div className="flex flex-col gap-6">
+          <SkeletonTabRow />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <SkeletonPricingCard key={index} />
+            ))}
+          </div>
+        </div>
+      </Section>
+    ),
+  }
+);
+
+const TestimonialSlider = dynamic(
+  () => import("@/components/TestimonialSlider"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="rounded-3xl border border-border bg-card/70 p-6">
+        <SkeletonTestimonials />
+      </div>
+    ),
+  }
+);
+
+export const metadata: Metadata = {
+  title: "LA CREATIVO — Creative & Digital Services",
+  description:
+    "Design-first creative & digital services for ambitious small businesses.",
+  alternates: {
+    canonical: canonicalUrl("/"),
+  },
+};
 
 const whatWeDo = [
   {
@@ -404,7 +456,7 @@ export default function Home() {
                   </div>
                 }
                 cta={
-                  <Button variant="ghost" size="sm" href="/services">
+                  <Button variant="ghost" size="sm" href="/services" prefetch={false}>
                     Learn More →
                   </Button>
                 }
@@ -513,7 +565,12 @@ export default function Home() {
                   </div>
                 }
                 cta={
-                  <Button variant="secondary" size="sm" href={service.href}>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    href={service.href}
+                    prefetch={false}
+                  >
                     View Service
                   </Button>
                 }
@@ -538,6 +595,7 @@ export default function Home() {
             <Link
               key={industry.slug}
               href={`/industries/${industry.slug}`}
+              prefetch={false}
               className="block"
             >
               <Card
