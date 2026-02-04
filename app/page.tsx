@@ -179,25 +179,29 @@ export default function Home() {
               Creative & Digital Studio
             </span>
             <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.6rem]">
-              Build a premium brand presence that feels human, confident, and
-              ready to earn trust fast.
+              Premium branding and websites for small businesses ready to grow.
             </h1>
             <p className="reveal text-base leading-relaxed text-dark-foreground/70 sm:text-lg">
-              LA CREATIVO blends editorial design, strategic messaging, and
-              launch-ready systems so your customers feel clarity and care from
-              the first scroll.
+              We design brand identities and websites that make you look
+              credible, feel clear, and convert faster.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button href="#lead-capture" size="lg">
-                Get My 24-Hr Roadmap
-              </Button>
-              <Button href="#packages" variant="secondary" size="lg">
-                Browse Packages First
+                Get 24-hr roadmap
               </Button>
             </div>
             <p className="text-xs text-dark-foreground/60">
-              Roadmap arrives within one business day. Compare packages before
-              you commit.
+              Roadmap arrives within one business day. Trusted by 300+ small
+              business launches.
+            </p>
+            <p className="text-xs text-dark-foreground/60">
+              Prefer to explore first?{" "}
+              <Link
+                href="#packages"
+                className="font-semibold text-dark-foreground hover:text-white"
+              >
+                View packages →
+              </Link>
             </p>
             <div className="reveal-stagger flex flex-wrap gap-3 text-xs text-dark-foreground/60">
               {[
@@ -233,6 +237,9 @@ export default function Home() {
                 Get my roadmap
               </Button>
             </form>
+            <p className="text-xs text-dark-foreground/60">
+              No spam. We only use your details to reply.
+            </p>
             <div className="reveal-stagger flex flex-wrap gap-4 text-xs text-dark-foreground/70">
               {[
                 <>
@@ -366,10 +373,7 @@ export default function Home() {
           </div>
         </div>
         <div className="reveal mt-8 flex flex-wrap items-center gap-4">
-          <Button href="/get-started">Book a consult</Button>
-          <Button href="#packages" variant="secondary">
-            Compare packages
-          </Button>
+          <Button href="#packages">Compare packages</Button>
         </div>
       </Section>
 
@@ -407,9 +411,6 @@ export default function Home() {
         </div>
         <div className="reveal mt-8 flex flex-wrap items-center gap-4">
           <Button href="/services">View all services</Button>
-          <Button href="#packages" variant="secondary">
-            See package options
-          </Button>
         </div>
       </Section>
 
@@ -481,10 +482,7 @@ export default function Home() {
           </div>
         </div>
         <div className="reveal mt-8 flex flex-wrap items-center gap-4">
-          <Button href="/work-with-us">Meet the team</Button>
-          <Button href="#lead-capture" variant="secondary">
-            Get a roadmap
-          </Button>
+          <Button href="#lead-capture">Get 24-hr roadmap</Button>
         </div>
       </Section>
 
@@ -521,9 +519,6 @@ export default function Home() {
         </div>
         <div className="reveal mt-8 flex flex-wrap items-center gap-4">
           <Button href="#packages">Compare packages</Button>
-          <Button href="#pricing" variant="secondary">
-            See pricing philosophy
-          </Button>
         </div>
       </Section>
 
@@ -601,7 +596,10 @@ export default function Home() {
               placeholder="Business name"
               className="input-field"
             />
-            <Button type="submit">Send my starter plan</Button>
+            <Button type="submit">Get my roadmap</Button>
+            <p className="text-xs text-muted-foreground">
+              No spam. One reply within 24 hours.
+            </p>
           </form>
         </div>
       </Section>
@@ -639,10 +637,7 @@ export default function Home() {
           ))}
         </div>
         <div className="reveal mt-8 flex flex-wrap items-center gap-4">
-          <Button href="/get-started">Start my project</Button>
-          <Button href="#work" variant="secondary">
-            See featured work
-          </Button>
+          <Button href="/get-started">Get started</Button>
         </div>
       </Section>
 
@@ -670,10 +665,7 @@ export default function Home() {
           ))}
         </div>
         <div className="reveal mt-8 flex flex-wrap items-center gap-4">
-          <Button href="/work-with-us">Request a custom concept</Button>
-          <Button href="#lead-capture" variant="secondary">
-            Get a 24-hr roadmap
-          </Button>
+          <Button href="#lead-capture">Get 24-hr roadmap</Button>
         </div>
       </Section>
 
@@ -724,9 +716,6 @@ export default function Home() {
         </div>
         <div className="reveal mt-8 flex flex-wrap items-center gap-4">
           <Button href="#packages">Explore packages</Button>
-          <Button href="/get-started" variant="secondary">
-            Talk to a strategist
-          </Button>
         </div>
       </Section>
 
@@ -738,10 +727,7 @@ export default function Home() {
       >
         <TestimonialSlider items={testimonials} />
         <div className="reveal mt-8 flex flex-wrap items-center justify-center gap-4">
-          <Button href="/get-started">Start your roadmap</Button>
-          <Button href="#work" variant="secondary">
-            View the work
-          </Button>
+          <Button href="#lead-capture">Get 24-hr roadmap</Button>
         </div>
       </Section>
 
@@ -757,10 +743,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button href="/get-started" size="lg">
-                Get Started
-              </Button>
-              <Button href="/services" variant="secondary" size="lg">
-                Browse Packages
+                Get started
               </Button>
             </div>
           </div>
@@ -788,7 +771,7 @@ export default function Home() {
             </p>
           </div>
           <Button href="/get-started" variant="secondary">
-            Book My Intro Call
+            Get started
           </Button>
         </div>
       </Section>
