@@ -9,17 +9,17 @@ export type ServiceCardItem = {
 };
 
 const defaultAudienceIdeal = (serviceName: string) => [
-  `${serviceName} for small business owners ready to grow in the U.S. market.`,
-  "Teams who want a clear scope and a dependable partner.",
-  "Businesses that need measurable progress, not endless experimentation.",
-  "Founders who want premium quality without agency-level overhead.",
+  `${serviceName} for owners ready to invest and launch fast.`,
+  "Teams with a clear decision maker and timeline.",
+  "Businesses that want measurable outcomes, not experiments.",
+  "Founders who value premium quality and clear scope.",
 ];
 
 const defaultAudienceNotFor = [
-  "Projects without a decision maker or timeline.",
-  "Teams looking for the cheapest possible option.",
-  "Unlimited scope changes without clear milestones.",
-  "Brands that are not ready to act on feedback.",
+  "Price shoppers comparing only the lowest bid.",
+  "Projects without a decision maker or deadline.",
+  "Open-ended scopes with unlimited revisions.",
+  "Teams that won’t act on feedback or approvals.",
 ];
 
 const defaultWhatYouGet = (focus: string) => [
@@ -143,15 +143,14 @@ export const buildServiceTemplate = (
   return {
     hero: {
       serviceName: service.name,
-      headline: `A ${service.name.toLowerCase()} experience built for modern small businesses.`,
-      description: service.description,
+      headline: `${service.name} that drives confident customer action.`,
+      description: `LA CREATIVO delivers ${service.name.toLowerCase()} with clear scope, direct communication, and launch-ready assets you fully own.`,
       primaryCta: { label: "Order Now", href: "#lead-capture" },
-      secondaryCta: { label: "View Packages", href: "#packages" },
+      secondaryCta: { label: "Talk to an Expert", href: "#lead-capture" },
     },
     audience: {
-      title: "Is this the right fit?",
-      description:
-        "We keep the scope focused, the communication clear, and the results premium.",
+      title: "Who this service is for (and not for)",
+      description: "A fast filter so serious buyers move forward with clarity.",
       ideal: defaultAudienceIdeal(service.name),
       notFor: defaultAudienceNotFor,
     },
@@ -164,7 +163,7 @@ export const buildServiceTemplate = (
     packages: {
       title: "Choose a package that matches your momentum",
       description:
-        "Pick a starting point and we’ll guide you through the rest.",
+        "These are starting points only. Upgrades are available and scope scales as needed.",
       items: packages.map((item) => ({
         name: item.name,
         startingPrice: item.startingPrice,
@@ -186,29 +185,34 @@ export const buildServiceTemplate = (
     conversionCta: {
       title: "Ready to move forward?",
       description:
-        "We keep the process simple, aligned, and focused on outcomes that matter to your business.",
+        "Get a clear scope, a fixed timeline, and a launch-ready outcome you can trust.",
       primaryCta: { label: "Order Now", href: "#lead-capture" },
     },
     faqs: [
       {
-        question: "How soon can we launch?",
+        question: "How does pricing work?",
         answer:
-          "Timelines depend on package size, but most projects move from kickoff to launch in 2–6 weeks.",
+          "Packages are fixed-price starting points. We confirm scope before you commit.",
       },
       {
-        question: "Do you offer payment plans?",
+        question: "What’s the typical timeline?",
         answer:
-          "Yes. We offer flexible payment options so you can move forward without added stress.",
+          "Most projects launch in 2–6 weeks depending on package size.",
       },
       {
-        question: "Can I upgrade later?",
+        question: "Do I own the final assets?",
         answer:
-          "Absolutely. We can scale the package if your needs expand.",
+          "Yes. You receive full ownership and access to the final deliverables.",
       },
       {
-        question: "Will I have ownership of the work?",
+        question: "How are revisions handled?",
         answer:
-          "Yes. You receive full ownership and access to the final assets.",
+          "Revisions are scoped per package, with clear checkpoints to keep work moving.",
+      },
+      {
+        question: "How will we communicate?",
+        answer:
+          "You’ll have a direct point of contact and fast responses within one business day.",
       },
     ],
   };
