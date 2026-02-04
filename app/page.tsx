@@ -1,11 +1,10 @@
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
-import TestimonialSlider from "@/components/TestimonialSlider";
-import PackagesSection from "@/components/home/PackagesSection";
 import { industries } from "@/data/industries";
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import HomeClient from "./(home)/HomeClient";
 
 const whatWeDo = [
   {
@@ -526,7 +525,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <PackagesSection />
+      <HomeClient section="packages" />
 
       <Section
         eyebrow="Industries"
@@ -733,7 +732,7 @@ export default function Home() {
         description="Five-star results, delivered with clarity and care."
         align="center"
       >
-        <TestimonialSlider items={testimonials} />
+        <HomeClient section="testimonials" items={testimonials} />
         <div className="reveal mt-8 flex flex-wrap items-center justify-center gap-4">
           <Button href="#lead-capture">Get 24-hr roadmap</Button>
         </div>
