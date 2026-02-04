@@ -1,3 +1,4 @@
+import { getIndustryLinksForService } from "./industries";
 import { packagesByServiceSlug } from "./packages";
 import type { ServiceCategory, ServiceDefinition } from "./services";
 
@@ -181,6 +182,7 @@ export const buildServiceTemplate = (
       ],
       formCtaLabel: "Send my request",
     },
+    industryLinks: getIndustryLinksForService(service.slug),
     conversionCta: {
       title: "Ready to move forward?",
       description:

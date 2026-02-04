@@ -3,6 +3,8 @@ import Card from "@/components/Card";
 import Section from "@/components/Section";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import PackagesSection from "@/components/home/PackagesSection";
+import { industries } from "@/data/industries";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 
 const whatWeDo = [
@@ -87,6 +89,8 @@ const services = [
     href: "/services",
   },
 ];
+
+const featuredIndustries = industries.slice(0, 8);
 
 const steps = [
   {
@@ -485,6 +489,33 @@ export default function Home() {
       </Section>
 
       <PackagesSection />
+
+      <Section
+        eyebrow="Industries"
+        title="Industries We Serve"
+        description="Focused creative support for the teams we know best."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {featuredIndustries.map((industry) => (
+            <Link
+              key={industry.slug}
+              href={`/industries/${industry.slug}`}
+              className="block"
+            >
+              <Card
+                title={industry.name}
+                description="View industry solutions"
+                icon={industry.icon}
+              />
+            </Link>
+          ))}
+        </div>
+        <div className="mt-6">
+          <Button href="/industries" variant="secondary">
+            View all industries
+          </Button>
+        </div>
+      </Section>
 
       <Section
         id="lead-capture"

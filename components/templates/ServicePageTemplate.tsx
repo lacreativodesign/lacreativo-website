@@ -43,6 +43,7 @@ type ServicePageTemplateProps = {
     benefits: string[];
     formCtaLabel: string;
   };
+  industryLinks?: LinkItem[];
   conversionCta: {
     title: string;
     description: string;
@@ -57,6 +58,7 @@ export default function ServicePageTemplate({
   whatYouGet,
   packages,
   leadCapture,
+  industryLinks,
   conversionCta,
   faqs,
 }: ServicePageTemplateProps) {
@@ -233,6 +235,22 @@ export default function ServicePageTemplate({
           </form>
         </div>
       </Section>
+
+      {industryLinks && industryLinks.length > 0 && (
+        <Section
+          eyebrow="Industries"
+          title="Popular industries for this service"
+          description="A few of the teams that frequently request this service."
+        >
+          <div className="flex flex-wrap gap-3">
+            {industryLinks.map((industry) => (
+              <Button key={industry.href} href={industry.href} variant="secondary">
+                {industry.label}
+              </Button>
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section tone="dark" eyebrow="Next step" title={conversionCta.title}>
         <div className="flex flex-col gap-4 text-sm text-dark-foreground/70 md:flex-row md:items-center md:justify-between">
