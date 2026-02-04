@@ -28,6 +28,7 @@ type SectionProps = {
   title?: string;
   description?: string;
   align?: "left" | "center";
+  animate?: boolean;
   background?: ReactNode;
   children?: ReactNode;
 };
@@ -40,6 +41,7 @@ export default function Section({
   title,
   description,
   align = "left",
+  animate = true,
   background,
   children,
 }: SectionProps) {
@@ -49,7 +51,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`${tones[tone]} ${paddings[padding]} relative overflow-hidden`}
+      className={`${tones[tone]} ${paddings[padding]} section-shell relative overflow-hidden ${animate ? "section-fade" : "no-reveal"}`}
     >
       {background}
       <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-14 px-6">

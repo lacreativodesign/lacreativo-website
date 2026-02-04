@@ -2,7 +2,7 @@
 
 :root {
   color-scheme: light;
-  --background: #f7f1ea;
+  --background: #faf5ef;
   --foreground: #1f1a16;
   --card: #fcf7f2;
   --card-foreground: #1f1a16;
@@ -12,18 +12,19 @@
   --accent: #c95b3b;
   --accent-foreground: #fff2ea;
   --accent-secondary: #b07aa6;
-  --dark: #19141b;
+  --dark: #171218;
   --dark-foreground: #f7efe8;
   --gradient-hero: linear-gradient(
     135deg,
-    rgba(201, 91, 59, 0.32),
-    rgba(176, 122, 166, 0.24),
-    rgba(247, 241, 234, 0.98)
+    rgba(201, 91, 59, 0.35),
+    rgba(176, 122, 166, 0.28),
+    rgba(250, 245, 239, 0.96)
   );
   --gradient-primary: linear-gradient(135deg, #c95b3b, #e6b08f);
   --gradient-divider: linear-gradient(90deg, rgba(201, 91, 59, 0), rgba(201, 91, 59, 0.55), rgba(201, 91, 59, 0));
   --gradient-surface: linear-gradient(140deg, rgba(255, 255, 255, 0.9), rgba(244, 229, 219, 0.9));
   --gradient-wash: linear-gradient(180deg, rgba(201, 91, 59, 0.06), rgba(176, 122, 166, 0.04), transparent 70%);
+  --hero-glow: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.5), transparent 65%);
   --hero-ambient: radial-gradient(circle at 14% 18%, rgba(201, 91, 59, 0.2), transparent 55%),
     radial-gradient(circle at 86% 4%, rgba(176, 122, 166, 0.22), transparent 45%);
   --page-ambient: radial-gradient(circle at 18% 10%, rgba(201, 91, 59, 0.1), transparent 55%),
@@ -34,28 +35,29 @@
 
 .dark {
   color-scheme: dark;
-  --background: #141218;
+  --background: #121016;
   --foreground: #f3ede6;
-  --card: #201c25;
+  --card: #1d1a22;
   --card-foreground: #f3ede6;
-  --muted: #1a1820;
+  --muted: #19161f;
   --muted-foreground: #c2b4aa;
-  --border: #342f3a;
+  --border: #332f3a;
   --accent: #d98061;
   --accent-foreground: #2a1617;
   --accent-secondary: #a77bb4;
-  --dark: #0f0d12;
+  --dark: #0c0a10;
   --dark-foreground: #f5efe7;
   --gradient-hero: linear-gradient(
     140deg,
-    rgba(87, 41, 61, 0.85),
-    rgba(144, 69, 107, 0.55),
-    rgba(15, 13, 18, 0.98)
+    rgba(71, 35, 52, 0.9),
+    rgba(120, 61, 92, 0.55),
+    rgba(12, 10, 16, 0.98)
   );
   --gradient-primary: linear-gradient(135deg, #d98061, #f0b38f);
   --gradient-divider: linear-gradient(90deg, rgba(217, 128, 97, 0), rgba(217, 128, 97, 0.7), rgba(217, 128, 97, 0));
   --gradient-surface: linear-gradient(150deg, rgba(32, 28, 37, 0.96), rgba(52, 39, 56, 0.82));
   --gradient-wash: linear-gradient(180deg, rgba(77, 34, 53, 0.6), rgba(83, 43, 68, 0.25), transparent 70%);
+  --hero-glow: radial-gradient(circle at 50% 0%, rgba(217, 128, 97, 0.35), transparent 65%);
   --hero-ambient: radial-gradient(circle at 16% 18%, rgba(217, 128, 97, 0.22), transparent 55%),
     radial-gradient(circle at 86% 4%, rgba(167, 123, 180, 0.3), transparent 45%);
   --page-ambient: radial-gradient(circle at 18% 10%, rgba(217, 128, 97, 0.12), transparent 55%),
@@ -83,6 +85,25 @@
 * {
   transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease,
     transform 200ms ease, box-shadow 200ms ease;
+}
+
+.section-shell {
+  position: relative;
+}
+
+.section-fade {
+  opacity: 1;
+  transform: none;
+}
+
+.no-reveal .reveal,
+.no-reveal .text-reveal,
+.no-reveal .reveal-stagger > *,
+.no-reveal.section-fade {
+  opacity: 1;
+  transform: none;
+  animation: none;
+  clip-path: none;
 }
 
 input,
@@ -140,6 +161,10 @@ h6 {
   background-image: var(--hero-ambient);
 }
 
+.hero-glow {
+  background-image: var(--hero-glow);
+}
+
 .hero-panel {
   position: relative;
   overflow: hidden;
@@ -185,6 +210,17 @@ h6 {
   width: 100%;
   background-image: var(--gradient-divider);
   opacity: 0.7;
+  position: relative;
+}
+
+.section-divider::after {
+  content: "";
+  position: absolute;
+  inset: -6px 0;
+  background-image: var(--gradient-divider);
+  opacity: 0.35;
+  filter: blur(10px);
+  pointer-events: none;
 }
 
 .section-head {
@@ -210,7 +246,48 @@ h6 {
 }
 
 .reveal-stagger > * {
-  --delay: calc(var(--stagger, 0) * 100ms);
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-stagger > *:nth-child(1) {
+  --stagger-index: 0;
+}
+
+.reveal-stagger > *:nth-child(2) {
+  --stagger-index: 1;
+}
+
+.reveal-stagger > *:nth-child(3) {
+  --stagger-index: 2;
+}
+
+.reveal-stagger > *:nth-child(4) {
+  --stagger-index: 3;
+}
+
+.reveal-stagger > *:nth-child(5) {
+  --stagger-index: 4;
+}
+
+.reveal-stagger > *:nth-child(6) {
+  --stagger-index: 5;
+}
+
+.reveal-stagger > *:nth-child(7) {
+  --stagger-index: 6;
+}
+
+.reveal-stagger > *:nth-child(8) {
+  --stagger-index: 7;
+}
+
+.reveal-stagger > *:nth-child(9) {
+  --stagger-index: 8;
+}
+
+.reveal-stagger > *:nth-child(10) {
+  --stagger-index: 9;
 }
 
 .hover-lift {
@@ -246,6 +323,32 @@ h6 {
 
 .button-sheen:hover::after {
   transform: translateX(120%);
+}
+
+.button-depth {
+  position: relative;
+  box-shadow: 0 16px 36px rgba(12, 10, 16, 0.18);
+}
+
+.button-depth::before {
+  content: "";
+  position: absolute;
+  inset: -45% 10% auto;
+  height: 140%;
+  background: radial-gradient(
+    circle at 50% 30%,
+    color-mix(in srgb, var(--accent) 55%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+  pointer-events: none;
+}
+
+.button-depth:hover::before {
+  opacity: 0.35;
+  transform: translateY(0);
 }
 
 .form-surface {
@@ -314,6 +417,14 @@ h6 {
   background: linear-gradient(120deg, rgba(255, 255, 255, 0.5), transparent 60%);
   opacity: 0.35;
   pointer-events: none;
+}
+
+.card-premium:hover::before {
+  opacity: 0.55;
+}
+
+.card-premium:hover::after {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
 .card-premium::after {
@@ -419,6 +530,36 @@ h6 {
   }
 }
 
+@keyframes section-fade {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .section-fade {
+    opacity: 0;
+    transform: translateY(28px);
+    animation: section-fade 0.9s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+  }
+
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-up 0.8s ease forwards;
+    animation-delay: calc(var(--stagger-index, 0) * 120ms);
+    animation-timeline: view();
+    animation-range: entry 15% cover 40%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -429,6 +570,13 @@ h6 {
   .text-reveal {
     opacity: 1;
     clip-path: none;
+    transform: none;
+    animation: none;
+  }
+
+  .section-fade,
+  .reveal-stagger > * {
+    opacity: 1;
     transform: none;
     animation: none;
   }

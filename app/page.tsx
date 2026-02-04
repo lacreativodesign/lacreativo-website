@@ -163,10 +163,12 @@ export default function Home() {
       <Section
         tone="dark"
         padding="lg"
+        animate={false}
         background={
           <>
             <div className="absolute inset-0 gradient-hero opacity-90" />
             <div className="absolute inset-0 hero-ambient opacity-80" />
+            <div className="absolute inset-0 hero-glow opacity-80" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_0%,rgba(255,255,255,0.08),transparent_55%)]" />
           </>
         }
@@ -176,7 +178,7 @@ export default function Home() {
             <span className="text-xs font-semibold uppercase tracking-[0.35em] text-dark-foreground/70">
               Creative & Digital Studio
             </span>
-            <h1 className="text-reveal text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.6rem]">
+            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.6rem]">
               Build a premium brand presence that feels human, confident, and
               ready to earn trust fast.
             </h1>
@@ -197,10 +199,14 @@ export default function Home() {
               Roadmap arrives within one business day. Compare packages before
               you commit.
             </p>
-            <div className="flex flex-wrap gap-3 text-xs text-dark-foreground/60">
-              <span>100% satisfaction guaranteed</span>
-              <span>You own everything we build</span>
-              <span>No hidden fees or surprise add-ons</span>
+            <div className="reveal-stagger flex flex-wrap gap-3 text-xs text-dark-foreground/60">
+              {[
+                "100% satisfaction guaranteed",
+                "You own everything we build",
+                "No hidden fees or surprise add-ons",
+              ].map((item) => (
+                <span key={item}>{item}</span>
+              ))}
             </div>
             <form className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4">
               <input
@@ -227,22 +233,26 @@ export default function Home() {
                 Get my roadmap
               </Button>
             </form>
-            <div className="flex flex-wrap gap-4 text-xs text-dark-foreground/70">
-              <span>
-                Launch-ready in{" "}
-                <span className="numeric-editorial text-sm font-semibold text-dark-foreground">
-                  3–6
-                </span>{" "}
-                weeks
-              </span>
-              <span>
-                Packages from{" "}
-                <span className="numeric-editorial text-sm font-semibold text-dark-foreground">
-                  $499
-                </span>
-              </span>
-              <span>US-based creative team</span>
-              <span>Rated 4.9/5 by 120+ small business owners</span>
+            <div className="reveal-stagger flex flex-wrap gap-4 text-xs text-dark-foreground/70">
+              {[
+                <>
+                  Launch-ready in{" "}
+                  <span className="numeric-editorial text-sm font-semibold text-dark-foreground">
+                    3–6
+                  </span>{" "}
+                  weeks
+                </>,
+                <>
+                  Packages from{" "}
+                  <span className="numeric-editorial text-sm font-semibold text-dark-foreground">
+                    $499
+                  </span>
+                </>,
+                <>US-based creative team</>,
+                <>Rated 4.9/5 by 120+ small business owners</>,
+              ].map((item, index) => (
+                <span key={`hero-meta-${index}`}>{item}</span>
+              ))}
             </div>
           </div>
           <div className="relative flex items-center justify-center">
@@ -334,7 +344,7 @@ export default function Home() {
           </div>
           <div className="card-premium flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">Trust indicators</h3>
-            <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
+            <div className="reveal-stagger flex flex-wrap gap-3 text-xs text-muted-foreground">
               <span className="rounded-full border border-border px-3 py-1">
                 Clutch ★★★★★
               </span>
@@ -354,6 +364,12 @@ export default function Home() {
               affordable.”
             </div>
           </div>
+        </div>
+        <div className="reveal mt-8 flex flex-wrap items-center gap-4">
+          <Button href="/get-started">Book a consult</Button>
+          <Button href="#packages" variant="secondary">
+            Compare packages
+          </Button>
         </div>
       </Section>
 
@@ -388,6 +404,12 @@ export default function Home() {
               />
             </div>
           ))}
+        </div>
+        <div className="reveal mt-8 flex flex-wrap items-center gap-4">
+          <Button href="/services">View all services</Button>
+          <Button href="#packages" variant="secondary">
+            See package options
+          </Button>
         </div>
       </Section>
 
@@ -458,6 +480,12 @@ export default function Home() {
             ))}
           </div>
         </div>
+        <div className="reveal mt-8 flex flex-wrap items-center gap-4">
+          <Button href="/work-with-us">Meet the team</Button>
+          <Button href="#lead-capture" variant="secondary">
+            Get a roadmap
+          </Button>
+        </div>
       </Section>
 
       <Section
@@ -490,6 +518,12 @@ export default function Home() {
               />
             </div>
           ))}
+        </div>
+        <div className="reveal mt-8 flex flex-wrap items-center gap-4">
+          <Button href="#packages">Compare packages</Button>
+          <Button href="#pricing" variant="secondary">
+            See pricing philosophy
+          </Button>
         </div>
       </Section>
 
@@ -536,10 +570,14 @@ export default function Home() {
               Quick, clear, and zero pressure. You’ll know the best package
               path before you make a decision.
             </p>
-            <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
-              <span>✓ Delivered in 24 hours</span>
-              <span>✓ Recommended starting point</span>
-              <span>✓ Trusted by 300+ small business launches</span>
+            <div className="reveal-stagger flex flex-wrap gap-3 text-xs text-muted-foreground">
+              {[
+                "✓ Delivered in 24 hours",
+                "✓ Recommended starting point",
+                "✓ Trusted by 300+ small business launches",
+              ].map((item) => (
+                <span key={item}>{item}</span>
+              ))}
             </div>
           </div>
           <form className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground">
@@ -600,6 +638,12 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <div className="reveal mt-8 flex flex-wrap items-center gap-4">
+          <Button href="/get-started">Start my project</Button>
+          <Button href="#work" variant="secondary">
+            See featured work
+          </Button>
+        </div>
       </Section>
 
       <Section
@@ -624,6 +668,12 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="reveal mt-8 flex flex-wrap items-center gap-4">
+          <Button href="/work-with-us">Request a custom concept</Button>
+          <Button href="#lead-capture" variant="secondary">
+            Get a 24-hr roadmap
+          </Button>
         </div>
       </Section>
 
@@ -664,13 +714,19 @@ export default function Home() {
           </div>
           <div className="card-premium flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">What’s always included</h3>
-            <ul className="flex flex-col gap-2 text-muted-foreground">
+            <ul className="reveal-stagger flex flex-col gap-2 text-muted-foreground">
               <li>Creative direction and kickoff session</li>
               <li>Clear deliverables and timeline</li>
               <li>Two rounds of revisions built in</li>
               <li>Launch support and post-launch check-in</li>
             </ul>
           </div>
+        </div>
+        <div className="reveal mt-8 flex flex-wrap items-center gap-4">
+          <Button href="#packages">Explore packages</Button>
+          <Button href="/get-started" variant="secondary">
+            Talk to a strategist
+          </Button>
         </div>
       </Section>
 
@@ -681,6 +737,12 @@ export default function Home() {
         align="center"
       >
         <TestimonialSlider items={testimonials} />
+        <div className="reveal mt-8 flex flex-wrap items-center justify-center gap-4">
+          <Button href="/get-started">Start your roadmap</Button>
+          <Button href="#work" variant="secondary">
+            View the work
+          </Button>
+        </div>
       </Section>
 
       <Section tone="dark" padding="lg">
