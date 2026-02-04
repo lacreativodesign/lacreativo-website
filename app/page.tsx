@@ -197,6 +197,11 @@ export default function Home() {
               Roadmap arrives within one business day. Compare packages before
               you commit.
             </p>
+            <div className="flex flex-wrap gap-3 text-xs text-dark-foreground/60">
+              <span>100% satisfaction guaranteed</span>
+              <span>You own everything we build</span>
+              <span>No hidden fees or surprise add-ons</span>
+            </div>
             <form className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4">
               <input
                 type="text"

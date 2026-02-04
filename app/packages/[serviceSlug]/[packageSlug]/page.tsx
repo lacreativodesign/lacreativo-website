@@ -80,6 +80,11 @@ export default async function PackagePage({ params }: PackagePageProps) {
             Back to {service.name}
           </Button>
         </div>
+        <div className="mt-4 flex flex-wrap gap-3 text-xs text-dark-foreground/60">
+          <span>100% satisfaction guaranteed</span>
+          <span>You own everything we build</span>
+          <span>No hidden fees or surprise add-ons</span>
+        </div>
       </Section>
 
       <Section
@@ -129,6 +134,32 @@ export default async function PackagePage({ params }: PackagePageProps) {
             </span>
           </div>
         </div>
+      </Section>
+
+      <Section
+        eyebrow="What happens after you order"
+        title="A short, five-step flow"
+        description="Clear checkpoints so you always know what’s next."
+      >
+        <ol className="grid gap-4 text-sm text-muted-foreground md:grid-cols-2">
+          {[
+            "Order placed and confirmation sent.",
+            "Intake form and kickoff call.",
+            "First draft delivered for review.",
+            "Revision round(s) based on your feedback.",
+            "Final delivery and launch support.",
+          ].map((step, index) => (
+            <li
+              key={step}
+              className="card-premium flex flex-col gap-3 rounded-3xl border border-border bg-card p-6"
+            >
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                Step {index + 1}
+              </span>
+              <p>{step}</p>
+            </li>
+          ))}
+        </ol>
       </Section>
 
       {primaryIndustry && (
