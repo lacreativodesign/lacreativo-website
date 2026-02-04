@@ -212,7 +212,11 @@ export default function Home() {
                 <span key={item}>{item}</span>
               ))}
             </div>
-            <form className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4">
+            <form
+              action="/thank-you/lead"
+              method="get"
+              className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-sm text-dark-foreground/80 sm:grid-cols-2 lg:grid-cols-4"
+            >
               <input
                 type="text"
                 placeholder="Your name"
@@ -575,7 +579,11 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <form className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground">
+          <form
+            action="/thank-you/lead"
+            method="get"
+            className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground"
+          >
             <input
               type="text"
               placeholder="Full name"

@@ -164,7 +164,11 @@ export default function IndustryLandingPage({
               <span>✓ Friendly, expert guidance</span>
             </div>
           </div>
-          <form className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground">
+          <form
+            action="/thank-you/lead"
+            method="get"
+            className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground"
+          >
             <input type="text" placeholder="Full name" className="input-field" />
             <input
               type="email"
