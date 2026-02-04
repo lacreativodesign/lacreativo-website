@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import Button from "@/components/Button";
+import OrderNowButton from "@/components/OrderNowButton";
 import Section from "@/components/Section";
 import { getPrimaryIndustryLinkForService } from "@/data/industries";
 import { packagesByServiceSlug } from "@/data/packages";
@@ -73,9 +74,14 @@ export default async function PackagePage({ params }: PackagePageProps) {
         description={selectedPackage.summary}
       >
         <div className="mt-6 flex flex-wrap gap-4">
-          <Button href={`${serviceHref}#lead-capture`} size="lg">
+          <OrderNowButton
+            href={`${serviceHref}#lead-capture`}
+            size="lg"
+            packageId={selectedPackage.slug}
+            service={service.slug}
+          >
             Order Now
-          </Button>
+          </OrderNowButton>
           <Button href={serviceHref} variant="secondary" size="lg">
             Back to {service.name}
           </Button>
@@ -215,7 +221,13 @@ export default async function PackagePage({ params }: PackagePageProps) {
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Button href={`${serviceHref}#lead-capture`}>Order Now</Button>
+            <OrderNowButton
+              href={`${serviceHref}#lead-capture`}
+              packageId={selectedPackage.slug}
+              service={service.slug}
+            >
+              Order Now
+            </OrderNowButton>
             <Button href={serviceHref} variant="secondary">
               Back to service
             </Button>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "@/components/Button";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
 
 const footerLinks = [
   {
@@ -80,39 +81,15 @@ export default function Footer() {
               Book a Free Intro
             </Button>
           </div>
-          <form
-            action="/thank-you/lead"
-            method="get"
-            className="form-surface hero-form grid gap-3 rounded-2xl p-4 text-xs sm:grid-cols-2 lg:grid-cols-4"
-          >
-            <input
-              type="text"
-              placeholder="Your name"
-              className="input-field input-field-dark"
-            />
-            <input
-              type="email"
-              placeholder="Email address"
-              className="input-field input-field-dark"
-            />
-            <input
-              type="tel"
-              placeholder="Phone"
-              className="input-field input-field-dark"
-            />
-            <input
-              type="text"
-              placeholder="Business name"
-              className="input-field input-field-dark"
-            />
-            <Button
-              type="submit"
-              size="sm"
-              className="sm:col-span-2 lg:col-span-4"
-            >
-              Get the roadmap
-            </Button>
-          </form>
+          <LeadCaptureForm
+            ctaLabel="Get the roadmap"
+            formClassName="form-surface hero-form grid gap-3 rounded-2xl p-4 text-xs sm:grid-cols-2 lg:grid-cols-4"
+            inputClassName="input-field input-field-dark"
+            buttonClassName="sm:col-span-2 lg:col-span-4"
+            buttonSize="sm"
+            namePlaceholder="Your name"
+            phonePlaceholder="Phone"
+          />
           <div className="flex flex-wrap gap-4 text-xs text-dark-foreground/70">
             <span>
               Trusted by{" "}

@@ -1,4 +1,6 @@
 import Button from "@/components/Button";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
+import OrderNowButton from "@/components/OrderNowButton";
 import Section from "@/components/Section";
 import type { CSSProperties } from "react";
 
@@ -47,9 +49,20 @@ export default function IndustryPageTemplate({
             {heroSubtext}
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button href="#lead-capture" size="lg">
-              {formCtaLabel}
-            </Button>
+            {formCtaLabel === "Order Now" ? (
+              <OrderNowButton
+                href="#lead-capture"
+                size="lg"
+                packageId="general"
+                service={name}
+              >
+                {formCtaLabel}
+              </OrderNowButton>
+            ) : (
+              <Button href="#lead-capture" size="lg">
+                {formCtaLabel}
+              </Button>
+            )}
             <Button href="/services" variant="secondary" size="lg">
               Browse Services
             </Button>
@@ -155,29 +168,11 @@ export default function IndustryPageTemplate({
               <span>✓ Friendly, expert guidance</span>
             </div>
           </div>
-          <form
-            action="/thank-you/lead"
-            method="get"
-            className="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground"
-          >
-            <input type="text" placeholder="Full name" className="input-field" />
-            <input
-              type="email"
-              placeholder="Email address"
-              className="input-field"
-            />
-            <input
-              type="tel"
-              placeholder="Phone number"
-              className="input-field"
-            />
-            <input
-              type="text"
-              placeholder="Business name"
-              className="input-field"
-            />
-            <Button type="submit">{formCtaLabel}</Button>
-          </form>
+          <LeadCaptureForm
+            ctaLabel={formCtaLabel}
+            formClassName="form-surface grid gap-3 rounded-3xl p-5 text-sm text-muted-foreground"
+            inputClassName="input-field"
+          />
         </div>
       </Section>
     </div>

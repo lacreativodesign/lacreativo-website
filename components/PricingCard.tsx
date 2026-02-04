@@ -1,15 +1,20 @@
 import Button from "@/components/Button";
+import OrderNowButton from "@/components/OrderNowButton";
 
 type PricingCardProps = {
   name: string;
   description: string;
   features: string[];
+  orderPackageId?: string;
+  orderService?: string;
 };
 
 export default function PricingCard({
   name,
   description,
   features,
+  orderPackageId,
+  orderService,
 }: PricingCardProps) {
   return (
     <div className="card-premium hover-lift flex h-full flex-col gap-5 rounded-3xl border border-border bg-card p-6 shadow-[0_20px_50px_rgba(15,11,20,0.08)] transition hover:border-accent/40 hover:shadow-[0_28px_60px_rgba(15,11,20,0.16)]">
@@ -31,9 +36,14 @@ export default function PricingCard({
         <Button variant="secondary" size="sm" href="#details">
           View Details
         </Button>
-        <Button size="sm" href="#order">
+        <OrderNowButton
+          size="sm"
+          href="#order"
+          packageId={orderPackageId ?? "general"}
+          service={orderService ?? "pricing"}
+        >
           Order Now
-        </Button>
+        </OrderNowButton>
       </div>
     </div>
   );

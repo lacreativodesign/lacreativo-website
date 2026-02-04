@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import Button from "@/components/Button";
+import OrderNowButton from "@/components/OrderNowButton";
 import Section from "@/components/Section";
 
 import { websiteDesignPackages } from "../../packagesData";
@@ -73,9 +74,13 @@ export default async function WebsiteDesignPackagePage({
               website without delays or scope creep.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Button href="/services/website-design-development#lead-capture">
+              <OrderNowButton
+                href="/services/website-design-development#lead-capture"
+                packageId={selectedPackage.slug}
+                service="website-design-development"
+              >
                 Order Now
-              </Button>
+              </OrderNowButton>
               <Button href="/services/website-design-development" variant="secondary">
                 View Details
               </Button>
