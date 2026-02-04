@@ -19,20 +19,20 @@ export default function IndustriesPage() {
         padding="lg"
         eyebrow="Industries"
         title="Industries we serve"
-        description="Explore industry-specific guidance, recommended services, and packages tailored to the way you work."
+        description="Explore industry-specific guidance, recommended services, and a direct path to request support."
       />
 
       <Section
         eyebrow="Browse industries"
         title="Find your industry"
-        description="Each industry page includes challenges, recommended services, and a direct path to order."
+        description="Each industry page includes challenges, mapped services, and a direct path to request support."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {industries.map((industry) => (
             <Card
               key={industry.slug}
               title={industry.name}
-              description={industry.heroSubtext}
+              description={industry.descriptor}
               icon={industry.icon}
               cta={
                 <Button
@@ -45,6 +45,18 @@ export default function IndustriesPage() {
               }
             />
           ))}
+        </div>
+      </Section>
+
+      <Section tone="muted" padding="sm">
+        <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 className="text-2xl font-semibold">Explore all services</h2>
+            <p className="text-sm text-muted-foreground">
+              Review every service category before choosing a package.
+            </p>
+          </div>
+          <Button href="/services">Browse Services</Button>
         </div>
       </Section>
     </div>

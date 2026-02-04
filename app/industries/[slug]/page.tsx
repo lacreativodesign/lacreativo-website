@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import IndustryLandingPage from "@/components/templates/IndustryLandingPage";
+import IndustryPageTemplate from "@/components/templates/IndustryPageTemplate";
 import {
-  buildIndustryPackageCards,
   buildIndustryServiceCards,
   industryBySlug,
   industries,
@@ -46,18 +45,12 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
   }
 
   return (
-    <IndustryLandingPage
+    <IndustryPageTemplate
       name={industry.name}
       heroHeadline={industry.heroHeadline}
       heroSubtext={industry.heroSubtext}
-      problems={industry.problems}
-      helpItems={industry.helpItems}
-      recommendedServices={buildIndustryServiceCards(
-        industry.recommendedServices
-      )}
-      recommendedPackages={buildIndustryPackageCards(
-        industry.recommendedPackages
-      )}
+      challenges={industry.challenges}
+      serviceCards={buildIndustryServiceCards(industry.serviceSlugs)}
       formCtaLabel={industry.formCtaLabel}
     />
   );

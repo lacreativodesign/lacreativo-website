@@ -95,21 +95,27 @@ const serviceGroups = [
 ];
 
 const industries = [
-  { label: "Small & Local Businesses", href: "/industries/small-local" },
-  { label: "Startups & Entrepreneurs", href: "/industries/startups" },
-  { label: "E-Commerce Businesses", href: "/industries/ecommerce" },
-  { label: "Professional Services", href: "/industries/professional-services" },
-  { label: "Healthcare & Medical", href: "/industries/healthcare" },
+  { label: "Startups & SaaS", href: "/industries/startups-saas" },
+  { label: "Small Businesses", href: "/industries/small-businesses" },
+  { label: "E-Commerce & DTC Brands", href: "/industries/ecommerce-dtc" },
   { label: "Real Estate", href: "/industries/real-estate" },
-  { label: "Education & Training", href: "/industries/education" },
-  { label: "Restaurants & Food", href: "/industries/restaurants" },
-  { label: "Beauty & Lifestyle", href: "/industries/beauty" },
-  { label: "Technology & SaaS", href: "/industries/technology" },
-  { label: "Non-profits & Organizations", href: "/industries/non-profits" },
-  { label: "Finance & Accounting", href: "/industries/finance" },
-  { label: "Construction & Home Services", href: "/industries/construction" },
-  { label: "Travel & Hospitality", href: "/industries/travel" },
-  { label: "Authors & Personal Brands", href: "/industries/authors" },
+  { label: "Healthcare & Clinics", href: "/industries/healthcare-clinics" },
+  { label: "Law Firms", href: "/industries/law-firms" },
+  { label: "Coaches & Consultants", href: "/industries/coaches-consultants" },
+  {
+    label: "Restaurants & Hospitality",
+    href: "/industries/restaurants-hospitality",
+  },
+  { label: "Construction & Trades", href: "/industries/construction-trades" },
+  { label: "Education & Training", href: "/industries/education-training" },
+  {
+    label: "Finance & Professional Services",
+    href: "/industries/finance-professional-services",
+  },
+  {
+    label: "Creators & Personal Brands",
+    href: "/industries/creators-personal-brands",
+  },
 ];
 
 export default function Header() {
