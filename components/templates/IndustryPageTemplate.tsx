@@ -103,7 +103,12 @@ export default function IndustryPageTemplate({
                 {service.description}
               </p>
               <div className="mt-4">
-                <Button href={service.href} variant="secondary" size="sm">
+                <Button
+                  href={service.href}
+                  variant="secondary"
+                  size="sm"
+                  prefetch={false}
+                >
                   View Service
                 </Button>
               </div>
@@ -126,7 +131,12 @@ export default function IndustryPageTemplate({
               >
                 <p className="text-base font-semibold">{pkg.label}</p>
                 <p className="text-muted-foreground">{pkg.description}</p>
-                <Button href={pkg.href} variant="secondary" size="sm">
+                <Button
+                  href={pkg.href}
+                  variant="secondary"
+                  size="sm"
+                  prefetch={false}
+                >
                   View Package
                 </Button>
               </div>

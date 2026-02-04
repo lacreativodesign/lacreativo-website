@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ThankYouEvent from "../_components/ThankYouEvent";
+import { canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Thank You — Request Received",
   description: "We have received your request and will be in touch shortly.",
+  alternates: {
+    canonical: canonicalUrl("/thank-you/lead"),
+  },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
 };
 
@@ -37,12 +41,14 @@ export default function LeadThankYouPage() {
       <div className="mt-8 flex flex-wrap gap-3">
         <Link
           href="/"
+          prefetch={false}
           className="inline-flex items-center justify-center rounded-full border border-foreground px-5 py-2 text-sm font-medium text-foreground transition hover:bg-foreground hover:text-background"
         >
           Back to Home
         </Link>
         <Link
           href="/client-login"
+          prefetch={false}
           className="inline-flex items-center justify-center rounded-full border border-foreground px-5 py-2 text-sm font-medium text-foreground transition hover:bg-foreground hover:text-background"
         >
           Client Login

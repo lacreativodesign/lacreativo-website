@@ -119,7 +119,18 @@ const industries = [
 ];
 
 export default function Header() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    const stored = window.localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    return stored ? stored === "dark" : prefersDark;
+  });
   const [isMegaOpen, setIsMegaOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<
@@ -127,17 +138,8 @@ export default function Header() {
   >(null);
 
   useEffect(() => {
-    const stored = window.localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const shouldUseDark = stored
-      ? stored === "dark"
-      : prefersDark;
-
-    document.documentElement.classList.toggle("dark", shouldUseDark);
-    setIsDark(shouldUseDark);
-  }, []);
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
 
   const toggleTheme = () => {
     const next = !isDark;
@@ -230,6 +232,7 @@ export default function Header() {
                           <Link
                             key={item.label}
                             href={item.href}
+                            prefetch={false}
                             className="group flex items-start gap-3 rounded-2xl border border-transparent p-3 transition hover:border-border hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                           >
                             <span
@@ -258,6 +261,7 @@ export default function Header() {
                   </span>
                   <Link
                     href="/industries"
+                    prefetch={false}
                     className="text-xs font-semibold text-foreground transition hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
                     View Industries
@@ -369,6 +373,7 @@ export default function Header() {
                           <Link
                             key={item.label}
                             href={item.href}
+                            prefetch={false}
                             className="text-sm text-foreground transition hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                             onClick={handleMobileToggle}
                           >
@@ -401,6 +406,7 @@ export default function Header() {
                     <Link
                       key={industry.label}
                       href={industry.href}
+                      prefetch={false}
                       className="text-sm text-foreground transition hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                       onClick={handleMobileToggle}
                     >

@@ -144,6 +144,7 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
                   href={`/services/${category.slug}/${service.slug}`}
                   variant="secondary"
                   size="sm"
+                  prefetch={false}
                 >
                   View Details
                 </Button>

@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 
 import Section from "@/components/Section";
+import { canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | LA CREATIVO",
   description:
     "Review LA CREATIVO terms, timelines, ownership, and the full guarantee details in one place.",
+  alternates: {
+    canonical: canonicalUrl("/terms-and-conditions"),
+  },
 };
 
 export default function TermsAndConditionsPage() {

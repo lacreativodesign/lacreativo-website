@@ -3,11 +3,19 @@ import { Suspense } from "react";
 
 import Button from "@/components/Button";
 import Section from "@/components/Section";
+import { canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Client Login | LA CREATIVO",
   description:
     "Access the LA CREATIVO client portal to review updates, files, and next steps.",
+  alternates: {
+    canonical: canonicalUrl("/client-login"),
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 function ClientLoginContent() {

@@ -7,6 +7,7 @@ import Section from "@/components/Section";
 import ServicePageTemplate from "@/components/templates/ServicePageTemplate";
 import { buildServiceTemplate } from "@/data/serviceContent";
 import { categoryBySlug } from "@/data/services";
+import { canonicalUrl } from "@/lib/seo";
 
 type ServicePageProps = {
   params: Promise<{ service: string }>;
@@ -33,12 +34,18 @@ export async function generateMetadata({
       title: "Website Service | LA CREATIVO",
       description:
         "Explore LA CREATIVO website services built for USA small businesses.",
+      alternates: {
+        canonical: canonicalUrl("/services/website-design-development"),
+      },
     };
   }
 
   return {
     title: service.metaTitle,
     description: service.metaDescription,
+    alternates: {
+      canonical: canonicalUrl(`/services/website-design-development/${service.slug}`),
+    },
   };
 }
 
@@ -54,7 +61,7 @@ export default async function WebsiteServicePage({ params }: ServicePageProps) {
     notFound();
   }
 
-  const templateData = buildServiceTemplate(service, category);
+  const templateData = buildServiceTemplate(service);
   const relatedServices = category.services
     .filter((item) => item.slug !== service.slug)
     .slice(0, 4);
@@ -81,6 +88,7 @@ export default async function WebsiteServicePage({ params }: ServicePageProps) {
                   href={`/services/${category.slug}/${item.slug}`}
                   variant="secondary"
                   size="sm"
+                  prefetch={false}
                 >
                   View Details
                 </Button>

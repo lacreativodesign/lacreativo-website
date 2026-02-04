@@ -6,6 +6,7 @@ import Section from "@/components/Section";
 import { getPrimaryIndustryLinkForService } from "@/data/industries";
 import { packagesByServiceSlug } from "@/data/packages";
 import { servicesWithCategory } from "@/data/services";
+import { canonicalUrl } from "@/lib/seo";
 
 type PackagePageProps = {
   params: Promise<{ serviceSlug: string; packageSlug: string }>;
@@ -36,12 +37,18 @@ export async function generateMetadata({
       title: "Package | LA CREATIVO",
       description:
         "Explore LA CREATIVO packages built for USA small businesses.",
+      alternates: {
+        canonical: canonicalUrl("/services"),
+      },
     };
   }
 
   return {
     title: `${selectedPackage.name} | ${service.name} | LA CREATIVO`,
     description: `Overview of the ${selectedPackage.name} package for ${service.name}, including inclusions, timeline, and ordering details.`,
+    alternates: {
+      canonical: canonicalUrl(`/packages/${service.slug}/${selectedPackage.slug}`),
+    },
   };
 }
 
@@ -177,7 +184,12 @@ export default async function PackagePage({ params }: PackagePageProps) {
               <Button href={primaryIndustry.href} variant="secondary" size="sm">
                 Explore {primaryIndustry.label}
               </Button>
-              <Button href={serviceHref} variant="secondary" size="sm">
+              <Button
+                href={serviceHref}
+                variant="secondary"
+                size="sm"
+                prefetch={false}
+              >
                 Back to {service.name}
               </Button>
             </div>
@@ -198,7 +210,11 @@ export default async function PackagePage({ params }: PackagePageProps) {
             >
               <h3 className="text-base font-semibold">{item.name}</h3>
               <p className="text-muted-foreground">{item.summary}</p>
-              <Button href={`/packages/${service.slug}/${item.slug}`} size="sm">
+              <Button
+                href={`/packages/${service.slug}/${item.slug}`}
+                size="sm"
+                prefetch={false}
+              >
                 View Details
               </Button>
             </div>

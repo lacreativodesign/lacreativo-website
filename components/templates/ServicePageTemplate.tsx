@@ -197,7 +197,12 @@ export default function ServicePageTemplate({
                   {item.startingPrice}
                 </span>
               </div>
-              <Button href={item.href} variant="secondary" size="sm">
+              <Button
+                href={item.href}
+                variant="secondary"
+                size="sm"
+                prefetch={false}
+              >
                 View Package Details
               </Button>
             </div>
@@ -268,7 +273,12 @@ export default function ServicePageTemplate({
                   {industry.description}
                 </p>
                 <div className="mt-4">
-                  <Button href={industry.href} variant="secondary" size="sm">
+                  <Button
+                    href={industry.href}
+                    variant="secondary"
+                    size="sm"
+                    prefetch={false}
+                  >
                     View Industry
                   </Button>
                 </div>

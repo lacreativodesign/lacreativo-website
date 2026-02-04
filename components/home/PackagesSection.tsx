@@ -205,7 +205,7 @@ export default function PackagesSection() {
                 </li>
               ))}
             </ul>
-            <Button href="/get-started" size="sm">
+            <Button href="/get-started" size="sm" prefetch={false}>
               Start this package
             </Button>
             <a

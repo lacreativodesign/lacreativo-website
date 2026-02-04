@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import Section from "@/components/Section";
 
 import { websiteDesignPackages } from "../../packagesData";
+import { canonicalUrl } from "@/lib/seo";
 
 type PackagePageProps = {
   params: Promise<{ slug: string }>;
@@ -27,12 +28,20 @@ export async function generateMetadata({
       title: "Website Package | LA CREATIVO",
       description:
         "Explore LA CREATIVO website packages designed for USA small businesses.",
+      alternates: {
+        canonical: canonicalUrl("/services/website-design-development"),
+      },
     };
   }
 
   return {
     title: `${selectedPackage.name} | Website Design & Development | LA CREATIVO`,
     description: selectedPackage.summary,
+    alternates: {
+      canonical: canonicalUrl(
+        `/services/website-design-development/packages/${selectedPackage.slug}`
+      ),
+    },
   };
 }
 

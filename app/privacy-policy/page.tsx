@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 
 import Section from "@/components/Section";
+import { canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | LA CREATIVO",
   description:
     "Learn how LA CREATIVO collects, uses, and protects your information with a clear, simple privacy policy.",
+  alternates: {
+    canonical: canonicalUrl("/privacy-policy"),
+  },
 };
 
 export default function PrivacyPolicyPage() {

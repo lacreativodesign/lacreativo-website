@@ -1,6 +1,6 @@
 import { getIndustryRecommendationsForService } from "./industries";
 import { packagesByServiceSlug } from "./packages";
-import type { ServiceCategory, ServiceDefinition } from "./services";
+import type { ServiceDefinition } from "./services";
 
 export type ServiceCardItem = {
   name: string;
@@ -134,10 +134,7 @@ export const buildCategoryTemplate = (category: ServiceCategory) => ({
   ],
 });
 
-export const buildServiceTemplate = (
-  service: ServiceDefinition,
-  category: ServiceCategory
-) => {
+export const buildServiceTemplate = (service: ServiceDefinition) => {
   const packages = packagesByServiceSlug[service.slug] ?? [];
 
   return {
