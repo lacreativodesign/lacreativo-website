@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 
 import Button from "@/components/Button";
+import LeadCaptureSection from "@/components/LeadCaptureSection";
 import OrderNowButton from "@/components/OrderNowButton";
 import Section from "@/components/Section";
 import { packagesByServiceSlug } from "@/data/packages";
@@ -90,7 +91,7 @@ export default function ComboPackagesPage() {
       </Section>
 
       <Section title={activeConfig.title} description={activeConfig.description}>
-        <div className="min-h-[760px]">
+        <div>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {packages.map((item) => (
               <article
@@ -137,6 +138,12 @@ export default function ComboPackagesPage() {
           </div>
         </div>
       </Section>
+
+      <LeadCaptureSection
+        title="Need a tailored package mix?"
+        description="Tell us what you are launching and we’ll recommend the leanest combo to hit your goals."
+        ctaLabel="Get my combo plan"
+      />
     </div>
   );
 }

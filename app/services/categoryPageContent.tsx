@@ -36,9 +36,6 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
           >
             Order Now
           </OrderNowButton>
-          <Button href="/services" variant="secondary" size="lg">
-            Browse all services
-          </Button>
         </div>
         <div className="mt-4 flex flex-wrap gap-3 text-xs text-dark-foreground/60">
           <span>100% satisfaction guaranteed</span>
@@ -64,7 +61,7 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
               so you never feel stuck wondering what happens next.
             </p>
           </div>
-          <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
+          <div className="card-premium h-full rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">What makes this different</h3>
             <ul className="mt-4 flex flex-col gap-3 text-muted-foreground">
               <li className="flex gap-2">
@@ -113,7 +110,7 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
         description="We work best with owners who want clarity, momentum, and a premium result without the confusion."
       >
         <div className="grid gap-6 lg:grid-cols-2">
-          <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
+          <div className="card-premium h-full rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">Ideal for</h3>
             <ul className="mt-4 flex flex-col gap-3 text-muted-foreground">
               <li>USA small businesses ready to upgrade their brand experience.</li>
@@ -122,7 +119,7 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
               <li>Owners who value clarity over endless experimentation.</li>
             </ul>
           </div>
-          <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
+          <div className="card-premium h-full rounded-3xl border border-border bg-card p-6 text-sm">
             <h3 className="text-lg font-semibold">Not for</h3>
             <ul className="mt-4 flex flex-col gap-3 text-muted-foreground">
               <li>Projects without a clear decision maker or timeline.</li>
@@ -217,7 +214,7 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
           ].map((faq) => (
             <details
               key={faq.question}
-              className="card-premium rounded-3xl border border-border bg-card p-6 text-sm"
+              className="card-premium h-full rounded-3xl border border-border bg-card p-6 text-sm"
             >
               <summary className="cursor-pointer font-semibold">
                 {faq.question}

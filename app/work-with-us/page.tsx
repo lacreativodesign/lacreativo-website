@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import Button from "@/components/Button";
+import LeadCaptureSection from "@/components/LeadCaptureSection";
 import Section from "@/components/Section";
 
 export const metadata: Metadata = {
@@ -66,6 +67,12 @@ export default function WorkWithUsPage() {
           </Button>
         </div>
       </Section>
+
+      <LeadCaptureSection
+        title="Want to work with us?"
+        description="Share your role and goals, and our team will route your request to the right path quickly."
+        ctaLabel="Send my request"
+      />
     </div>
   );
 }
