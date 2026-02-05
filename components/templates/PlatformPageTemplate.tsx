@@ -31,12 +31,16 @@ export default function PlatformPageTemplate({
 }: PlatformPageTemplateProps) {
   return (
     <div>
-      <Section tone="dark" padding="lg">
-        <div className="flex flex-col gap-6">
+      <Section tone="dark" padding="lg" background={<>
+            <div className="absolute inset-0 gradient-hero opacity-90" />
+            <div className="absolute inset-0 hero-ambient opacity-80" />
+            <div className="absolute inset-0 hero-glow opacity-70" />
+          </>}>
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-dark-foreground/70">
             Platform
           </span>
-          <h1 className="text-reveal text-4xl font-semibold leading-tight text-dark-foreground sm:text-5xl">
+          <h1 className="text-reveal heading-balanced text-4xl font-semibold leading-tight text-dark-foreground sm:text-5xl">
             {platform}
           </h1>
           <p className="reveal text-base leading-relaxed text-dark-foreground/70 sm:text-lg">

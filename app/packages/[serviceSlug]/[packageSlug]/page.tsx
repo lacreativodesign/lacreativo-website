@@ -211,7 +211,7 @@ export default async function PackagePage({ params }: PackagePageProps) {
             >
               <h3 className="text-base font-semibold">{item.name}</h3>
               <p className="text-muted-foreground">{item.summary}</p>
-              <Button href={`/packages/${service.slug}/${item.slug}`} size="sm">
+              <Button href={`/packages/${service.slug}/${item.slug}`} variant="secondary" size="sm">
                 View Details
               </Button>
             </div>

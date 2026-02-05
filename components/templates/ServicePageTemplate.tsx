@@ -83,12 +83,12 @@ export default function ServicePageTemplate({
           </>
         }
       >
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="flex flex-col gap-6">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center lg:mx-0 lg:items-start lg:text-left">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-dark-foreground/70">
               {hero.serviceName}
             </span>
-            <h1 className="text-reveal text-4xl font-semibold leading-tight sm:text-5xl">
+            <h1 className="text-reveal heading-balanced text-4xl font-semibold leading-tight sm:text-5xl">
               {hero.headline}
             </h1>
             <p className="reveal text-base leading-relaxed text-dark-foreground/70 sm:text-lg">
