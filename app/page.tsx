@@ -178,7 +178,7 @@ export default function Home() {
             <span className="text-xs font-semibold uppercase tracking-[0.35em] text-dark-foreground/70">
               Creative & Digital Studio
             </span>
-            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.6rem]">
+            <h1 className="heading-balanced text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.6rem]">
               Premium branding and websites for small businesses ready to grow.
             </h1>
             <p className="reveal text-base leading-relaxed text-dark-foreground/70 sm:text-lg">

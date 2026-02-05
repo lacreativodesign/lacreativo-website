@@ -40,7 +40,7 @@ export default function Section({
   eyebrow,
   title,
   description,
-  align = "left",
+  align = "center",
   animate = true,
   background,
   children,
@@ -63,7 +63,7 @@ export default function Section({
               </span>
             )}
             {title && (
-              <h2 className="text-reveal text-3xl font-semibold leading-tight sm:text-4xl lg:text-[2.75rem]">
+              <h2 className="text-reveal heading-balanced text-3xl font-semibold leading-tight sm:text-4xl lg:text-[2.75rem]">
                 {title}
               </h2>
             )}

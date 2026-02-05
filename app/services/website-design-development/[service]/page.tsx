@@ -80,8 +80,7 @@ export default async function WebsiteServicePage({ params }: ServicePageProps) {
                 <Button
                   href={`/services/${category.slug}/${item.slug}`}
                   variant="secondary"
-                  size="sm"
-                >
+                  size="sm">
                   View Details
                 </Button>
               }

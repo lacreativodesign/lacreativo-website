@@ -43,11 +43,11 @@ const footerLinks = [
     ],
   },
   {
-    title: "Work With Us",
+    title: "Careers",
     items: [
       { label: "Reseller Program", href: "/reseller-program" },
       { label: "Affiliate Program", href: "/affiliate-program" },
-      { label: "Careers (Talent / CV Upload)", href: "/careers" },
+      { label: "Careers", href: "/careers" },
     ],
   },
   {
@@ -61,7 +61,11 @@ const footerLinks = [
   },
 ];
 
-const social = ["Instagram", "LinkedIn", "Behance", "Dribbble"];
+const social = [
+  { label: "Facebook", href: "https://facebook.com/lacreativo" },
+  { label: "Instagram", href: "https://instagram.com/lacreativo" },
+  { label: "LinkedIn", href: "https://linkedin.com/company/lacreativo" },
+];
 
 export default function Footer() {
   return (
@@ -111,12 +115,14 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
               {social.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-border px-3 py-1"
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  aria-label={item.label}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/70 text-foreground transition hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent"
                 >
-                  {item}
-                </span>
+                  <span className="text-sm font-semibold">{item.label.slice(0, 1)}</span>
+                </Link>
               ))}
             </div>
           </div>

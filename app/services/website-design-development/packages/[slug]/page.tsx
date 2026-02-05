@@ -81,7 +81,7 @@ export default async function WebsiteDesignPackagePage({
               >
                 Order Now
               </OrderNowButton>
-              <Button href="/services/website-design-development" variant="secondary">
+              <Button href="/services/website-design-development" variant="secondary" size="sm">
                 View Details
               </Button>
             </div>

@@ -150,8 +150,7 @@ export default function CategoryPageContent({ category }: CategoryPageContentPro
                 <Button
                   href={`/services/${category.slug}/${service.slug}`}
                   variant="secondary"
-                  size="sm"
-                >
+                  size="sm">
                   View Details
                 </Button>
               }
