@@ -55,7 +55,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     notFound();
   }
 
-  const templateData = buildServiceTemplate(service, category);
+  const templateData = buildServiceTemplate(service);
   const relatedServices = category.services
     .filter((item) => item.slug !== service.slug)
     .slice(0, 4);

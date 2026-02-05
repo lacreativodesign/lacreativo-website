@@ -43,6 +43,9 @@ type ServicePageTemplateProps = {
       name: string;
       startingPrice: string;
       href: string;
+      bullets: string[];
+      packageId: string;
+      serviceSlug: string;
     }>;
   };
   leadCapture: {
@@ -210,9 +213,27 @@ export default function ServicePageTemplate({
                   {item.startingPrice}
                 </span>
               </div>
-              <Button href={item.href} variant="secondary" size="sm">
-                View Package Details
-              </Button>
+              <ul className="grid min-h-[250px] grid-rows-10 gap-1 text-[11px] text-muted-foreground">
+                {item.bullets.slice(0, 10).map((bullet) => (
+                  <li key={bullet} className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    <span className="truncate whitespace-nowrap">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto flex flex-col gap-2">
+                <Button href={item.href} variant="secondary" size="md">
+                  View Details
+                </Button>
+                <OrderNowButton
+                  href="/thank-you/order"
+                  packageId={item.packageId}
+                  service={item.serviceSlug}
+                  size="md"
+                >
+                  Order Now
+                </OrderNowButton>
+              </div>
             </div>
           ))}
         </div>
