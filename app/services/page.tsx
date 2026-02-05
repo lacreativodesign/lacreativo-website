@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import Button from "@/components/Button";
 import Card from "@/components/Card";
+import LeadCaptureSection from "@/components/LeadCaptureSection";
 import Section from "@/components/Section";
 import { serviceCategories } from "@/data/services";
 
@@ -44,17 +45,11 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      <Section tone="muted" padding="sm">
-        <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h2 className="text-2xl font-semibold">Not sure where to start?</h2>
-            <p className="text-sm text-muted-foreground">
-              Tell us your goals and we’ll recommend the best service category within one business day.
-            </p>
-          </div>
-          <Button href="/get-started">Get My Recommendation</Button>
-        </div>
-      </Section>
+      <LeadCaptureSection
+        title="Not sure where to start?"
+        description="Tell us your goals and we’ll recommend the best service category within one business day."
+        ctaLabel="Get my recommendation"
+      />
     </div>
   );
 }

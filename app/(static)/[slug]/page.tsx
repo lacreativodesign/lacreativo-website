@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import Button from "@/components/Button";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
+import LeadCaptureSection from "@/components/LeadCaptureSection";
 import Section from "@/components/Section";
 
 type StaticSection = {
@@ -234,6 +236,13 @@ const staticPages: Record<string, StaticPage> = {
   },
 };
 
+
+const contactDetails = {
+  phone: "(415) 900-2374",
+  email: "hello@lacreativo.com",
+  addressLines: ["201 Mission Street", "San Francisco, CA 94105, USA"],
+};
+
 type StaticPageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -265,6 +274,8 @@ export default async function StaticPage({ params }: StaticPageProps) {
     notFound();
   }
 
+  const isContactPage = slug === "contact";
+
   return (
     <div>
       <Section
@@ -275,32 +286,92 @@ export default async function StaticPage({ params }: StaticPageProps) {
         description={page.description}
       />
 
-      {page.sections.map((section) => (
-        <Section key={section.title} title={section.title} description={section.body[0]}>
-          <div className="flex flex-col gap-4 text-sm text-muted-foreground">
-            {section.body.slice(1).map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            {section.list && (
-              <ul className="grid gap-2">
-                {section.list.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-            {section.cta && (
-              <div>
-                <Button href={section.cta.href} variant="secondary" size="sm">
-                  {section.cta.label}
-                </Button>
+      {isContactPage ? (
+        <Section
+          title="Talk to LA CREATIVO"
+          description="Tell us what you need and we’ll respond within one business day with clear next steps."
+        >
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="form-surface rounded-3xl p-5">
+              <LeadCaptureForm
+                ctaLabel="Send contact request"
+                formClassName="grid gap-3 text-sm text-muted-foreground"
+                inputClassName="input-field"
+              />
+            </div>
+            <div className="card-premium flex h-full flex-col justify-between gap-6 rounded-3xl border border-border bg-card p-6 text-sm">
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold">Company Info</h3>
+                <p className="text-muted-foreground">
+                  Reach us directly for project questions, timelines, or package guidance.
+                </p>
               </div>
-            )}
+              <div className="grid gap-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Phone</p>
+                  <p className="mt-1 text-base font-medium">{contactDetails.phone}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Email</p>
+                  <p className="mt-1 text-base font-medium">{contactDetails.email}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Address</p>
+                  {contactDetails.addressLines.map((line) => (
+                    <p key={line} className="mt-1 text-base font-medium">
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </Section>
-      ))}
+      ) : (
+        page.sections.map((section) => (
+          <Section
+            key={section.title}
+            title={section.title}
+            description={section.body[0]}
+          >
+            <div className="grid gap-4 text-sm text-muted-foreground lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+              <div className="flex flex-col gap-4">
+                {section.body.slice(1).map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+                {section.list && (
+                  <ul className="grid gap-2">
+                    {section.list.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              {section.cta && (
+                <div className="card-premium rounded-2xl border border-border bg-card p-4 lg:sticky lg:top-24">
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Next step</p>
+                  <Button href={section.cta.href} variant="secondary" size="sm" className="mt-3">
+                    {section.cta.label}
+                  </Button>
+                </div>
+              )}
+            </div>
+          </Section>
+        ))
+      )}
+
+      <LeadCaptureSection
+        title={isContactPage ? "Prefer a quick project brief?" : "Need help choosing the right next step?"}
+        description={
+          isContactPage
+            ? "Share your project details and we’ll send a focused recommendation with timeline guidance."
+            : "Share your goals and we’ll reply with the most direct path to move forward confidently."
+        }
+        ctaLabel={isContactPage ? "Get my project plan" : "Get my recommendation"}
+      />
     </div>
   );
 }

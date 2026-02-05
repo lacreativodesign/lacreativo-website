@@ -67,9 +67,6 @@ export default function IndustryPageTemplate({
                 {formCtaLabel}
               </Button>
             )}
-            <Button href="/services" variant="secondary" size="lg">
-              Browse Services
-            </Button>
           </div>
           <div className="flex flex-wrap gap-3 text-xs text-dark-foreground/60">
             <span>100% satisfaction guaranteed</span>
@@ -88,7 +85,7 @@ export default function IndustryPageTemplate({
           {challenges.map((challenge, index) => (
             <div
               key={challenge}
-              className="card-premium reveal rounded-3xl border border-border bg-card p-5 text-sm text-muted-foreground"
+              className="card-premium reveal h-full rounded-3xl border border-border bg-card p-5 text-sm text-muted-foreground"
               style={{ "--delay": `${index * 120}ms` } as CSSProperties}
             >
               <div className="flex gap-3">
@@ -110,7 +107,7 @@ export default function IndustryPageTemplate({
           {serviceCards.map((service, index) => (
             <div
               key={service.href}
-              className="card-premium reveal rounded-3xl border border-border bg-card p-6 text-sm"
+              className="card-premium reveal h-full rounded-3xl border border-border bg-card p-6 text-sm"
               style={{ "--delay": `${index * 110}ms` } as CSSProperties}
             >
               <p className="text-base font-semibold text-foreground">
@@ -139,7 +136,7 @@ export default function IndustryPageTemplate({
             {packageLinks.map((pkg) => (
               <div
                 key={pkg.href}
-                className="card-premium flex flex-col gap-3 rounded-3xl border border-border bg-card p-5 text-sm"
+                className="card-premium flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-5 text-sm"
               >
                 <p className="text-base font-semibold">{pkg.label}</p>
                 <p className="text-muted-foreground">{pkg.description}</p>
