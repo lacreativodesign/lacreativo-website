@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import Button from "@/components/Button";
 import OrderNowButton from "@/components/OrderNowButton";
 import Section from "@/components/Section";
-import { getPrimaryIndustryLinkForService } from "@/data/industries";
 import { packagesByServiceSlug } from "@/data/packages";
 import { servicesWithCategory } from "@/data/services";
 
@@ -58,109 +56,68 @@ export default async function PackagePage({ params }: PackagePageProps) {
     notFound();
   }
 
-  const siblings = packages
-    .filter((item) => item.slug !== selectedPackage.slug)
-    .slice(0, 3);
-  const serviceHref = `/services/${service.category.slug}/${service.slug}`;
-  const primaryIndustry = getPrimaryIndustryLinkForService(service.slug);
-
   return (
     <div>
       <Section
         tone="dark"
         padding="lg"
-        eyebrow="Package"
+        eyebrow="Package decision"
         title={selectedPackage.name}
         description={selectedPackage.summary}
       >
-        <div className="mt-6 flex flex-wrap gap-4">
+        <div className="mt-5 flex items-end gap-4">
+          <span className="text-sm uppercase tracking-[0.25em] text-dark-foreground/60">
+            Starting at
+          </span>
+          <p className="text-4xl font-semibold text-accent sm:text-5xl">
+            {selectedPackage.startingPrice}
+          </p>
+        </div>
+        <p className="mt-4 max-w-2xl text-sm text-dark-foreground/70">
+          You are one step away from a clean scope, predictable timeline, and
+          a delivery process built for confident execution.
+        </p>
+        <div className="mt-6">
           <OrderNowButton
-            href={`${serviceHref}#lead-capture`}
-            size="lg"
+            href="/thank-you/order"
+            size="md"
             packageId={selectedPackage.slug}
             service={service.slug}
           >
             Order Now
           </OrderNowButton>
-          <Button href={serviceHref} variant="secondary" size="lg">
-            Back to {service.name}
-          </Button>
-        </div>
-        <div className="mt-4 flex flex-wrap gap-3 text-xs text-dark-foreground/60">
-          <span>100% satisfaction guaranteed</span>
-          <span>You own everything we build</span>
-          <span>No hidden fees or surprise add-ons</span>
         </div>
       </Section>
 
       <Section
-        eyebrow="Package overview"
-        title="What’s included"
-        description="A focused scope with everything you need to move forward confidently."
-      >
-        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="flex flex-col gap-4 text-sm text-muted-foreground">
-            <p>
-              This package keeps the scope clean and delivers a premium result without
-              unnecessary delays. You’ll get structured checkpoints, clear communication,
-              and a launch-ready outcome tailored to USA small business needs.
-            </p>
-            <p>
-              We stay focused on what matters most: clarity, momentum, and a finished
-              deliverable you can use immediately.
-            </p>
-          </div>
-          <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
-            <h3 className="text-lg font-semibold">Inclusions</h3>
-            <ul className="mt-4 flex flex-col gap-4 text-muted-foreground">
-              {selectedPackage.includes.map((item) => (
-                <li key={item.title} className="flex gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
-                  <div className="space-y-2">
-                    <p className="text-sm font-semibold text-foreground">
-                      {item.title}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      <Section
-        tone="muted"
-        eyebrow="Timeline"
-        title="Simple, predictable delivery"
-        description="We confirm timing after kickoff, but this is the typical range."
+        eyebrow="What you get"
+        title="10 included deliverables"
+        description="Everything below is included in this package with no distractions and no hidden add-ons."
       >
         <div className="card-premium rounded-3xl border border-border bg-card p-6 text-sm">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-              Estimated timeline
-            </span>
-            <span className="text-base font-semibold text-accent">
-              {selectedPackage.timeline}
-            </span>
-          </div>
+          <ul className="grid gap-4 lg:grid-cols-2">
+            {selectedPackage.includes.map((item) => (
+              <li key={item.title} className="rounded-2xl border border-border/60 p-4">
+                <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
 
       <Section
-        eyebrow="What happens after you order"
-        title="A short, five-step flow"
-        description="Clear checkpoints so you always know what’s next."
+        eyebrow="After payment"
+        title="Simple process, clear milestones"
+        description={`Typical timeline: ${selectedPackage.timeline}. You always know the next step.`}
       >
-        <ol className="grid gap-4 text-sm text-muted-foreground md:grid-cols-2">
+        <ol className="grid gap-4 text-sm text-muted-foreground md:grid-cols-5">
           {[
-            "Order placed and confirmation sent.",
-            "Intake form and kickoff call.",
-            "First draft delivered for review.",
-            "Revision round(s) based on your feedback.",
-            "Final delivery and launch support.",
+            "Order is confirmed.",
+            "Kickoff details collected.",
+            "First delivery prepared.",
+            "Revisions completed.",
+            "Final files delivered.",
           ].map((step, index) => (
             <li
               key={step}
@@ -175,71 +132,15 @@ export default async function PackagePage({ params }: PackagePageProps) {
         </ol>
       </Section>
 
-      {primaryIndustry && (
-        <Section
-          eyebrow="Best fit"
-          title="This package works best for"
-          description="A quick reassurance before you pick the scope."
+      <Section tone="dark" padding="md" title="Ready to order this package?">
+        <OrderNowButton
+          href="/thank-you/order"
+          packageId={selectedPackage.slug}
+          service={service.slug}
+          size="md"
         >
-          <div className="flex flex-col gap-4 text-sm text-muted-foreground">
-            <p>
-              This package is a strong fit for {primaryIndustry.label.toLowerCase()} teams who
-              want {service.name.toLowerCase()} support with a clear, guided scope.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Button href={primaryIndustry.href} variant="secondary" size="sm">
-                Explore {primaryIndustry.label}
-              </Button>
-              <Button href={serviceHref} variant="secondary" size="sm">
-                Back to {service.name}
-              </Button>
-            </div>
-          </div>
-        </Section>
-      )}
-
-      <Section
-        eyebrow="Related packages"
-        title="Compare similar options"
-        description="Look at a few sibling packages if you want a different scope."
-      >
-        <div className="grid gap-4 md:grid-cols-3">
-          {siblings.map((item) => (
-            <div
-              key={item.slug}
-              className="card-premium flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-5 text-sm"
-            >
-              <h3 className="text-base font-semibold">{item.name}</h3>
-              <p className="text-muted-foreground">{item.summary}</p>
-              <Button href={`/packages/${service.slug}/${item.slug}`} variant="secondary" size="sm">
-                View Details
-              </Button>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section tone="dark" padding="md">
-        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 className="text-2xl font-semibold">Ready to move forward?</h2>
-            <p className="text-sm text-dark-foreground/70">
-              Place your order now or request a recommendation within one business day.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <OrderNowButton
-              href={`${serviceHref}#lead-capture`}
-              packageId={selectedPackage.slug}
-              service={service.slug}
-            >
-              Order Now
-            </OrderNowButton>
-            <Button href={serviceHref} variant="secondary">
-              Back to service
-            </Button>
-          </div>
-        </div>
+          Order Now
+        </OrderNowButton>
       </Section>
     </div>
   );

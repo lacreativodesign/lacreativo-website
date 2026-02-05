@@ -6,6 +6,9 @@ export type ServiceCardItem = {
   name: string;
   startingPrice: string;
   href: string;
+  bullets?: string[];
+  packageId?: string;
+  serviceSlug?: string;
 };
 
 const defaultAudienceIdeal = (serviceName: string) => [
@@ -134,10 +137,7 @@ export const buildCategoryTemplate = (category: ServiceCategory) => ({
   ],
 });
 
-export const buildServiceTemplate = (
-  service: ServiceDefinition,
-  category: ServiceCategory
-) => {
+export const buildServiceTemplate = (service: ServiceDefinition) => {
   const packages = packagesByServiceSlug[service.slug] ?? [];
 
   return {
@@ -168,6 +168,9 @@ export const buildServiceTemplate = (
         name: item.name,
         startingPrice: item.startingPrice,
         href: `/packages/${service.slug}/${item.slug}`,
+        bullets: item.includes.map((include) => include.title),
+        packageId: item.slug,
+        serviceSlug: service.slug,
       })),
     },
     leadCapture: {
